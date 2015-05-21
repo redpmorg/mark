@@ -1,0 +1,4 @@
+mark_login:
+    resource: "@MarkLoginBundle/Controller/"
+    type:     annotation
+    prefix:   /

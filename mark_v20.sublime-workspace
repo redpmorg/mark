@@ -1,0 +1,1189 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"max",
+				"maxCol"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"cons",
+				"console.log('$0');"
+			],
+			[
+				"alerte_",
+				"alerte_B"
+			],
+			[
+				"le",
+				"length	String"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"getE",
+				"getElementsByClassName(${0:names})	Element"
+			],
+			[
+				"spit",
+				"split"
+			],
+			[
+				"data",
+				"dataBunch"
+			],
+			[
+				"dat",
+				"dataBunch"
+			],
+			[
+				"doctype",
+				"doctype	HTML - HTML foundation"
+			],
+			[
+				"Re",
+				"Response〔namespace〕"
+			],
+			[
+				"R",
+				"Response〔class〕"
+			],
+			[
+				"endf",
+				"endforeach〔keyword〕"
+			],
+			[
+				"Co",
+				"Controller〔namespace〕"
+			],
+			[
+				"B",
+				"Bundle〔namespace〕"
+			],
+			[
+				"eru",
+				"eruditionProgressView〔function〕"
+			],
+			[
+				"expected",
+				"expectedType"
+			],
+			[
+				"get",
+				"getMemberType〔function〕"
+			],
+			[
+				"member",
+				"$memberType〔variable〕"
+			],
+			[
+				"ea",
+				"earnBadges"
+			],
+			[
+				"getMem",
+				"getMemberScore"
+			],
+			[
+				"getM",
+				"getMemberName"
+			],
+			[
+				"mem",
+				"memberType"
+			],
+			[
+				"entity",
+				"entityId"
+			],
+			[
+				"enty",
+				"entityId"
+			],
+			[
+				"grou",
+				"groupScore"
+			],
+			[
+				"group",
+				"groupName"
+			],
+			[
+				"memberType",
+				"$memberTypeForTest〔variable〕"
+			],
+			[
+				"members",
+				"$members〔variable〕"
+			],
+			[
+				"memb",
+				"membersTypeTest"
+			],
+			[
+				"PHPUnit",
+				"PHPUnit_Framework_TestCase〔class〕"
+			],
+			[
+				"our",
+				"$ourFile〔variable〕"
+			],
+			[
+				"project",
+				"$projectPrefixLen〔variable〕"
+			],
+			[
+				"pro",
+				"$projectPrefix〔variable〕"
+			],
+			[
+				"sess",
+				"mySessionName〔variable〕"
+			],
+			[
+				"session",
+				"session_start"
+			],
+			[
+				"session_sta",
+				"session_status"
+			],
+			[
+				"_SE",
+				"$_SESSION〔variable〕"
+			],
+			[
+				"obj",
+				"$objSerialized〔variable〕"
+			],
+			[
+				"Array",
+				"ArrayObject〔class〕"
+			],
+			[
+				"proper",
+				"property"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"save",
+				"saveHTML〔function〕"
+			],
+			[
+				"E",
+				"Exception〔class〕"
+			],
+			[
+				"method",
+				"method_exists〔function〕"
+			],
+			[
+				"class",
+				"$classname〔variable〕"
+			],
+			[
+				"spl_autoload",
+				"spl_autoload_register"
+			],
+			[
+				"register",
+				"register_shutdown_function"
+			],
+			[
+				"spl_auto",
+				"spl_autoload〔function〕"
+			],
+			[
+				"th",
+				"throw	Throw Exception"
+			],
+			[
+				"con",
+				"controller	CI - Base Controller"
+			],
+			[
+				"splu",
+				"spl_autoload_functions〔function〕"
+			],
+			[
+				"config",
+				"controller($config[\"first_controller"
+			],
+			[
+				"strto",
+				"strtolower〔function〕"
+			],
+			[
+				"define",
+				"define〔function〕"
+			],
+			[
+				"_co",
+				"__construct"
+			],
+			[
+				"sessionname",
+				"$sessionname〔variable〕"
+			],
+			[
+				"_COO",
+				"$_COOKIE〔variable〕"
+			],
+			[
+				"Sess",
+				"SessionPlay〔class〕"
+			],
+			[
+				"html",
+				"htmlentities〔function〕"
+			],
+			[
+				"ion",
+				"ion_auth"
+			],
+			[
+				"prnt",
+				"print"
+			],
+			[
+				"red",
+				"redcms"
+			],
+			[
+				"CI_Con",
+				"CI_Controller〔class〕"
+			],
+			[
+				"tot",
+				"$total_num_resorces〔variable〕"
+			],
+			[
+				"total",
+				"$total_size〔variable〕"
+			],
+			[
+				"to",
+				"total_num_resorces"
+			],
+			[
+				"content",
+				"$content_type〔variable〕"
+			],
+			[
+				"ele",
+				"$element〔variable〕"
+			],
+			[
+				"toat",
+				"$total_size〔variable〕"
+			],
+			[
+				"check",
+				"check_if_html〔function〕"
+			],
+			[
+				"curl_clos",
+				"curl_multi_close〔function〕"
+			],
+			[
+				"CURLINFO",
+				"CURLINFO_CONTENT_TYPE〔constant〕"
+			],
+			[
+				"curl_set",
+				"curl_setopt_array〔function〕"
+			],
+			[
+				"hea",
+				"header〔function〕"
+			],
+			[
+				"pre",
+				"$pre_last〔variable〕"
+			],
+			[
+				"ret",
+				"return〔keyword〕"
+			],
+			[
+				"cty",
+				"ctype_digit〔function〕"
+			],
+			[
+				"ctype_",
+				"ctype_digit"
+			],
+			[
+				"switch",
+				"switch〔keyword〕"
+			],
+			[
+				"arary",
+				"arary_pop"
+			],
+			[
+				"string",
+				"$stringSelected〔variable〕"
+			],
+			[
+				"start",
+				"startPoint"
+			],
+			[
+				"aray",
+				"array_fill"
+			],
+			[
+				"cal",
+				"callback〔function〕"
+			],
+			[
+				"requ",
+				"require〔keyword〕"
+			],
+			[
+				"com",
+				"contains_element"
+			],
+			[
+				"try",
+				"try_this"
+			],
+			[
+				"el",
+				"element"
+			],
+			[
+				"sr",
+				"srvport"
+			],
+			[
+				"server",
+				"serversname"
+			],
+			[
+				"po",
+				"port"
+			],
+			[
+				"ser",
+				"serverpath"
+			],
+			[
+				"servers",
+				"serversname"
+			],
+			[
+				"se",
+				"servernumbers"
+			],
+			[
+				"re",
+				"redservers"
+			],
+			[
+				"dimm",
+				"dimm2"
+			],
+			[
+				"process",
+				"processfirst"
+			],
+			[
+				"dim",
+				"dimm1"
+			],
+			[
+				"proce",
+				"processsecond"
+			],
+			[
+				"fir",
+				"$first_controller〔variable〕"
+			],
+			[
+				"fi",
+				"$firstPos〔variable〕"
+			],
+			[
+				"file",
+				"$fileName〔variable〕"
+			],
+			[
+				"get_p",
+				"get_public〔function〕"
+			],
+			[
+				"spl",
+				"spl_autoload_register"
+			],
+			[
+				"functi",
+				"function_exists〔function〕"
+			],
+			[
+				"require",
+				"require_once〔keyword〕"
+			],
+			[
+				"header",
+				"header〔function〕"
+			],
+			[
+				"Fisr",
+				"FirstClass"
+			],
+			[
+				"BA",
+				"BASEPATH"
+			],
+			[
+				"head",
+				"headers_sent〔function〕"
+			],
+			[
+				"paddig",
+				"padding-top"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"ba",
+				"background-image"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"hei",
+				"height"
+			],
+			[
+				"fo",
+				"font-size"
+			],
+			[
+				"b",
+				"background"
+			],
+			[
+				"add",
+				"addCss"
+			],
+			[
+				"Asset",
+				"Phalcon\\Assets\\Manager  (class)"
+			],
+			[
+				"namespa",
+				"Controller  (namespace)"
+			],
+			[
+				"ass",
+				"assets"
+			],
+			[
+				"fun",
+				"function"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/AppBundle/Controller/DefaultController.php",
+			"settings":
+			{
+				"buffer_size": 372,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 35.0,
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"PHPUnit: ",
+				"PHPUnit: Run Tests"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"disab",
+				"Package Control: Disable Package"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"lis",
+				"Package Control: List Packages"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			],
+			[
+				"package",
+				"Preferences: Browse Packages"
+			],
+			[
+				"pa",
+				"Package Control: List Packages"
+			],
+			[
+				"php",
+				"PHPUnit: Run"
+			],
+			[
+				"tmpl",
+				"Tmpl: Create php"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"crett",
+				"Create file from Template"
+			],
+			[
+				"create ",
+				"Create file from Template"
+			],
+			[
+				"template",
+				"Create file from Template"
+			],
+			[
+				"teplate",
+				"Create file from Template"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
+			[
+				"INSTA",
+				"Package Control: Install Package"
+			],
+			[
+				"angula",
+				"AngularJS: Toggle - Disable All Completions"
+			],
+			[
+				"repo",
+				"Package Control: Add Repository"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Discover Packages"
+			],
+			[
+				"repos",
+				"Package Control: Add Repository"
+			],
+			[
+				"reposit",
+				"Preferences: Package Control Settings – Default"
+			],
+			[
+				"xde",
+				"Xdebug: Start Debugging"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings - Default"
+			],
+			[
+				"fold",
+				"Project: Add Folder"
+			],
+			[
+				"save ",
+				"File: Save All"
+			],
+			[
+				"pro",
+				"Project: Add Folder"
+			],
+			[
+				"PACK",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 529.0
+	},
+	"console":
+	{
+		"height": 279.0,
+		"history":
+		[
+			"fsdfsdf",
+			"clear",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"clear",
+			"clean",
+			"clear",
+			"cls",
+			"clear",
+			"sublime.log_commands(True)",
+			"sublime.log_commands(true)",
+			"sublime.log_commands(False)",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"new",
+			"exit",
+			"sublime.log_commands(False)",
+			"sublime.log_commands(True)",
+			"glue path",
+			"glue",
+			"glue path",
+			"clear",
+			"nlog",
+			"window.get_layout()",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/var/www/testing/index.php",
+		"/home/leo/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/var/www/testing/style.css",
+		"/var/www/testing/test.phtml",
+		"/var/www/testing/script.js",
+		"/home/leo/.config/sublime-text-3/Packages/User/ColorPicker.sublime-settings",
+		"/home/leo/.config/sublime-text-3/Packages/ColorPicker/ColorPicker.sublime-settings",
+		"/var/www/testing/styles.css",
+		"/var/www/testing/test.html",
+		"/home/leo/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/leo/.config/sublime-text-3/Packages/User/Function Name Display.sublime-settings",
+		"/home/leo/.config/sublime-text-3/Packages/Function Name Display/Function Name Display.sublime-settings",
+		"/var/www/redpm/sycms/src/Acme/DemoBundle/Controller/DefaultController.php",
+		"/var/www/redpm/sycms/src/Acme/DemoBundle/Resources/views/Random/index.html.twig",
+		"/var/www/redpm/sycms/src/Acme/DemoBundle/Controller/RandomController.php",
+		"/home/leo/.config/sublime-text-3/Packages/SublimeTmpl/Default (Linux).sublime-keymap",
+		"/home/leo/.config/sublime-text-3/Packages/User/SublimeTmpl.sublime-settings",
+		"/home/leo/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/leo/.config/sublime-text-3/Packages/SublimeTmpl/Main.sublime-menu",
+		"/home/leo/.config/sublime-text-3/Packages/SublimeTmpl/SublimeTmpl.sublime-settings",
+		"/home/leo/.config/sublime-text-3/Packages/SublimeTmpl/Default.sublime-commands",
+		"/home/leo/.config/sublime-text-3/Packages/Emmet/Default (Linux).sublime-keymap",
+		"/home/leo/.config/sublime-text-3/Packages/SublimeLinter/Default (Linux).sublime-keymap",
+		"/home/leo/.config/sublime-text-3/Packages/User/SublimeLinter.sublime-settings",
+		"/home/leo/.config/sublime-text-3/Packages/User/SublimePHPIntel.sublime-settings",
+		"/var/www/redpm/sycms/src/Acme/DemoBundle/Resources/config/routing.yml",
+		"/var/www/redpm/sycms/app/config/routing.yml",
+		"/var/www/redpm/sycms/src/Acme/DemoBundle/Resources/views/layout.html.twig",
+		"/var/www/redpm/sycms/src/Acme/DemoBundle/Resources/views/Default/index.html.twig",
+		"/var/www/redpm/sycms/app/config/config.yml",
+		"/var/www/redpm/sycms/src/Acme/DemoBundle/Resources/public/css/main.css",
+		"/var/www/redpm/sycms/src/Acme/DemoBundle/Resources/public/css/style.css",
+		"/var/www/redpm/sycms/web/bundles/acmedemo/css/style.css",
+		"/var/www/redpm/sycms/web/bundles/acmedemo/style.css",
+		"/var/www/redpm/sycms/src/Acme/DemoBundle/Resources/public/style.css",
+		"/var/www/redpm/sycms/src/Acme/DemoBundle/Tests/Controller/DefaultControllerTest.php",
+		"/var/www/redpm/sycms/app/phpunit.xml.dist",
+		"/var/www/redpm/sycms/vendor/symfony/symfony/src/Symfony/Component/BrowserKit/Client.php",
+		"/var/www/redpm/sycms/vendor/symfony/symfony/src/Symfony/Component/BrowserKit/README.md",
+		"/var/www/redpm/sycms/src/AppBundle/Tests/Controller/DefaultControllerTest.php",
+		"/home/leo/.config/sublime-text-3/Packages/User/Default.sublime-theme",
+		"/home/leo/.config/sublime-text-3/Packages/User/DefaultPlus.sublime-theme",
+		"/home/leo/.config/sublime-text-3/Packages/User/SublimeLinter/Afterglow-markdown (SL).tmTheme",
+		"/var/www/redpm/sycms/src/Acme/DemoBundle/Resources/views/Random/index.html",
+		"/home/leo/.config/sublime-text-3/Packages/TrailingSpaces/trailing_spaces.sublime-settings",
+		"/home/leo/.config/sublime-text-3/Packages/TrailingSpaces/README.md",
+		"/home/leo/.config/sublime-text-3/Packages/User/trailing_spaces.sublime-settings",
+		"/var/www/redpm/sycms/app/AppKernel.php",
+		"/var/www/redpm/sycms/web/app.php",
+		"/var/www/redpm/sycms/web/.htaccess",
+		"/var/www/redpm/sycms/app/logs/prod.log",
+		"/var/www/redpm/sycms/app/logs/dev.log",
+		"/var/www/redpm/sycms/web/old_app.php",
+		"/home/leo/.config/sublime-text-3/Packages/AlignTab/AlignTab.sublime-settings",
+		"/home/leo/.config/sublime-text-3/Packages/User/Context.sublime-menu",
+		"/var/www/redpm/sycms/vendor/composer/autoload_psr4.php",
+		"/var/www/redpm/sycms/vendor/composer/autoload_namespaces.php",
+		"/var/www/redpm/sycms/vendor/composer/autoload_files.php",
+		"/var/www/redpm/sycms/vendor/composer/autoload_classmap.php",
+		"/var/www/redpm/sycms/vendor/autoload.php",
+		"/var/www/redpm/sycms/app/autoload.php",
+		"/var/www/redpm/sycms/app/cache/dev/appDevUrlGenerator.php",
+		"/var/www/redpm/sycms/bin/doctrine",
+		"/var/www/redpm/sycms/bin/doctrine.php",
+		"/var/www/redpm/sycms/src/original_Acme/DemoBundle/Controller/DemoController.php",
+		"/var/www/redpm/sycms/vendor/doctrine/orm/bin/doctrine",
+		"/var/www/redpm/sycms/vendor/doctrine/doctrine-bundle/Command/DoctrineCommand.php",
+		"/var/www/redpm/sycms/vendor/symfony/symfony/src/Symfony/Component/Translation/Catalogue/DiffOperation.php",
+		"/var/www/redpm/sycms/vendor/doctrine/cache/phpunit.xml.dist",
+		"/var/www/redpm/sycms/vendor/monolog/monolog/src/Monolog/Handler/PsrHandler.php",
+		"/var/www/redpm/sycms/web/app_dev.php",
+		"/var/www/redpm/sycms/web/config.php",
+		"/var/www/redpm/sycms/app/bootstrap.php.cache",
+		"/var/www/redpm/sycms/app/config/routing_prod.yml",
+		"/var/www/redpm/sycms/app/config/routing_dev.yml",
+		"/var/www/redpm/sycms/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php",
+		"/var/www/redpm/sycms/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/KernelInterface.php",
+		"/var/www/redpm/sycms/src/Acme/DemoBundle/Controller/BlogController.php",
+		"/var/www/redpm/sycms/vendor/symfony/symfony/src/Symfony/Component/Console/Input/ArgvInput.php",
+		"/var/www/redpm/sycms/src/Acme/DemoBundle/Controller/DemoController.php",
+		"/var/www/redpm/sycms/app/Resources/views/Blog/list.html.php",
+		"/var/www/redpm/sycms/app/Resources/views/Blog/show.html.php",
+		"/var/www/redpm/sycms/app/Resources/views/layout.html.php",
+		"/var/www/redpm/sycms/src/AppBundle/Controller/BlogController.php",
+		"/var/www/redpm/sycms/app/cache/dev/assetic/routing.yml",
+		"/var/www/redpm/sycms/vendor/symfony/symfony/src/Symfony/Component/Process/Tests/ProcessInSigchildEnvironment.php",
+		"/var/www/redpm/sycms/vendor/symfony/symfony/src/Symfony/Component/Config/Definition/IntegerNode.php",
+		"/var/www/redpm/sycms/vendor/composer/installed.json",
+		"/home/leo/WebProjects/testing/cms/IDF/EruditionProgress.php",
+		"/home/leo/WebProjects/testing/cms/IDF/SingleMember.php",
+		"/home/leo/WebProjects/testing/cms/IDF/Test/EruditionProgressTest.php",
+		"/home/leo/WebProjects/testing/cms/IDF/Test/GroupMemberTest.php",
+		"/home/leo/WebProjects/testing/cms/IDF/GroupMember.php",
+		"/home/leo/WebProjects/testing/cms/IDF/Test/SingleMemberTest.php",
+		"/home/leo/WebProjects/testing/cms/IDF/EruditionMeter.php",
+		"/home/leo/WebProjects/testing/cms/IDF/Library/bootstrap.php",
+		"/home/leo/WebProjects/testing/cms/IDF/Config/constants.php",
+		"/home/leo/WebProjects/testing/cms/IDF/MembersType.php",
+		"/home/leo/WebProjects/testing/cms/IDF/Test/MembersTypeTest.php",
+		"/home/leo/WebProjects/testing/cms/IDF/membersEruditionProgress.php",
+		"/home/leo/WebProjects/testing/cms/IDF/membersType.php",
+		"/home/leo/WebProjects/testing/cms/IDF/singleMember.php",
+		"/home/leo/WebProjects/testing/cms/IDF/Test/membersTypeTest.php",
+		"/home/leo/WebProjects/testing/cms/IDF/Test/singleMemberTest.php",
+		"/home/leo/WebProjects/testing/cms/IDF/eruditionMeter.php",
+		"/var/www/testing/cms/idf.sublime-project",
+		"/var/www/testing/cms/IDF/Library/bootstrap.php",
+		"/var/www/testing/cms/IDF/eruditionMeter.php",
+		"/var/www/testing/cms/IDF/singleMember.php",
+		"/var/www/testing/cms/IDF/Test/singleMemberTest.php",
+		"/var/www/testing/cms/index.php",
+		"/var/www/testing/cms/phpunit.xml",
+		"/var/www/testing/cms/composer.json",
+		"/var/www/testing/cms/.gitignore",
+		"/var/www/testing/cms/idf\\eruditionMeter.php",
+		"/home/leo/WebProjects/testing/cms/eruditionMeter.php",
+		"/home/leo/WebProjects/testing/cms/bootstrap.php",
+		"/var/www/testing/cms/config/bootstrap.php",
+		"/var/www/testing/phpunit.xml",
+		"/var/www/testing/phpUnitTutorial.sublime-project",
+		"/var/www/testing/phpUnitTutorial/Test/StupidTest.php",
+		"/var/www/testing/phpUnitTutorial/URL.php",
+		"/var/www/testing/phpUnitTutorial/Test/URLTest.php",
+		"/var/www/testing/phpUnitTutorial/phpunit.xml",
+		"/var/www/testing/cms/cms.sublime-project",
+		"/var/www/testing/cms/library/Error.php",
+		"/var/www/testing/cms/language/en.php",
+		"/var/www/testing/cms/language/ro.php"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/home/leo/WebProjects/redpm/redcms/application/controllers",
+			"<project>",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"sidebar_label",
+			"sizebar",
+			"size",
+			"font",
+			",\n",
+			"        \n",
+			"resource",
+			"		\n",
+			"getMemberEruditionScore",
+			"public",
+			"\n	",
+			"Loader",
+			"this",
+			"classname",
+			"protected",
+			"private",
+			"classname",
+			"$library",
+			"model",
+			"die",
+			"<?",
+			"die",
+			"drop",
+			"migration",
+			"migrat",
+			"ext",
+			"str",
+			" \";",
+			"print",
+			"$T",
+			"$A",
+			"$T",
+			"C",
+			"$arr",
+			"arr",
+			"}\n",
+			"continue",
+			"T",
+			"s_trans",
+			"INTUITION",
+			"\n    ",
+			"i",
+			"3",
+			"3\n$A[1] = 4\n$A[2] = 4\n$A[3] = 6\n$A[4] = 1\n$A[5] = 4\n$A[6] = 4",
+			"3",
+			"ax",
+			"A",
+			"            ",
+			"f",
+			"care",
+			">\";",
+			"curl",
+			"APP",
+			"ext",
+			"view",
+			"0",
+			" =",
+			"\" ",
+			"redservers",
+			"}\n",
+			"echo",
+			"Copil",
+			"shift+t",
+			"base",
+			"autoload",
+			"echo",
+			"function",
+			"echo",
+			"php",
+			"	 ",
+			"right",
+			"left",
+			"blue",
+			"428bca",
+			"red",
+			"Vokuro",
+			"    ",
+			"Vokuro",
+			"'",
+			"ctrl+e",
+			"ctrl+d",
+			"ce facem aici este bine\n",
+			"setting.auto_compl",
+			">",
+			"\":\n",
+			"Nowhre",
+			"Nowhere",
+			"No",
+			"<h3>No rewrite rule is here</h3>",
+			"tue",
+			"mon",
+			"o",
+			" "
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"$A",
+			"$T",
+			"\""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/AppBundle/Controller/DefaultController.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 372,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"function_name_status_row": 0,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 38.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 221.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.phpunit":
+	{
+		"height": 280.0
+	},
+	"project": "mark_v20.sublime-project",
+	"replace":
+	{
+		"height": 74.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"bun",
+				"testing/testing2/testing3/Bunic.php"
+			],
+			[
+				"con",
+				"app/controllers/ControllerBase.php"
+			],
+			[
+				"index",
+				"app/controllers/IndexController.php"
+			],
+			[
+				"loa",
+				"app/config/loader.php"
+			],
+			[
+				"",
+				"app/views/index.phtml"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 400.0,
+		"selected_items":
+		[
+		],
+		"width": 400.0
+	},
+	"settings":
+	{
+		"xdebug":
+		{
+			"hide_conflict": false
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 244.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
