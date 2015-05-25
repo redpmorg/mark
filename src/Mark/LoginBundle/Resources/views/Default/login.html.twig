@@ -1,5 +1,5 @@
 {% if _error %}
-	<div>{{ _error.messageKey|trans(_error.messageData, "security") }}</div>
+	<div>{{ _error.messageKey|trans }}</div>
 {% endif %}
 
 <form action="{{ path("_login_check") }}" method="post">
