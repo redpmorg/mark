@@ -1,13 +1,17 @@
-{% if _error %}
-	<div>{{ _error.messageKey|trans }}</div>
-{% endif %}
+{% extends 'base.html.twig' %}
+{% block title %}  {% endblock %}
+	{% block body %}
+		{% if _error %}
+			<div>{{ _error.messageKey|trans }}</div>
+		{% endif %}
 
-<form action="{{ path("_login_check") }}" method="post">
-	<label for="username">Email:</label>
-	<input type="text" name="_username" id="username" value={{ _username }}>
+		<form action="{{ path("_login_check") }}" method="post">
+			<label for="username">{{ 'Email'|trans }}:</label>
+			<input type="text" name="_username" id="username" value={{ _username }}>
 
-	<label for="password">Password:</label>
-	<input type="password" name="_password" id="password">
+			<label for="password">{{ 'Password'|trans }}:</label>
+			<input type="password" name="_password" id="password">
 
-	<button type="submit">Login</button>
-</form>
+			<button type="submit">Login</button>
+		</form>
+	{% endblock %}

@@ -14,19 +14,12 @@ class DefaultController extends Controller
 {
 
 	/**
-	 * @Route("/login", name="_login")
+	 * @Route("/", name="_login")
 	 * @Template("MarkLoginBundle:Default:login.html.twig")
 	 */
-
-	public function loginAction() {
-
-
-$request = $this->get('request');
-dump($request->getSession());
-
-
+	public function loginAction() 
+	{
 		$authenticationUtils = $this->get('security.authentication_utils');
-
 		$lastError = $authenticationUtils->getLastAuthenticationError();
 		$lastUserName = $authenticationUtils->getLastUserName();
 
@@ -39,6 +32,16 @@ dump($request->getSession());
 	 */
 	public function loginCheckAction()
 	{
-		return array("_message"=>"This is secured area");
+		return array("_message"=>"Secured area");
 	}
+
+	/**
+	 * @Route("/login_failure", name="_login_failure")
+	 * @Template("MarkLoginBundle:Default:login-failure.html.twig")
+	 */
+	public function loginFailureAction() 
+	{
+		return array("_message"=>"A failure of login action!");
+	}
+
 }

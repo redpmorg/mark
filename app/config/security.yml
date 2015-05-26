@@ -3,15 +3,15 @@ security:
     encoders:
         Mark\LoginBundle\Entity\Users: bcrypt
 
+    providers:
+        users_entity:
+            entity:
+                class: MarkLoginBundle:Users
+                property: username
+
     role_hierarchy:
         ROLE_ADMIN: ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITH]
-
-    providers:
-        users:
-            entity:
-                class: Mark\LoginBundle\Entity\Users
-                property: email
 
     firewalls:
         dev:
@@ -19,11 +19,16 @@ security:
             security: false
 
         default:
-            pattern: ^/
+#            pattern: ^/
             anonymous: ~
+            provider: users_entity
             form_login:
-                login_path: /login
-                check_path: /login_check
+                login_path: _logina
+                check_path: _login_check
+                failure_path: _login_failure
+#                default_target_path: default_security_target
+#                always_use_default_target_path: true
+
             logout:
                 path: /logout
                 target: /

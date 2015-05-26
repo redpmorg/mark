@@ -58,6 +58,13 @@ class Users implements UserInterface, \Serializable
 
 
 	/**
+	 * @ORM\Column(name="user_role", type="string", length=64)
+	 */
+	 private $user_role;
+
+
+
+	/**
 	 * Get id
 	 *
 	 * @return integer
@@ -182,6 +189,30 @@ class Users implements UserInterface, \Serializable
 		$this->username = $username;
 	}
 
+	/**
+	 * Get user_role
+	 *
+	 * @return  String
+	 */
+
+	public function getUserRole()
+	{
+		return $this->user_role;
+	}
+
+	/**
+	 * Set user_role
+	 *
+	 * @param string $user_role
+	 * @return  user_role
+	 */
+
+	public function setUserRole($user_role)
+	{
+		$this->user_role = $user_role;
+	}
+
+
 	public function getSalt()
 	{
 		return null;
@@ -192,8 +223,8 @@ class Users implements UserInterface, \Serializable
 	public function serialize()
 	{
 		return serialize(array(
-			$tis->id,
-			$this->usernme,
+			$this->id,
+			$this->username,
 			$this->password
 			));
 	}
