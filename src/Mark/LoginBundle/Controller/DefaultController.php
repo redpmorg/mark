@@ -14,10 +14,20 @@ class DefaultController extends Controller
 {
 
 	/**
-	 * @Route("/", name="_login")
+	* @Route("/", name="_public")
+	* @Template("MarkLoginBundle:Default:index.html.twig")
+	*/
+	public function indexAction()
+	{
+		return array("_message" => "PUBLIC AREEA");
+	}
+
+
+	/**
+	 * @Route("/secured", name="_login")
 	 * @Template("MarkLoginBundle:Default:login.html.twig")
 	 */
-	public function loginAction() 
+	public function loginAction()
 	{
 		$authenticationUtils = $this->get('security.authentication_utils');
 		$lastError = $authenticationUtils->getLastAuthenticationError();
@@ -28,20 +38,32 @@ class DefaultController extends Controller
 
 	/**
 	 * @Route("/login_check", name="_login_check")
-	 * @Template("MarkLoginBundle:Default:login-check.html.twig")
 	 */
 	public function loginCheckAction()
 	{
-		return array("_message"=>"Secured area");
+		//this controller is handeled by Security system
 	}
 
 	/**
-	 * @Route("/login_failure", name="_login_failure")
+	 * @Route("/secured_failure", name="_login_failure")
 	 * @Template("MarkLoginBundle:Default:login-failure.html.twig")
 	 */
-	public function loginFailureAction() 
+	public function loginFailureAction()
 	{
-		return array("_message"=>"A failure of login action!");
+		return array("_message"=>"Login failure!");
+	}
+
+	/**
+	 * @Route("/secured_areea", name="_login_succeded")
+	 * @Template("MarkLoginBundle:Default:logged.html.twig")
+	 */
+	public function loggedAction(){
+
+		if ($this->get('security.context')->isGranted('ROLE_ADMIN')) {
+			return array("_message"=>"ADMIN SECURED AREEA!");
+		} else {
+			return array("_message"=>"COMMON SECURED AREEA!");
+		}
 	}
 
 }

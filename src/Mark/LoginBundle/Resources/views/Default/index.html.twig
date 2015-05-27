@@ -1,1 +1,9 @@
-Hello {{ name }}!
+{% extends 'base.html.twig' %}
+
+{% block title %}Public areea{% endblock %}
+
+{% block body %}
+	{{ _message }}
+	<hr/>
+	<a href={{ path("_login") }}>Login now</a>
+{% endblock %}

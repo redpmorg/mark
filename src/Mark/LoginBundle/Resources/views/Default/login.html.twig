@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
-{% block title %}  {% endblock %}
-	{% block body %}
+{% block title %}Login areea{% endblock %}
+
+{% block body %}
 		{% if _error %}
 			<div>{{ _error.messageKey|trans }}</div>
 		{% endif %}
@@ -14,4 +15,4 @@
 
 			<button type="submit">Login</button>
 		</form>
-	{% endblock %}
+{% endblock %}

@@ -192,12 +192,12 @@ class Users implements UserInterface, \Serializable
 	/**
 	 * Get user_role
 	 *
-	 * @return  String
+	 * @return  []
 	 */
 
-	public function getUserRole()
+	public function getRoles()
 	{
-		return $this->user_role;
+		return array($this->user_role);
 	}
 
 	/**
@@ -207,7 +207,7 @@ class Users implements UserInterface, \Serializable
 	 * @return  user_role
 	 */
 
-	public function setUserRole($user_role)
+	public function setRoles($user_role)
 	{
 		$this->user_role = $user_role;
 	}
@@ -237,12 +237,6 @@ class Users implements UserInterface, \Serializable
 			$this->username,
 			$this->password
 			) = unserialize($serialized);
-	}
-
-
-	public function getRoles()
-	{
-		return array('ROLE_USER');
 	}
 
 	public function eraseCredentials()

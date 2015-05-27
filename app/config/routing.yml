@@ -2,3 +2,6 @@ mark_login:
     resource: "@MarkLoginBundle/Controller/"
     type:     annotation
     prefix:   /
+
+logout:
+    path: /logout
