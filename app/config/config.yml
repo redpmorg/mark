@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: "@MarkLoginBundle/Resources/config/services.yml"}
 
 framework:
     #esi:             ~
@@ -34,7 +35,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
+    #bundles:        [ MarkGeneralBundle, MarkLoginBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

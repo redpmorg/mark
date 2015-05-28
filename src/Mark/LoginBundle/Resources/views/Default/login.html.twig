@@ -1,18 +1,22 @@
-{% extends 'base.html.twig' %}
-{% block title %}Login areea{% endblock %}
+{% extends 'MarkGeneralBundle::general_header.html.twig' %}
 
-{% block body %}
-		{% if _error %}
-			<div>{{ _error.messageKey|trans }}</div>
-		{% endif %}
+{% block title %}Login{% endblock %}
 
+	{% block body %}
 		<form action="{{ path("_login_check") }}" method="post">
-			<label for="username">{{ 'Email'|trans }}:</label>
+			<label for="username">{{ 'Username'|trans }}:</label>
 			<input type="text" name="_username" id="username" value={{ _username }}>
 
 			<label for="password">{{ 'Password'|trans }}:</label>
 			<input type="password" name="_password" id="password">
 
+			<input type="hidden" name="mark_token" value="{{ csrf_token('authenticate') }}">
+
 			<button type="submit">Login</button>
 		</form>
-{% endblock %}
+
+		{% if _error %}
+			<div>{{ _error.messageKey|trans }}</div>
+		{% endif %}
+
+	{% endblock %}

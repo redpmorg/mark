@@ -1,3 +1,8 @@
+mark_general:
+    resource: "@MarkGeneralBundle/Controller/"
+    type:     annotation
+    prefix:   /general
+
 mark_login:
     resource: "@MarkLoginBundle/Controller/"
     type:     annotation

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/**
+ *
+ * @authors Leonard LEPADATU (lepadatu.leonard-ext@groupehn.com)
+ * @date    2015-05-28 16:10:28
+ * @version $Id$
+ */
+
+ a {
+	font-family: sans-serif;
+	font-size: 10px;
+	color: red;
+ }
+
+ a:visited {
+	color: #333;
+ }
+
+ a:hovered {
+ 	color: purple;
+ }

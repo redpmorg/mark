@@ -1,3 +1,4 @@
 Invalid credentials.: Autentificare esuata.
-Email: Email
+Username: Utilizator
 Password: Parola
+Invalid CSRF token.: Token autentificare compromis.

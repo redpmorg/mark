@@ -17,7 +17,7 @@ security:
             pattern: ^/(_(profiler|wdt|error)|css|images|js)/
             security: false
 
-        resticted_area:
+        secured_area:
             pattern: ^/
             anonymous: ~
             provider: users_entity
@@ -26,6 +26,8 @@ security:
                 check_path: _login_check
                 failure_path: _login_failure
                 default_target_path: _login_succeded
+                csrf_provider: security.csrf.token_manager
+                csrf_parameter: mark_token
             logout:
                 path: /logout
                 target: /

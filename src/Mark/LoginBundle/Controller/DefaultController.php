@@ -4,7 +4,6 @@ namespace Mark\LoginBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Security;
-use Symfony\Component\HttpFoundation\Request;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -24,7 +23,7 @@ class DefaultController extends Controller
 
 
 	/**
-	 * @Route("/secured", name="_login")
+	 * @Route("/login", name="_login")
 	 * @Template("MarkLoginBundle:Default:login.html.twig")
 	 */
 	public function loginAction()
@@ -46,11 +45,10 @@ class DefaultController extends Controller
 
 	/**
 	 * @Route("/secured_failure", name="_login_failure")
-	 * @Template("MarkLoginBundle:Default:login-failure.html.twig")
 	 */
 	public function loginFailureAction()
 	{
-		return array("_message"=>"Login failure!");
+		return $this->redirectToRoute('_login');
 	}
 
 	/**
@@ -59,11 +57,25 @@ class DefaultController extends Controller
 	 */
 	public function loggedAction(){
 
+		$data = array();
+
 		if ($this->get('security.context')->isGranted('ROLE_ADMIN')) {
-			return array("_message"=>"ADMIN SECURED AREEA!");
+
+			$data['title'] = "Admin areea";
+			$data['menu'] = "admin";
+
+		} elseif ($this->get('security.context')->isGranted('ROLE_USER')) {
+
+			$data['title'] = "User areea";
+			$data['menu'] = "user";
+
 		} else {
-			return array("_message"=>"COMMON SECURED AREEA!");
+
+			return $this->redirectToRoute('_login_failure', array(), 301);
+
 		}
+
+		return $data;
 	}
 
 }

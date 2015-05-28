@@ -1,0 +1,6 @@
+parameters:
+
+services:
+    security.authentication_utils:
+        class: Symfony\Component\Security\Http\Authentication\AuthenticationUtils
+        arguments: ["@request_stack"]
