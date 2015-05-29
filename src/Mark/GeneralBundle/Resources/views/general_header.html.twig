@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>Mark v2.0 | {% block title %}{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Mark v2.0 | {% block title %}{% endblock %}</title>
+	{% stylesheets '@MarkGeneralBundle/Resources/public/css/*' filter='cssrewrite' %}<link rel="stylesheet" href="{{ asset_url }}"/>{% endstylesheets %}
+	{% block stylesheets %}{% endblock %}
+	<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+	{% block body %}{% endblock %}
+		{% javascripts '@MarkGeneralBundle/Resources/public/js/*' %}<script type="text/javascripts" src="{{ asset_url }}"></script>{% endjavascripts %}
+		{% block javascripts %}{% endblock %}
+	</body>
+	</html>

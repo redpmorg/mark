@@ -5,17 +5,12 @@
  * @date    2015-05-28 16:10:28
  * @version $Id$
  */
+#wrap {
+	position: relative;
+}
 
- a {
-	font-family: sans-serif;
-	font-size: 10px;
-	color: red;
- }
-
- a:visited {
-	color: #333;
- }
-
- a:hovered {
- 	color: purple;
- }
+#login {
+	position: fixed;
+	left: 50%;
+	top: 30%;
+}

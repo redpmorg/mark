@@ -28,6 +28,7 @@ class DefaultController extends Controller
 	 */
 	public function loginAction()
 	{
+
 		$authenticationUtils = $this->get('security.authentication_utils');
 		$lastError = $authenticationUtils->getLastAuthenticationError();
 		$lastUserName = $authenticationUtils->getLastUserName();
@@ -52,30 +53,23 @@ class DefaultController extends Controller
 	}
 
 	/**
-	 * @Route("/secured_areea", name="_login_succeded")
+	 * @Route("/common", name="_login_succeded")
 	 * @Template("MarkLoginBundle:Default:logged.html.twig")
 	 */
 	public function loggedAction(){
 
-		$data = array();
-
-		if ($this->get('security.context')->isGranted('ROLE_ADMIN')) {
-
-			$data['title'] = "Admin areea";
-			$data['menu'] = "admin";
-
-		} elseif ($this->get('security.context')->isGranted('ROLE_USER')) {
-
-			$data['title'] = "User areea";
-			$data['menu'] = "user";
-
-		} else {
-
-			return $this->redirectToRoute('_login_failure', array(), 301);
-
+		$user_role = $this->get('security.token_storage')->getToken()->getRoles();
+		foreach($user_role as $role)
+		{
+			$role = str_replace("_", " ", substr($role->getRole(),5));
 		}
 
+		$data = array();
+		$data['title'] = $role. " AREEA";
+		$data['menu'] = $role;
+
 		return $data;
+
 	}
 
 }

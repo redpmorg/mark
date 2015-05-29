@@ -1,0 +1,11 @@
+{% extends 'MarkGeneralBundle::general_header.html.twig' %}
+{% block stylesheets %}
+	{% stylesheets '@MarkLoginBundle/Resources/public/css/*' filter='cssrewrite' filter='?uglifycss' %}
+		<link rel="stylesheet" href="{{ asset_url }}" />
+	{% endstylesheets %}
+{% endblock %}
+{% block javascripts %}
+	{% javascripts '@MarkLoginBundle/Resources/public/js/*' filter='?uglifyjs2' %}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}
