@@ -66,7 +66,6 @@ class DefaultController extends Controller
 
 		$data = array();
 		$data['title'] = $role. " AREEA";
-		$data['role'] = $role;
 
 		return $data;
 

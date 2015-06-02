@@ -5,7 +5,7 @@ namespace Mark\MenuBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-
+use Mark\GeneralBundle\Controller\DefaultController as Utils;
 
 class DefaultController extends Controller
 {
@@ -16,9 +16,12 @@ class DefaultController extends Controller
 	 */
 	public function indexAction()
 	{
-		//dump( $this->get('security.token_storage')->getToken()->getRoles());
 
-		$data['menu'] = "Meniul dvs";
+		$user = $this->get('security.token_storage')->getToken()->getUser();
+
+		$data["user_fname"] = $user->getFirstname();
+		$data["user_role"] = $user->getRoles();
+
 		return $data;
 
 	}
