@@ -1,11 +1,10 @@
 {% extends 'MarkLoginBundle::base.html.twig' %}
 {% block title %}Login{% endblock %}
-
 	{% block body %}
 		<div id="wrap">
 			<div id="login">
 				<form class="form-horizontal form-group-lg center-block" action="{{ path("_login_check") }}" method="post">
-
+					<div class="form-group"><h2 class="text-center">Mark v2.0</h2></div>
 					<div class="form-group">
 						<input class="form-control" type="text" name="_username" id="username" value="{{ _username }}" placeholder="{{ 'Username'|trans }}" >
 					</div>
@@ -17,14 +16,11 @@
 					<div class="form-group">
 						<button class="btn btn-primary center-block form-control" type="submit">Login</button>
 					</div>
-
+				{% if _error %}
+					<div class="alert bg-danger form-group text-center"> {{ _error.messageKey|trans }}</div>
+				{% endif %}
 				</form>
 
-				<div class="clearfix"></div>
-
-				{% if _error %}
-					<div class="alert bg-danger"> {{ _error.messageKey|trans }}</div>
-				{% endif %}
 			</div>
 		</div>
 	{% endblock %}

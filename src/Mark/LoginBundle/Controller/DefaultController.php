@@ -53,7 +53,7 @@ class DefaultController extends Controller
 	}
 
 	/**
-	 * @Route("/common", name="_login_succeded")
+	 * @Route("/com", name="_login_succeded")
 	 * @Template("MarkLoginBundle:Default:logged.html.twig")
 	 */
 	public function loggedAction(){
@@ -66,7 +66,7 @@ class DefaultController extends Controller
 
 		$data = array();
 		$data['title'] = $role. " AREEA";
-		$data['menu'] = $role;
+		$data['role'] = $role;
 
 		return $data;
 

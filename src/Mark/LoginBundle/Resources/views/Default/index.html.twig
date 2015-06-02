@@ -1,7 +1,6 @@
-{% extends 'MarkLoginBundle::base.html.twig' %}
+{% extends 'MarkGeneralBundle::general_header.html.twig' %}
 {% block title %}PUBLIC AREEA{% endblock %}
 	{% block body %}
-		{{ _message }}
 		<hr/>
 		<a href={{ path("_login") }}>Login now</a>
 	{% endblock %}

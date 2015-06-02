@@ -1,8 +1,6 @@
-{% extends 'MarkLoginBundle::base.html.twig' %}
-
+{% extends 'MarkLoginBundle::menu.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
-
-	{% block body %}
-		{{ menu }}
+{% block body %}
+		ROLE :: {{ role }}
 		<a href={{ path("logout") }}>Logout</a>
-	{% endblock %}
+{% endblock %}

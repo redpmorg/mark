@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.2">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>343</x>
+      <y>420</y>
+      <w>266</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>Object: Twig
+--
+MarkLoginBundle::base.html.twig
+--
+# login main template
+# extensible
+--
+Responsibilities
+-- css
+-- javascript</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>35</x>
+      <y>385</y>
+      <w>266</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Object: Twig
+--
+MarkGeneralBundle::general_header.html.twig
+--
+# main template
+# extensible
+--
+Responsibilities
+-- !DOCTYPE
+-- head metadatas
+-- css, icon ...
+-- body block
+-- javascript</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>294</x>
+      <y>448</y>
+      <w>63</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+extends</panel_attributes>
+    <additional_attributes>70.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>812</x>
+      <y>294</y>
+      <w>266</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>object: Class
+--
+MarkMenuBundle:DefaultController
+--
++indexAction()
+--
+Responsibilities
+-- render MarkMenuBundle:Default:index.html.twig
+--
+Entities
+-- Menu
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>812</x>
+      <y>420</y>
+      <w>266</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>Object: Twig
+--
+MarkLoginBundle::menu.html.twig
+--
+# menu for logged users
+# extensible
+--
+Responsibilities
+-- render MarkMenuBundle::DefaultController:IndexAction</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>917</x>
+      <y>385</y>
+      <w>21</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>602</x>
+      <y>434</y>
+      <w>224</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+extends</panel_attributes>
+    <additional_attributes>300.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>812</x>
+      <y>721</y>
+      <w>266</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Object: Twig
+--
+MarkLoginBundle:Default:logged.html.twig
+--
+# logged page for testing purpose</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>343</x>
+      <y>553</y>
+      <w>266</w>
+      <h>238</h>
+    </coordinates>
+    <panel_attributes>object: Class
+--
+MarkLoginBundle:DefaultController
+--
++indexAction()
+ @Route("/", name="_public")
+ @Template("MarkLoginBundle:Default:index.html.twig")
+--
++loginAction()
+ @Route("/login", name="_login")
+ @Template("MarkLoginBundle:Default:login.html.twig")
+--
++loginCheckAction()
+ @Route("/login_check", name="_login_check")
+--
++loginFailureAction()
+ @Route("/secured_failure", name="_login_failure")
+ #redirect to _login
+--
++loggedAction()
+ @Route("/com", name="_login_succeded")
+ @Template("MarkLoginBundle:Default:logged.html.twig")
+--
+Entities
+-- Users
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>917</x>
+      <y>511</y>
+      <w>91</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+extends</panel_attributes>
+    <additional_attributes>10.0;300.0;60.0;220.0;60.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>602</x>
+      <y>735</y>
+      <w>224</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>300.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>35</x>
+      <y>553</y>
+      <w>266</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Object: Twig
+--
+MarkLoginBundle:Default:index.html.twig
+--
+# index page</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>294</x>
+      <y>574</y>
+      <w>63</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>672</x>
+      <y>602</y>
+      <w>266</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Object: Twig
+--
+MarkLoginBundle:Default:login.html.twig
+--
+# login page</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>602</x>
+      <y>630</y>
+      <w>84</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>147</x>
+      <y>511</y>
+      <w>56</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+extends</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>133</x>
+      <y>616</y>
+      <w>42</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Actor</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>168</x>
+      <y>630</y>
+      <w>189</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>250.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>602</x>
+      <y>651</y>
+      <w>196</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;30.0;260.0;30.0;260.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>301</x>
+      <y>665</y>
+      <w>56</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&gt;-&gt;&gt;</panel_attributes>
+    <additional_attributes>60.0;60.0;10.0;60.0;10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>602</x>
+      <y>455</y>
+      <w>224</w>
+      <h>161</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+extends</panel_attributes>
+    <additional_attributes>250.0;210.0;250.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>630</y>
+      <w>77</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&gt;-&gt;&gt;</panel_attributes>
+    <additional_attributes>90.0;110.0;10.0;110.0;10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+</diagram>

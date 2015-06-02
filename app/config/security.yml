@@ -33,9 +33,9 @@ security:
                 target: /
 
     access_control:
-        - { path: ^/superadmin, role: ROLE_SUPER_ADMIN }
-        - { path: ^/admin, role: ROLE_ADMIN }
-        - { path: ^/common, role: ROLE_USER }
+        - { path: ^/sadm, role: ROLE_SUPER_ADMIN }
+        - { path: ^/adm, role: ROLE_ADMIN }
+        - { path: ^/com, role: ROLE_USER }
         - { path: ^/$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/_wdt, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/_profiler, role: IS_AUTHENTICATED_ANONYMOUSLY }
