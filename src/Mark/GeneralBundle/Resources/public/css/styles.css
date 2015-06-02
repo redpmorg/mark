@@ -1,0 +1,11 @@
+charset "UTF-8";
+/**
+ *
+ * @authors Leonard LEPADATU (leonardlepadatu@yahoo.com)
+ * @date    2015-05-28 16:10:28
+ * @version $Id$
+ */
+
+ .no-modify {
+	cursor: not-allowed;
+ }
