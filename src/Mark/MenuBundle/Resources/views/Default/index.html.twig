@@ -2,6 +2,8 @@
 <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
 {% endstylesheets %}
 
+{{ dump(menu) }}
+
 <div class="navbar-xs">
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
@@ -35,7 +37,7 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ 'Hi'|trans }}, {{ user_fname }} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a style="cursor:not-allowed">{{ 'Logged as'|trans }}: {% for role in user_role %} {{ role[5:] }} {% endfor %}</a></li>
+							<li><a style="cursor:not-allowed">{{ 'Logged as'|trans }}: {{ user_role }}</a></li>
 							<li><a href="#">Another action</a></li>
 							<li><a href="#">Something else here</a></li>
 							<li class="divider"></li>

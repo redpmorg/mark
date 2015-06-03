@@ -6,9 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-use Mark\LoginBundle\Controller\UserUtilsController;
 use Mark\MenuBundle\Entity\Menu;
-
 
 class MenuController extends Controller
 {
@@ -20,29 +18,31 @@ class MenuController extends Controller
 	public function indexAction()
 	{
 
-		$user = $this->get('security.token_storage')->getToken()->getUser();
+		$user = $this->get('user.loggeduser_utils');
 
-		$data["user_fname"] = $user->getFirstname();
-		$data["user_role"] = $user->getRoles();
-		$data['menu'] = $this->generateMenuAction();
+		$data["user_fname"] = $user->getUserFirstname();
+		$data["user_role"]  = $user->getUserRoleName();
+		$data['menu'] = $this->generateMenuAction($user->getUserRoleId());
 
 		return $data;
 
 	}
 
-	public function generateMenuAction()
+	public function generateMenuAction($user_role_id)
 	{
 
-		$repository = $this->getDoctrine()->getRepository('MarkMenuBundle:Menu');
+		$em = $this->getDoctrine()->getManager();
+		$query = $em->createQuery(
+			"SELECT m
+			FROM MarkMenuBundle:Menu m
+			WHERE m.isActive = :active
+			AND m.roles < :role
+			ORDER BY m.parent ASC, m.sort ASC
+			");
+		$query->setParameters(array("active"=>1, "role"=>$user_role_id));
 
-		// get all active menus
-		$raw_menu = $repository->findBy(array("isActive" => 1));
+		return $query->getResult();
 
-		// get current RoleId
-		$uu = new UserUtilsController;
-		$roleId = $uu->indexAction();
-
-		return $raw_menu;
 	}
 
 

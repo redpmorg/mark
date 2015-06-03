@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>343</x>
-      <y>420</y>
+      <x>329</x>
+      <y>280</y>
       <w>266</w>
       <h>98</h>
     </coordinates>
@@ -24,8 +24,8 @@ Responsibilities
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>35</x>
-      <y>385</y>
+      <x>21</x>
+      <y>245</y>
       <w>266</w>
       <h>133</h>
     </coordinates>
@@ -47,8 +47,8 @@ Responsibilities
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>294</x>
-      <y>448</y>
+      <x>280</x>
+      <y>308</y>
       <w>63</w>
       <h>28</h>
     </coordinates>
@@ -59,14 +59,14 @@ extends</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>812</x>
-      <y>294</y>
+      <x>798</x>
+      <y>154</y>
       <w>266</w>
       <h>98</h>
     </coordinates>
     <panel_attributes>object: Class
 --
-MarkMenuBundle:DefaultController
+MarkMenuBundle:MenuController
 --
 +indexAction()
 --
@@ -81,8 +81,8 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>812</x>
-      <y>420</y>
+      <x>798</x>
+      <y>280</y>
       <w>266</w>
       <h>98</h>
     </coordinates>
@@ -100,19 +100,19 @@ Responsibilities
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>917</x>
-      <y>385</y>
+      <x>903</x>
+      <y>245</y>
       <w>21</w>
       <h>49</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>602</x>
-      <y>434</y>
+      <x>588</x>
+      <y>294</y>
       <w>224</w>
       <h>28</h>
     </coordinates>
@@ -123,8 +123,8 @@ extends</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>812</x>
-      <y>721</y>
+      <x>798</x>
+      <y>581</y>
       <w>266</w>
       <h>56</h>
     </coordinates>
@@ -138,14 +138,14 @@ MarkLoginBundle:Default:logged.html.twig
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>343</x>
-      <y>553</y>
+      <x>329</x>
+      <y>413</y>
       <w>266</w>
       <h>238</h>
     </coordinates>
     <panel_attributes>object: Class
 --
-MarkLoginBundle:DefaultController
+MarkLoginBundle:LoginController
 --
 +indexAction()
  @Route("/", name="_public")
@@ -174,8 +174,8 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>917</x>
-      <y>511</y>
+      <x>903</x>
+      <y>371</y>
       <w>91</w>
       <h>224</h>
     </coordinates>
@@ -186,8 +186,8 @@ extends</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>602</x>
-      <y>735</y>
+      <x>588</x>
+      <y>595</y>
       <w>224</w>
       <h>21</h>
     </coordinates>
@@ -197,8 +197,8 @@ extends</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>35</x>
-      <y>553</y>
+      <x>21</x>
+      <y>413</y>
       <w>266</w>
       <h>56</h>
     </coordinates>
@@ -212,8 +212,8 @@ MarkLoginBundle:Default:index.html.twig
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>294</x>
-      <y>574</y>
+      <x>280</x>
+      <y>434</y>
       <w>63</w>
       <h>21</h>
     </coordinates>
@@ -223,8 +223,8 @@ MarkLoginBundle:Default:index.html.twig
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>672</x>
-      <y>602</y>
+      <x>658</x>
+      <y>462</y>
       <w>266</w>
       <h>56</h>
     </coordinates>
@@ -238,8 +238,8 @@ MarkLoginBundle:Default:login.html.twig
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>602</x>
-      <y>630</y>
+      <x>588</x>
+      <y>490</y>
       <w>84</w>
       <h>21</h>
     </coordinates>
@@ -249,8 +249,8 @@ MarkLoginBundle:Default:login.html.twig
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>147</x>
-      <y>511</y>
+      <x>133</x>
+      <y>371</y>
       <w>56</w>
       <h>56</h>
     </coordinates>
@@ -261,8 +261,8 @@ extends</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>133</x>
-      <y>616</y>
+      <x>119</x>
+      <y>476</y>
       <w>42</w>
       <h>70</h>
     </coordinates>
@@ -272,8 +272,8 @@ extends</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>168</x>
-      <y>630</y>
+      <x>154</x>
+      <y>490</y>
       <w>189</w>
       <h>21</h>
     </coordinates>
@@ -283,8 +283,8 @@ extends</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>602</x>
-      <y>651</y>
+      <x>588</x>
+      <y>511</y>
       <w>196</w>
       <h>35</h>
     </coordinates>
@@ -294,8 +294,8 @@ extends</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>301</x>
-      <y>665</y>
+      <x>287</x>
+      <y>525</y>
       <w>56</w>
       <h>56</h>
     </coordinates>
@@ -305,8 +305,8 @@ extends</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>602</x>
-      <y>455</y>
+      <x>588</x>
+      <y>315</y>
       <w>224</w>
       <h>161</h>
     </coordinates>
@@ -317,12 +317,57 @@ extends</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>630</y>
+      <x>266</x>
+      <y>490</y>
       <w>77</w>
       <h>91</h>
     </coordinates>
     <panel_attributes>lt=&gt;-&gt;&gt;</panel_attributes>
     <additional_attributes>90.0;110.0;10.0;110.0;10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>329</x>
+      <y>168</y>
+      <w>266</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>object: Class
+--
+MarkLoginBundle:UserUtilsController
+--
++ ::indexAction()
+--
+Responsibilities
+-- provide user utilities
+bg=magenta</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>196</y>
+      <w>224</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=magenta
+bg=magenta</panel_attributes>
+    <additional_attributes>300.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>196</y>
+      <w>154</w>
+      <h>259</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=magenta
+bg=magenta</panel_attributes>
+    <additional_attributes>10.0;350.0;200.0;350.0;200.0;120.0;150.0;120.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

@@ -26,7 +26,7 @@ class Menu
 	 * @var integer
 	 * @ORM\Column(name="parent_id", type="integer")
 	 */
-	 private $parent_id;
+	private $parent_id;
 
 	/**
 	 * @var string
@@ -66,9 +66,10 @@ class Menu
 
 
 	/**
+	 * @var integer
 	 * @ORM\Column(name="sort", type="integer")
 	 */
-	 private $sort;
+	private $sort;
 
 
 
@@ -214,42 +215,42 @@ class Menu
 	*/
 	public function setSort($sort)
 	{
-	    $this->sort = $sort;
-	    return $this->sort;
+		$this->sort = $sort;
+		return $this->sort;
 	}
 
 
 
-    /**
-     * Get sort
-     *
-     * @return integer 
-     */
-    public function getSort()
-    {
-        return $this->sort;
-    }
+	/**
+	 * Get sort
+	 *
+	 * @return integer
+	 */
+	public function getSort()
+	{
+		return $this->sort;
+	}
 
-    /**
-     * Set parent_id
-     *
-     * @param integer $parentId
-     * @return Menu
-     */
-    public function setParentId($parentId)
-    {
-        $this->parent_id = $parentId;
+	/**
+	 * Set parent_id
+	 *
+	 * @param integer $parentId
+	 * @return Menu
+	 */
+	public function setParentId($parentId)
+	{
+		$this->parent_id = $parentId;
 
-        return $this;
-    }
+		return $this;
+	}
 
-    /**
-     * Get parent_id
-     *
-     * @return integer 
-     */
-    public function getParentId()
-    {
-        return $this->parent_id;
-    }
+	/**
+	 * Get parent_id
+	 *
+	 * @return integer
+	 */
+	public function getParentId()
+	{
+		return $this->parent_id;
+	}
 }

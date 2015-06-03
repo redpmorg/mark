@@ -8,38 +8,63 @@
 
 namespace Mark\LoginBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
-
-
-class UserUtilsController extends Controller
+class UserUtilsController
 {
 
-	public function indexAction()
+	private $token;
+
+	public function __construct($token)
+	{
+		$this->token = $token;
+	}
+
+	public function getUserRoleId()
 	{
 
-		dump($this);
+		$roles = $this->token->getToken()->getRoles();
 
-// dump($this->get('security.token_storage'));
+		foreach($roles as $role)
+		{
+			$role = str_replace("_", " ", substr($role->getRole(), 5));
+		}
 
-		// $roles = Controller::get('security.token_storage')->getToken()->getRoles();
-		// foreach($roles as $role)
-		// {
-		// 	$role = str_replace("_", " ", substr($role->getRole(), 5));
-		// }
-		// switch($role) {
-		// 	case "USER":
-		// 	$roleId = 0;
-		// 	break;
-		// 	case "ADMIN":
-		// 	$roleId = 1;
-		// 	break;
-		// 	case "SUPER_ADMIN":
-		// 	$roleId = 2;
-		// 	break;
-		// }
-		$roleId = 1;
+		$roleId = 0;
+
+		switch($role) {
+			case "USER":
+			$roleId = 0;
+			break;
+			case "ADMIN":
+			$roleId = 1;
+			break;
+			case "SUPER ADMIN":
+			$roleId = 2;
+			break;
+		}
+
 		return $roleId;
+
+	}
+
+	public function getUserRoleName()
+	{
+
+		$roles = $this->token->getToken()->getRoles();
+
+		foreach($roles as $role)
+		{
+			$role = str_replace("_", " ", substr($role->getRole(), 5));
+		}
+
+		return $role;
+
+	}
+
+	public function getUserFirstname()
+	{
+
+		return $this->token->getToken()->getUser()->getFirstname();
+
 	}
 
 }

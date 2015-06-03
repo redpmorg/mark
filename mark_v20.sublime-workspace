@@ -4,60 +4,16 @@
 		"selected_items":
 		[
 			[
-				"token_",
-				"token_storage"
+				"user_role",
+				"user_role_id"
 			],
 			[
-				"Securi",
-				"SecurityContext"
+				"user",
+				"userRole"
 			],
 			[
-				"getRole",
-				"getRoles"
-			],
-			[
-				"Toke",
-				"TokenStorage"
-			],
-			[
-				"Logg",
-				"LoggedUserUtilsController"
-			],
-			[
-				"Logged",
-				"LoggedUserUtils	LoggedUserUtils"
-			],
-			[
-				"User",
-				"UserUtils	UserUtils"
-			],
-			[
-				"to",
-				"token"
-			],
-			[
-				"sf",
-				"sfintegercolumn	Symfony2 / Model / Integer column doc"
-			],
-			[
-				"wid",
-				"width"
-			],
-			[
-				"sfa",
-				"sfactiona	Symfony2 / Controller / Action (annotated)"
-			],
-			[
-				"last",
-				"lastUserName"
-			],
-			[
-				"login",
-				"loginFailureAction()	mixed"
-			],
-			[
-				"_login_",
-				"_login_failure"
+				"mark",
+				"mark_token"
 			],
 			[
 				"Tra",
@@ -78,6 +34,10 @@
 			[
 				"requset",
 				"requestStack"
+			],
+			[
+				"sf",
+				"sftextcolumn	Symfony2 / Model / String column doc"
 			],
 			[
 				"Request",
@@ -368,6 +328,10 @@
 				"$total_size〔variable〕"
 			],
 			[
+				"to",
+				"total_num_resorces"
+			],
+			[
 				"content",
 				"$content_type〔variable〕"
 			],
@@ -514,6 +478,42 @@
 			[
 				"spl",
 				"spl_autoload_register"
+			],
+			[
+				"functi",
+				"function_exists〔function〕"
+			],
+			[
+				"require",
+				"require_once〔keyword〕"
+			],
+			[
+				"header",
+				"header〔function〕"
+			],
+			[
+				"Fisr",
+				"FirstClass"
+			],
+			[
+				"BA",
+				"BASEPATH"
+			],
+			[
+				"head",
+				"headers_sent〔function〕"
+			],
+			[
+				"paddig",
+				"padding-top"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"ba",
+				"background-image"
 			]
 		]
 	},
@@ -523,73 +523,56 @@
 			"file": "src/Mark/LoginBundle/Controller/UserUtilsController.php",
 			"settings":
 			{
-				"buffer_size": 894,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/Mark/GeneralBundle/Resources/views/general_header.html.twig",
-			"settings":
-			{
-				"buffer_size": 847,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/Mark/LoginBundle/Controller/LoginController.php",
-			"settings":
-			{
-				"buffer_size": 1696,
-				"line_ending": "Windows"
+				"buffer_size": 1005,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "src/Mark/LoginBundle/Resources/config/services.yml",
 			"settings":
 			{
-				"buffer_size": 177,
-				"line_ending": "Windows"
+				"buffer_size": 315,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "src/Mark/MenuBundle/Controller/MenuController.php",
 			"settings":
 			{
-				"buffer_size": 1030,
-				"line_ending": "Windows"
+				"buffer_size": 1039,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/Mark/LoginBundle/Resources/views/menu.html.twig",
+			"file": "src/Mark/MenuBundle/Resources/views/Default/index.html.twig",
 			"settings":
 			{
-				"buffer_size": 134,
-				"line_ending": "Windows"
+				"buffer_size": 2236,
+				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "",
-	"build_system_choices":
-	[
-	],
-	"build_varint": "",
 	"command_palette":
 	{
 		"height": 400.0,
-		"last_filter": "insta",
 		"selected_items":
 		[
 			[
-				"insta",
+				"ins",
 				"Package Control: Install Package"
 			],
 			[
-				"remove",
+				"rem",
 				"Package Control: Remove Package"
 			],
 			[
-				"remo",
-				"Package Control: Remove Package"
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
 			],
 			[
 				"install",
@@ -600,16 +583,12 @@
 				"PHPUnit: Run Tests"
 			],
 			[
-				"ins",
-				"Package Control: Install Package"
+				"remo",
+				"Package Control: Remove Package"
 			],
 			[
 				"",
 				"About"
-			],
-			[
-				"inst",
-				"Package Control: Install Package"
 			],
 			[
 				"disa",
@@ -652,6 +631,10 @@
 				"Tmpl: Create php"
 			],
 			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
 				"crett",
 				"Create file from Template"
 			],
@@ -666,10 +649,6 @@
 			[
 				"teplate",
 				"Create file from Template"
-			],
-			[
-				"rem",
-				"Package Control: Remove Package"
 			],
 			[
 				"pac",
@@ -724,7 +703,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 520.0
+		"width": 565.0
 	},
 	"console":
 	{
@@ -765,120 +744,54 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/C/wamp/www/other/mark_v20",
-		"/C/wamp/www/other/mark_v20/app",
-		"/C/wamp/www/other/mark_v20/app/config",
-		"/C/wamp/www/other/mark_v20/app/logs",
-		"/C/wamp/www/other/mark_v20/src",
-		"/C/wamp/www/other/mark_v20/src/Mark",
-		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle",
-		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources",
-		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/config",
-		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/public",
-		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/views",
-		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/views/Default",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Controller",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/DataFixtures/ORM",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/DependencyInjection",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Entity",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/config",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/public/css",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/views",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/views/Default",
-		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle",
-		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Controller",
-		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/DataFixtures",
-		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Entity",
-		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources",
-		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources/public",
-		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources/public/css",
-		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources/views",
-		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources/views/Default",
-		"/C/wamp/www/other/mark_v20/vendor",
-		"/C/wamp/www/other/mark_v20/vendor/symfony",
-		"/C/wamp/www/other/mark_v20/vendor/symfony/symfony",
-		"/C/wamp/www/other/mark_v20/vendor/symfony/symfony/src",
-		"/C/wamp/www/other/mark_v20/vendor/symfony/symfony/src/Symfony",
-		"/C/wamp/www/other/mark_v20/vendor/symfony/symfony/src/Symfony/Bundle",
-		"/C/wamp/www/other/mark_v20/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle",
-		"/C/wamp/www/other/mark_v20/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller",
-		"/C/wamp/www/other/mark_v20/web/js",
-		"/C/wamp/www/other/temporary/tets",
-		"/C/wamp/www/other/temporary/tets/app",
-		"/C/wamp/www/other/temporary/tets/app/config",
-		"/C/wamp/www/other/temporary/tets/src",
-		"/C/wamp/www/other/temporary/tets/src/Acme",
-		"/C/wamp/www/other/temporary/tets/src/Acme/DemoBundle",
-		"/C/wamp/www/other/temporary/tets/src/Acme/DemoBundle/Controller",
-		"/C/wamp/www/other/temporary/tets/src/Acme/DemoBundle/DependencyInjection",
-		"/C/wamp/www/other/temporary/tets/src/Acme/DemoBundle/EventListener",
-		"/C/wamp/www/other/temporary/tets/src/Acme/DemoBundle/Resources",
-		"/C/wamp/www/other/temporary/tets/src/Acme/DemoBundle/Resources/config",
-		"/C/wamp/www/other/temporary/tets/src/Acme/DemoBundle/Twig",
-		"/C/wamp/www/other/temporary/tets/src/Acme/DemoBundle/Twig/Extension"
-	],
 	"file_history":
 	[
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/config/services.yml",
-		"/C/wamp/www/other/temporary/tets/src/Acme/DemoBundle/EventListener/ControllerListener.php",
-		"/C/wamp/www/other/mark_v20/app/config/routing.yml",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Controller/UserUtilsController.php",
-		"/C/wamp/www/other/temporary/tets/src/Acme/DemoBundle/Twig/Extension/DemoExtension.php",
-		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources/views/Default/index.html.twig",
-		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Controller/DefaultController.php",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Controller/DefaultController.php",
-		"/C/wamp/www/other/mark_v20/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php",
-		"/C/wamp/www/other/mark_v20/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/ContainerAwareInterface.php",
-		"/C/wamp/www/other/mark_v20/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/ContainerAware.php",
-		"/C/wamp/www/other/mark_v20/app/logs/dev.log",
-		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/DataFixtures/ORM/LoadMenuData.php",
-		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Entity/Menu.php",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Entity/Users.php",
-		"/C/wamp/www/other/mark_v20/app/config/security.yml",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/views/Default/login.html.twig",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/DataFixtures/ORM/LoadUsersData.php",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/public/css/login.css",
-		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources/public/css/menu.css",
-		"/C/wamp/www/other/mark_v20/web/.htaccess",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/views/base.html.twig",
-		"/C/wamp/www/other/mark_v20/app/logs/prod.log",
-		"/C/wamp/www/other/mark_v20/app/config/config.yml",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/views/Default/logged.html.twig",
-		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/views/general_header.html.twig",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/DependencyInjection/MarkLoginExtension.php",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/config/config.yml",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/public/js/login.js",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/views/Default/index.html.twig",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/views/menu.html.twig",
-		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/public/js/bootstrap.js",
-		"/C/wamp/www/other/mark_v20/app/config/config_prod.yml",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/config/security.yml",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/translations/messages.ro.yml",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/config/services.xml",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/config/doctrine/metadata/orm/Users.orm.yml",
-		"/C/wamp/www/other/mark_v20/app/config/services.yml",
-		"/C/wamp/www/other/mark_v20/app/Resources/views/base.html.twig",
-		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/views/general_footer.html.twig",
-		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Controller/DefaultController.php",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/views/Default/login-failure.html.twig",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/views/Default/common-menu.html.twig",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/views/Default/admin-menu.html.twig",
-		"/C/wamp/www/other/mark_v20/app/config/parameters.yml",
-		"/C/wamp/www/other/temporary/tets/vendor/symfony/symfony/src/Symfony/Component/Security/Core/User/UserInterface.php",
-		"/C/wamp/www/other/mark_v20/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Role/Role.php",
-		"/C/wamp/www/other/mark_v20/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Role/RoleInterface.php",
-		"/C/wamp/www/other/mark_v20/vendor/symfony/symfony/src/Symfony/Component/Security/Core/User/UserInterface.php",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/translations/messages.en.yml",
-		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Resources/translations/messages.fr.yml",
-		"/C/wamp/bin/apache/apache2.4.9/conf/extra/httpd-ssl.conf",
+		"/var/www/redpm/mark_v20/src/Mark/LoginBundle/Resources/views/menu.html.twig",
+		"/var/www/redpm/mark_v20/src/Mark/LoginBundle/Entity/Users.php",
+		"/var/www/redpm/mark_v20/src/Mark/MenuBundle/Entity/Menu.php",
+		"/home/leo/.config/sublime-text-3/Packages/Terminality/README.md",
+		"/var/www/redpm/mark_v20/src/Mark/MenuBundle/Resources/translations/messages.ro.yml",
+		"/var/www/redpm/mark_v20/src/Mark/MenuBundle/Resources/views/Default/index.html.twig",
+		"/var/www/redpm/mark_v20/src/Mark/MenuBundle/Controller/DefaultController.php",
+		"/var/www/redpm/mark_v20/src/Mark/MenuBundle/DataFixtures/ORM/LoadMenuData.php",
+		"/var/www/redpm/mark_v20/app/AppKernel.php",
+		"/var/www/redpm/mark_v20/src/Mark/GeneralBundle/Resources/public/css/styles.css",
+		"/var/www/redpm/mark_v20/src/Mark/MenuBundle/Resources/public/css/menu.css",
+		"/var/www/redpm/mark_v20/src/Mark/GeneralBundle/Resources/views/general_header.html.twig",
+		"/home/leo/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/leo/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/var/www/redpm/mark_v20/mark_v20.sublime-project",
+		"/var/www/redpm/mark_v20/src/Mark/LoginBundle/Resources/public/js/login.js",
+		"/var/www/redpm/mark_v20/web/bundles/marklogin/css/login.css",
+		"/var/www/redpm/mark_v20/web/bundles/marklogin/js/login.js",
+		"/var/www/redpm/mark_v20/web/css/b5985de.css",
+		"/var/www/redpm/mark_v20/web/css/b5985de_part_1_login_1.css",
+		"/var/www/redpm/mark_v20/web/js/e97e90a.js",
+		"/var/www/redpm/mark_v20/src/Mark/LoginBundle/Controller/DefaultController.php",
+		"/var/www/redpm/mark_v20/web/bundles/markmenu/css/menu.css",
+		"/var/www/redpm/mark_v20/web/css/292a965.css",
+		"/var/www/redpm/mark_v20/web/css/292a965_part_1_menu_1.css",
+		"/var/www/redpm/mark_v20/src/Mark/LoginBundle/Resources/public/css/login.css",
+		"/var/www/redpm/mark_v20/web/js/e97e90a_part_1_login_1.js",
+		"/var/www/redpm/mark_v20/src/Mark/LoginBundle/Resources/views/Default/logged.html.twig",
+		"/var/www/redpm/mark_v20/src/Mark/GeneralBundle/Controller/DefaultController.php",
+		"/var/www/redpm/mark_v20/src/Mark/GeneralBundle/Resources/config/services.yml",
+		"/var/www/redpm/mark_v20/src/Mark/GeneralBundle/DependencyInjection/MarkGeneralExtension.php",
+		"/var/www/redpm/mark_v20/app/config/security.yml",
+		"/var/www/redpm/mark_v20/src/Mark/LoginBundle/Resources/views/base.html.twig",
+		"/var/www/redpm/mark_v20/src/Mark/LoginBundle/Resources/views/Default/login.html.twig",
+		"/var/www/redpm/mark_v20/app/config/parameters.yml",
+		"/var/www/redpm/mark_v20/src/Mark/LoginBundle/Resources/translations/messages.en.yml",
+		"/var/www/redpm/mark_v20/src/Mark/LoginBundle/Resources/translations/messages.fr.yml",
+		"/var/www/redpm/mark_v20/app/config/routing.yml",
+		"/var/www/redpm/mark_v20/app/config/config.yml",
+		"/var/www/redpm/mark_v20/app/config/services.yml",
 		"/C/wamp/www/other/mark_v20/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/Request.php",
+		"/C/wamp/www/other/mark_v20/app/logs/dev.log",
+		"/C/wamp/www/other/mark_v20/web/.htaccess",
+		"/C/wamp/www/other/mark_v20/app/logs/prod.log",
 		"/C/wamp/www/other/mark_v20/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Authentication/AuthenticationUtils.php",
 		"/var/www/testing/index.php",
-		"/home/leo/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/var/www/testing/style.css",
 		"/var/www/testing/test.phtml",
 		"/var/www/testing/script.js",
@@ -894,7 +807,6 @@
 		"/var/www/redpm/sycms/src/Acme/DemoBundle/Controller/RandomController.php",
 		"/home/leo/.config/sublime-text-3/Packages/SublimeTmpl/Default (Linux).sublime-keymap",
 		"/home/leo/.config/sublime-text-3/Packages/User/SublimeTmpl.sublime-settings",
-		"/home/leo/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/leo/.config/sublime-text-3/Packages/SublimeTmpl/Main.sublime-menu",
 		"/home/leo/.config/sublime-text-3/Packages/SublimeTmpl/SublimeTmpl.sublime-settings",
 		"/home/leo/.config/sublime-text-3/Packages/SublimeTmpl/Default.sublime-commands",
@@ -950,7 +862,18 @@
 		"/var/www/redpm/sycms/web/app_dev.php",
 		"/var/www/redpm/sycms/web/config.php",
 		"/var/www/redpm/sycms/app/bootstrap.php.cache",
-		"/var/www/redpm/sycms/app/config/routing_prod.yml"
+		"/var/www/redpm/sycms/app/config/routing_prod.yml",
+		"/var/www/redpm/sycms/app/config/routing_dev.yml",
+		"/var/www/redpm/sycms/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php",
+		"/var/www/redpm/sycms/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/KernelInterface.php",
+		"/var/www/redpm/sycms/src/Acme/DemoBundle/Controller/BlogController.php",
+		"/var/www/redpm/sycms/vendor/symfony/symfony/src/Symfony/Component/Console/Input/ArgvInput.php",
+		"/var/www/redpm/sycms/src/Acme/DemoBundle/Controller/DemoController.php",
+		"/var/www/redpm/sycms/app/Resources/views/Blog/list.html.php",
+		"/var/www/redpm/sycms/app/Resources/views/Blog/show.html.php",
+		"/var/www/redpm/sycms/app/Resources/views/layout.html.php",
+		"/var/www/redpm/sycms/src/AppBundle/Controller/BlogController.php",
+		"/var/www/redpm/sycms/app/cache/dev/assetic/routing.yml"
 	],
 	"find":
 	{
@@ -969,22 +892,15 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
-			"container",
-			"get",
-			"routing.yml",
-			"isActive",
-			"center",
-			"default",
-			"reques",
-			"request",
-			"Request",
-			"username",
-			"user_role",
-			";\n",
-			"user_role",
+			"lepadatu.leonard-ext@groupehn.com",
+			"leonard",
+			"Searching",
+			"lepadatu.leonard-ext@groupehn.com",
+			"());\n",
+			"();\n",
 			"username",
 			"RequestStack",
 			"sidebar_label",
@@ -1087,6 +1003,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"leonardlepadatu@yahoo.com",
 			"$A",
 			"$T",
 			"\""
@@ -1100,7 +1017,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1109,15 +1026,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 894,
+						"buffer_size": 1005,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								399,
-								399
+								752,
+								752
 							]
 						],
 						"settings":
@@ -1125,11 +1042,26 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -1140,53 +1072,38 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
 							],
-							"function_name_status_row": 17,
+							"function_name_status_row": 51,
 							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 120.0,
+						"translation.y": 561.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1194,108 +1111,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "src/Mark/GeneralBundle/Resources/views/general_header.html.twig",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 847,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								55
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"function_name_status_row": -1,
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/Mark/LoginBundle/Controller/LoginController.php",
+					"file": "src/Mark/LoginBundle/Resources/config/services.yml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1696,
+						"buffer_size": 315,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								321,
-								321
+								194,
+								194
 							]
 						],
 						"settings":
@@ -1303,11 +1131,26 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -1318,50 +1161,34 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
 							],
-							"function_name_status_row": 12,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"function_name_status_row": 7,
+							"syntax": "Packages/YAML/YAML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1371,12 +1198,101 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "src/Mark/LoginBundle/Resources/config/services.yml",
+					"buffer": 2,
+					"file": "src/Mark/MenuBundle/Controller/MenuController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 177,
+						"buffer_size": 1039,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								790,
+								790
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"function_name_status_row": 34,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 153.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/Mark/MenuBundle/Resources/views/Default/index.html.twig",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2236,
 						"regions":
 						{
 						},
@@ -1392,11 +1308,26 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -1407,49 +1338,35 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
 							],
-							"function_name_status_row": 5,
-							"syntax": "Packages/YAML/YAML.tmLanguage"
+							"function_name_status_row": 4,
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1457,190 +1374,13 @@
 					},
 					"stack_index": 2,
 					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src/Mark/MenuBundle/Controller/MenuController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1030,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								326,
-								326
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"function_name_status_row": 12,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 60.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/Mark/LoginBundle/Resources/views/menu.html.twig",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 134,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								108,
-								108
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"function_name_status_row": 1,
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
 				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 28.0
+		"height": 38.0
 	},
 	"input":
 	{
@@ -1681,27 +1421,17 @@
 	{
 		"height": 280.0
 	},
-	"pinned_build_system": "",
 	"project": "mark_v20.sublime-project",
 	"replace":
 	{
-		"height": 52.0
+		"height": 74.0
 	},
 	"save_all_on_build": true,
 	"select_file":
 	{
 		"height": 0.0,
-		"last_filter": "",
 		"selected_items":
 		[
-			[
-				"users",
-				"mark_v20\\src\\Mark\\LoginBundle\\Entity\\Users.php"
-			],
-			[
-				"userinter",
-				"tets\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\User\\UserInterface.php"
-			],
 			[
 				"bun",
 				"testing/testing2/testing3/Bunic.php"
@@ -1728,7 +1458,6 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "",
 		"selected_items":
 		[
 		],
@@ -1737,13 +1466,11 @@
 	"select_symbol":
 	{
 		"height": 400.0,
-		"last_filter": "",
 		"selected_items":
 		[
 		],
 		"width": 400.0
 	},
-	"selected_group": 0,
 	"settings":
 	{
 		"xdebug":
@@ -1755,7 +1482,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 357.0,
+	"side_bar_width": 251.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
