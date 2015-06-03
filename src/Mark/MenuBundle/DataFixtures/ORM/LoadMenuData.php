@@ -24,6 +24,7 @@ class LoadMenuData implements FixtureInterface
 	for($i=1; $i<5; $i++)
 	{
 		$menu = new Menu();
+		$menu->setParentId($i);
 		$menu->setName('Parent_'.$i);
 		$menu->setDescription('Parent_'.$i." description");
 		$menu->setParent(0);
@@ -41,6 +42,7 @@ class LoadMenuData implements FixtureInterface
 	for($i=1; $i<21; $i++)
 	{
 		$menu = new Menu();
+		$menu->setParentId(0);
 		$menu->setName('Child_'.$i);
 
 		if($i<=20) {$p = 4;}

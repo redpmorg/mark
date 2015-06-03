@@ -6,10 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
+use Mark\LoginBundle\Controller\UserUtilsController;
 use Mark\MenuBundle\Entity\Menu;
 
 
-class DefaultController extends Controller
+class MenuController extends Controller
 {
 
 	/**
@@ -23,20 +24,27 @@ class DefaultController extends Controller
 
 		$data["user_fname"] = $user->getFirstname();
 		$data["user_role"] = $user->getRoles();
-
-		$menu = new Menu();
-		$menu->getDoctrine()->getManager();
+		$data['menu'] = $this->generateMenuAction();
 
 		return $data;
 
 	}
 
-	/**
-	 * @Route("/persistMenu", name="_persist_menu")
-	 */
-	public function menuPersistForTestingPurpose()
+	public function generateMenuAction()
 	{
 
-		return false;
+		$repository = $this->getDoctrine()->getRepository('MarkMenuBundle:Menu');
+
+		// get all active menus
+		$raw_menu = $repository->findBy(array("isActive" => 1));
+
+		// get current RoleId
+		$uu = new UserUtilsController;
+		$roleId = $uu->indexAction();
+
+		return $raw_menu;
 	}
+
+
+
 }

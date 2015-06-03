@@ -3,13 +3,12 @@
 namespace Mark\LoginBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Security\Core\Security;
+//use Symfony\Component\Security\Core\Security;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-
-class DefaultController extends Controller
+class LoginController extends Controller
 {
 
 	/**
@@ -58,15 +57,17 @@ class DefaultController extends Controller
 	 */
 	public function loggedAction(){
 
-		$user_role = $this->get('security.token_storage')->getToken()->getRoles();
-		foreach($user_role as $role)
-		{
-			$role = str_replace("_", " ", substr($role->getRole(),5));
-		}
+		// $user_role = $this->get('security.token_storage')->getToken()->getRoles();
 
-		$data = array();
-		$data['title'] = $role. " AREEA";
+		// foreach($user_role as $role)
+		// {
+		// 	$role = str_replace("_", " ", substr($role->getRole(),5));
+		// }
 
+// 		$role = new UserUtilsController;
+
+//		$data['title'] = $role->getRoleName(). " AREEA";
+$data["title"] = "Areea";
 		return $data;
 
 	}

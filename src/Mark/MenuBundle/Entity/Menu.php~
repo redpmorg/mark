@@ -229,27 +229,4 @@ class Menu
     {
         return $this->sort;
     }
-
-    /**
-     * Set parent_id
-     *
-     * @param integer $parentId
-     * @return Menu
-     */
-    public function setParentId($parentId)
-    {
-        $this->parent_id = $parentId;
-
-        return $this;
-    }
-
-    /**
-     * Get parent_id
-     *
-     * @return integer 
-     */
-    public function getParentId()
-    {
-        return $this->parent_id;
-    }
 }

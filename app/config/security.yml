@@ -6,7 +6,9 @@ security:
                 class: MarkLoginBundle:Users
                 property: username
     encoders:
-        Mark\LoginBundle\Entity\Users: bcrypt
+        Mark\LoginBundle\Entity\Users:
+            algorithm: bcrypt
+            cost: 12
 
     role_hierarchy:
         ROLE_ADMIN: ROLE_USER

@@ -58,9 +58,9 @@ class Users implements UserInterface, \Serializable
 
 
 	/**
-	 * @ORM\Column(name="user_role", type="string", length=64)
+	 * @ORM\Column(name="user_role", type="integer", length=2)
 	 */
-	 private $user_role;
+	private $user_role;
 
 
 
@@ -151,7 +151,7 @@ class Users implements UserInterface, \Serializable
 	 */
 	public function setPassword($password)
 	{
-		$this->password = $password;
+		$this->password = password_hash($password, PASSWORD_BCRYPT, array("cost"=>12));
 
 		return $this;
 	}
@@ -197,7 +197,19 @@ class Users implements UserInterface, \Serializable
 
 	public function getRoles()
 	{
-		return array($this->user_role);
+		switch ($this->user_role) {
+			case 0:
+				$ur = "ROLE_USER";
+				break;
+			case 1:
+				$ur = "ROLE_ADMIN";
+				break;
+			case 2:
+				$ur = "ROLE_SUPER_ADMIN";
+				break;
+		}
+
+		return array($ur);
 	}
 
 	/**
@@ -244,4 +256,50 @@ class Users implements UserInterface, \Serializable
 	}
 
 
+
+	/**
+	 * Set isActive
+	 *
+	 * @param boolean $isActive
+	 * @return Users
+	 */
+	public function setIsActive($isActive)
+	{
+		$this->isActive = $isActive;
+
+		return $this;
+	}
+
+	/**
+	 * Get isActive
+	 *
+	 * @return boolean
+	 */
+	public function getIsActive()
+	{
+		return $this->isActive;
+	}
+
+	/**
+	 * Set user_role
+	 *
+	 * @param string $userRole
+	 * @return Users
+	 */
+	public function setUserRole($userRole)
+	{
+		$this->user_role = $userRole;
+
+		return $this;
+	}
+
+	/**
+	 * Get user_role
+	 *
+	 * @return string
+	 */
+	public function getUserRole()
+	{
+		return $this->user_role;
+	}
 }
