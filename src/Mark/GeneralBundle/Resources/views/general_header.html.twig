@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8" />
-		<title>Mark v2.0 | {% block title %}{% endblock %}</title>
-		{% stylesheets '@bootstrap_css' %}
-			<link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
-		{% endstylesheets %}
-		{% stylesheets '@MarkGeneralBundle/Resources/public/css/*' filter='cssrewrite' %}
-		{% endstylesheets %}
-		{% block stylesheets %}{% endblock %}
-		<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+<head>
+	<meta charset="UTF-8" />
+	<title>Mark v2.0 | {% block title %}{% endblock %}</title>
+	{% stylesheets '@bootstrap_css' %}
+		<link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+	{% endstylesheets %}
+	{% stylesheets '@MarkGeneralBundle/Resources/public/css/*' filter='cssrewrite' %}
+		<link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+	{% endstylesheets %}
+	{% block stylesheets %}{% endblock %}
+	<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 	</head>
 	<body>
 		{% block topmenu %}MarkMenuBundle Menu here for logged users{% endblock %}
 		{% block body %}{% endblock %}
 		{% javascripts '@jquery' '@bootstrap_js' %}
-			<script type="text/javascript" src="{{ asset_url }}"></script>
+				<script type="text/javascript" src="{{ asset_url }}"></script>
 		{% endjavascripts %}
 		{% block javascripts %}{% endblock %}
 	</body>

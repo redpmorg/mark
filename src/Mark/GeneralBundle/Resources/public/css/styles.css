@@ -6,6 +6,3 @@ charset "UTF-8";
  * @version $Id$
  */
 
- .no-modify {
-	cursor: not-allowed;
- }
