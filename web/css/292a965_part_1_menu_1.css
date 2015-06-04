@@ -1,11 +1,19 @@
 @charset "UTF-8";
 /**
- * 
+ *
  * @authors Leonard LEPADATU (leonardlepadatu@yahoo.com)
  * @date    2015-06-02 17:25:47
  * @version $Id$
  */
 
-.navbar-xs .navbar { min-height:45px !important; height: 45px !important; border-radius: 0px !important;}
-.navbar-xs .navbar .navbar-brand{ padding: 0px 12px !important; font-size: 16px !important; line-height: 35px !important; }
-.navbar-xs .navbar .navbar-nav > li > a {  padding-top: 4px !important; padding-bottom: 4px !important; line-height: 35px !important; }
+ #about .modal-content {
+ 	color: #fff !important;
+	background-image: -webkit-linear-gradient(top,#082D4D 0,#6399C7 100%) !important;
+	background-image: -o-linear-gradient(top,#082D4D 0,#6399C7 100%) !important;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#082D4D),to(#6399C7)) !important;
+	background-image: linear-gradient(to bottom,#082D4D 0,#6399C7 100%) !important;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff082D4D', endColorstr='#ff6399C7', GradientType=0) !important;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false) !important;
+	background-repeat: repeat-x !important;
+	border-color: #245580 !important;
+ }

@@ -25,11 +25,11 @@ class LoadMenuData implements FixtureInterface
 	{
 		$menu = new Menu();
 		$menu->setParentId($i);
-		$menu->setName('Parent_'.$i);
-		$menu->setDescription('Parent_'.$i." description");
+		$menu->setName("Parent_{$i}");
+		$menu->setDescription("Parent_{$i} description");
 		$menu->setParent(0);
-		$menu->setRoute("parent/".$i);
-		$menu->setIsActive(0==$i%2 ? 1 : 0);
+		$menu->setRoute("parent/{$i}");
+		$menu->setIsActive(1);
 		$menu->setRoles(0);
 		$menu->setSort($i);
 
@@ -43,17 +43,17 @@ class LoadMenuData implements FixtureInterface
 	{
 		$menu = new Menu();
 		$menu->setParentId(0);
-		$menu->setName('Child_'.$i);
 
 		if($i<=20) {$p = 4;}
 		if($i<=15) {$p = 3;}
 		if($i<=10) {$p = 2;}
 		if($i<=5)  {$p = 1;}
 
-		$menu->setDescription("Child_{$i} of parent_{$p}  description");
+		$menu->setName("Child_{$i} of {$p}");
+		$menu->setDescription("Child_{$i} of {$p} description");
 		$menu->setParent($p);
 
-		$menu->setRoute("child/".$i);
+		$menu->setRoute("child/{$i}");
 		$menu->setIsActive(1);
 		$menu->setRoles(0);
 		$menu->setSort($i);

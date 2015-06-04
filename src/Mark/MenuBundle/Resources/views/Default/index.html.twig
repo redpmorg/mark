@@ -2,53 +2,80 @@
 <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
 {% endstylesheets %}
 
-{{ dump(menu) }}
+<nav class="navbar navbar-default navbar-sm">
+	<div class="container-fluid">
 
-<div class="navbar-xs">
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Mark v2.0</a>
+		{# Mobile here #}
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mark-left-menu">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">{{ app.name }}</a>
+		</div>
+
+		{# Left Menu - Common Areea #}
+		<div class="collapse navbar-collapse" id="mark-left-menu">
+			<ul class="nav navbar-nav">
+				{% for p in menu %}
+					{% if p.parent == 0 %}
+						<li class="dropdown">
+							<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ p.name }}</a>
+							<ul class="dropdown-menu" role="menu">
+								{% for c in menu %}
+									{% if c.parent == p.parentid %}
+										<li><a href="{{ c.route }}">{{ c.name }}</a></li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+
+						</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+
+			{# Right menu - Administraton areea #}
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ user_fname }} | {{ user_role }} <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="" data-toggle="modal" data-target="#about">{{ 'About'|trans }}</a></li>
+						<li class="divider"></li>
+						<li><a href={{ path("logout") }}>{{ 'Logout'|trans }}</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>{# nav-colapse #}
+	</div>{# container-fluid #}
+</nav>
+
+{# About Modal #}
+<div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="{{ 'Close'|trans }}"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="aboutModalLabel">{{ app.name }} - {{ app.description }}</h4>
 			</div>
+			<div class="modal-body">
+				<p>App name: {{ app.name }}</p>
+				<p>App version: {{ app.version }}</p>
+				<p>Description: {{ app.description }}</p>
 
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li class="divider"></li>
-							<li><a href="#">Separated link</a></li>
-							<li class="divider"></li>
-							<li><a href="#">One more separated link</a></li>
-						</ul>
-					</li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ 'Hi'|trans }}, {{ user_fname }} <span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a style="cursor:not-allowed">{{ 'Logged as'|trans }}: {{ user_role }}</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li class="divider"></li>
-							<li><a href="#">Separated link</a></li>
-							<li class="divider"></li>
-							<li><a href="#">One more separated link</a></li>
-						</ul>
-					</li>
-					<li><a href={{ path("logout") }}>Logout</a></li>
-				</ul>
-			</div><!-- /.navbar-collapse -->
-		</div><!-- /.container-fluid -->
-	</nav>
+				<div class="clearfix"></div>
+
+				<h4>Developer: </h4>
+				<p>{{ app.developer.company }}</p>
+				<p>{{ app.developer.address }}, {{ app.developer.email }}</p>
+				<p>{{ app.developer.name }}, {{ app.developer.mobile }}</p>
+
+				<div class="clearfix"></div>
+
+				<h4>Client</h4>
+				<p>{{ app.client.name }}, {{ app.client.address }}</p>
+			</div>
+		</div>
+	</div>
 </div>

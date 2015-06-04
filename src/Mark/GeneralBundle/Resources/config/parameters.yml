@@ -1,0 +1,14 @@
+parameters:
+    app:
+        name: Mark
+        version: v.20
+        description: Management of Relational Clusters for mobile partimonium
+        developer:
+            name: Leonarad Lepadatu
+            company: redPM ORganization SRL
+            address: dr.Ion Ratiu nr. 109 Constanta 900628 ROMANIA
+            email: info@redpm.org
+            mobile: +40 730 018 797
+        client: 
+            name: CMSN Constanta
+            address: Constanta

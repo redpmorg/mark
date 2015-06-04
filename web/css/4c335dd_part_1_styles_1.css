@@ -6,7 +6,3 @@ charset "UTF-8";
  * @version $Id$
  */
 
- .mark-no-modify a {
- 	color: red;
-	cursor: not-allowed !important;
- }

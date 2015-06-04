@@ -22,6 +22,9 @@ class MenuController extends Controller
 
 		$data["user_fname"] = $user->getUserFirstname();
 		$data["user_role"]  = $user->getUserRoleName();
+		$data["app"] = $this->container->getParameter("app");
+
+
 		$data['menu'] = $this->generateMenuAction($user->getUserRoleId());
 
 		return $data;
@@ -35,11 +38,11 @@ class MenuController extends Controller
 		$query = $em->createQuery(
 			"SELECT m
 			FROM MarkMenuBundle:Menu m
-			WHERE m.isActive = :active
-			AND m.roles < :role
+			WHERE m.isActive = 1
+			AND m.roles <= :role
 			ORDER BY m.parent ASC, m.sort ASC
 			");
-		$query->setParameters(array("active"=>1, "role"=>$user_role_id));
+		$query->setParameters(array("role"=>$user_role_id));
 
 		return $query->getResult();
 
