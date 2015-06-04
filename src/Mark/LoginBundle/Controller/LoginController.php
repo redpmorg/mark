@@ -65,7 +65,7 @@ class LoginController extends Controller
 
 		$user_role = $this->get('user.loggeduser_utils')->getUserRoleName();
 
-		$data['title'] = $user_role. " AREEA";
+		$data["title"] = $user_role. " AREEA";
 
 		return $data;
 

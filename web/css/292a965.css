@@ -6,16 +6,22 @@
  * @version $Id$
  */
 
- .navbar-nav > li > a,
+ .navbar-nav > li > a
+ {
+	padding-bottom: 5px !important;
+	padding-top: 10px !important;
+ }
+
  .navbar-header > a
  {
-	padding-top:5px !important; padding-bottom:5px !important;
+ 	padding-top:5px !important;
  }
 
  .navbar-brand
  {
 	height: 30px !important;
  }
+
  .navbar
  {
 	min-height:32px !important

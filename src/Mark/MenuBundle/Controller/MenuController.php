@@ -11,6 +11,8 @@ use Mark\MenuBundle\Entity\Menu;
 class MenuController extends Controller
 {
 
+	private $user;
+
 	/**
 	 * Index Action
 	 * @Template("MarkMenuBundle:Default:index.html.twig")
@@ -18,23 +20,25 @@ class MenuController extends Controller
 	public function indexAction()
 	{
 
-		$user = $this->get('user.loggeduser_utils');
+		$this->user = $this->get('user.loggeduser_utils');
 
-		$data["user_fname"] = $user->getUserFirstname();
-		$data["user_role"]  = $user->getUserRoleName();
+		$data["user_fname"] = $this->user->getUserFirstname();
+		$data["user_role"]  = $this->user->getUserRoleName();
+		$data["user_roleid"] = $this->user->getUserRoleId();
 		$data["app"] = $this->container->getParameter("app");
 
-
-		$data['menu'] = $this->generateMenuAction($user->getUserRoleId());
+		$data['menu'] = $this->generateMenuAction();
 
 		return $data;
 
 	}
 
-	public function generateMenuAction($user_role_id)
+	public function generateMenuAction()
 	{
 
+		$this->user = $this->get('user.loggeduser_utils');
 		$em = $this->getDoctrine()->getManager();
+
 		$query = $em->createQuery(
 			"SELECT m
 			FROM MarkMenuBundle:Menu m
@@ -42,12 +46,43 @@ class MenuController extends Controller
 			AND m.roles <= :role
 			ORDER BY m.parent ASC, m.sort ASC
 			");
-		$query->setParameters(array("role"=>$user_role_id));
+		$query->setParameters(array("role"=>$this->user->getUserRoleId()));
+
+		if(!$query) {
+			throw $this->createNotFoundException('No menu has getted!');
+		}
 
 		return $query->getResult();
 
 	}
 
+
+	public function generateMenuAllAction()
+	{
+		$this->user = $this->get('user.loggeduser_utils');
+		$em = $this->getDoctrine()->getManager();
+
+		$query = $em->createQuery(
+			"SELECT m
+			FROM MarkMenuBundle:Menu m
+			ORDER BY m.parent ASC, m.sort ASC
+			");
+
+		if(!$query) {
+			throw $this->createNotFoundException('No menu has getted!');
+		}
+		return $query->getArrayResult();
+
+	}
+
+	public function generateMenuColumnsAction()
+	{
+        $em = $this->getDoctrine()->getManager();
+        $metadata = $em->getClassMetadata('MarkMenuBundle:Menu')->getFieldNames();
+
+       	return $metadata;
+
+	}
 
 
 }

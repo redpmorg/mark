@@ -12,18 +12,26 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
+use Mark\MenuBundle\Controller\MenuController;
 
-class ManageMenuController extends Controller
+class ManageMenuController extends MenuController
 {
 
 	/**
 	 * Manage Menu Administration
 	 * @Route("/sadm/manmenu", name="_manage_menu")
-	 * @Template("MarkMenuBundle::manage_menu.html.twig")
+	 * @Template("MarkMenuBundle:Default:manage_menu.html.twig")
 	 */
 	public function indexAction()
 	{
-		return 1;
+
+
+		$data["menu_columns"] = $this->generateMenuColumnsAction();
+		$data["menu_rows"] = $this->generateMenuAllAction();
+
+		$data["title"] = "Menu Manager";
+
+		return $data;
 	}
 
 }
