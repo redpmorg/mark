@@ -17,7 +17,8 @@ class LoginController extends Controller
 	*/
 	public function indexAction()
 	{
-		return array("_message" => "PUBLIC AREEA");
+		$data["title"] = "PUBLIC AREEA";
+		return $data;
 	}
 
 
@@ -27,12 +28,15 @@ class LoginController extends Controller
 	 */
 	public function loginAction()
 	{
-
 		$authenticationUtils = $this->get('security.authentication_utils');
 		$lastError = $authenticationUtils->getLastAuthenticationError();
 		$lastUserName = $authenticationUtils->getLastUserName();
 
-		return array("_username" => $lastUserName, "_error" => $lastError);
+		$data["title"] = "PUBLIC AREEA";
+		$data["_username"] = $lastUserName;
+		$data["_error"] = $lastError;
+
+		return $data;
 	}
 
 	/**
@@ -52,22 +56,17 @@ class LoginController extends Controller
 	}
 
 	/**
-	 * @Route("/com", name="_login_succeded")
+	 * @Route("/com", name="common_login_succeded")
+	 * @Route("/adm", name="admin_login_succeded")
+	 * @Route("/sadm", name="sadmin_login_succeded")
 	 * @Template("MarkLoginBundle:Default:logged.html.twig")
 	 */
 	public function loggedAction(){
 
-		// $user_role = $this->get('security.token_storage')->getToken()->getRoles();
+		$user_role = $this->get('user.loggeduser_utils')->getUserRoleName();
 
-		// foreach($user_role as $role)
-		// {
-		// 	$role = str_replace("_", " ", substr($role->getRole(),5));
-		// }
+		$data['title'] = $user_role. " AREEA";
 
-// 		$role = new UserUtilsController;
-
-//		$data['title'] = $role->getRoleName(). " AREEA";
-$data["title"] = "Areea";
 		return $data;
 
 	}

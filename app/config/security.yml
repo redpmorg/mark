@@ -27,7 +27,7 @@ security:
                 login_path: _login
                 check_path: _login_check
                 failure_path: _login_failure
-                default_target_path: _login_succeded
+                default_target_path: common_login_succeded
                 csrf_provider: security.csrf.token_manager
                 csrf_parameter: mark_token
             logout:
