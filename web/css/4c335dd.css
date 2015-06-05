@@ -1,7 +1,26 @@
-charset "UTF-8";
 /**
  *
  * @authors Leonard LEPADATU (leonardlepadatu@yahoo.com)
  * @date    2015-05-28 16:10:28
  * @version $Id$
  */
+
+.addaction {
+	color: #3E9626 !important;
+	text-decoration: none !important;
+ }
+.addaction:hover {
+	color: #6A9B5D !important;
+ }
+
+ .editaction {
+	text-decoration: none !important;
+ }
+
+ .deleteaction {
+ 	color: #B73333 !important;
+ 	text-decoration: none !important;
+ }
+  .deleteaction:hover {
+ 	color: #B97777 !important;
+ }

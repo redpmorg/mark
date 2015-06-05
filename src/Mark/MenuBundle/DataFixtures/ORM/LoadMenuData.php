@@ -39,15 +39,15 @@ class LoadMenuData implements FixtureInterface
 	$em->flush();
 	$em->clear();
 
-	for($i=1; $i<21; $i++)
+	for($i=1; $i<41; $i++)
 	{
 		$menu = new Menu();
 		$menu->setParentId(0);
 
-		if($i<=20) {$p = 4;}
-		if($i<=15) {$p = 3;}
-		if($i<=10) {$p = 2;}
-		if($i<=5)  {$p = 1;}
+		if($i<=40) {$p = 4;}
+		if($i<=30) {$p = 3;}
+		if($i<=20) {$p = 2;}
+		if($i<=10)  {$p = 1;}
 
 		$menu->setName("Child_{$i} of {$p}");
 		$menu->setDescription("Child_{$i} of {$p} description");

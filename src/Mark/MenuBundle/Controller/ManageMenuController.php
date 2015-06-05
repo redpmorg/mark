@@ -18,19 +18,37 @@ class ManageMenuController extends MenuController
 {
 
 	/**
-	 * Manage Menu Administration
-	 * @Route("/sadm/manmenu", name="_manage_menu")
-	 * @Template("MarkMenuBundle:Default:manage_menu.html.twig")
+	 * Menu Browse
+	 * @Route("/sadm/manmenu", name="menu_manage")
+	 * @Template("MarkMenuBundle:Default:menu_browse.html.twig")
 	 */
-	public function indexAction()
+	public function menuManageAction()
 	{
-
-
 		$data["menu_columns"] = $this->generateMenuColumnsAction();
 		$data["menu_rows"] = $this->generateMenuAllAction();
 
 		$data["title"] = "Menu Manager";
 
+		return $data;
+	}
+
+	/**
+	 * Menu Edit
+	 * @Route("/sadm/manmenu/add/{id}", name="menu_add", defaults={"id" = null})
+	 * @Route("/sadm/manmenu/edit/{id}", name="menu_edit")
+	 */
+	public function menuEditAction($id)
+	{
+		$data["edit"] = $id;
+		return $data;
+	}
+
+	/**
+	 * @Route("/sadm/manmenu/delete/{id}", name="menu_delete")
+	 */
+	public function menuDeleteAction($id)
+	{
+		$data["delete"] = $id;
 		return $data;
 	}
 

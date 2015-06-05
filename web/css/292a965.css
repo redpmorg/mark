@@ -14,7 +14,7 @@
 
  .navbar-header > a
  {
- 	padding-top:5px !important;
+	padding-top:5px !important;
  }
 
  .navbar-brand
@@ -38,4 +38,11 @@
 	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false) !important;
 	background-repeat: repeat-x !important;
 	border-color: #245580 !important;
+ }
+
+ #manage-menu
+ {
+	height: 60em;
+	overflow-x: hidden !important;
+	overflow-y: scroll !important;
  }

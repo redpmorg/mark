@@ -12,7 +12,7 @@ class LoginController extends Controller
 {
 
 	/**
-	* @Route("/", name="_public")
+	* @Route("/", name="public_areea")
 	* @Template("MarkLoginBundle:Default:index.html.twig")
 	*/
 	public function indexAction()
@@ -23,7 +23,7 @@ class LoginController extends Controller
 
 
 	/**
-	 * @Route("/login", name="_login")
+	 * @Route("/login", name="login")
 	 * @Template("MarkLoginBundle:Default:login.html.twig")
 	 */
 	public function loginAction()
@@ -40,7 +40,7 @@ class LoginController extends Controller
 	}
 
 	/**
-	 * @Route("/login_check", name="_login_check")
+	 * @Route("/login_check", name="login_check")
 	 */
 	public function loginCheckAction()
 	{
@@ -48,11 +48,11 @@ class LoginController extends Controller
 	}
 
 	/**
-	 * @Route("/secured_failure", name="_login_failure")
+	 * @Route("/secured_failure", name="login_failure")
 	 */
 	public function loginFailureAction()
 	{
-		return $this->redirectToRoute('_login');
+		return $this->redirectToRoute('login');
 	}
 
 	/**

@@ -24,9 +24,9 @@ security:
             anonymous: ~
             provider: users_entity
             form_login:
-                login_path: _login
-                check_path: _login_check
-                failure_path: _login_failure
+                login_path: login
+                check_path: login_check
+                failure_path: login_failure
                 default_target_path: common_login_succeded
                 csrf_provider: security.csrf.token_manager
                 csrf_parameter: mark_token

@@ -1,0 +1,33 @@
+{% extends 'MarkLoginBundle::menu.html.twig' %}
+{% block title %}{{ title }}{% endblock %}
+	{% block body %}
+		<div class="container-fluid">
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading"><h4>{{ 'Manage menu sections'|trans }}<a href="{{ path('menu_add') }}" class="addaction pull-right"><i class="glyphicon glyphicon-plus"></i> {{ 'Add new'|trans }}</a></h4></div>
+					<div id="manage-menu" class="panel-body">
+						<table class="table table-hover table-condensed">
+							<tr>
+								{% for col in menu_columns %}
+									<th class="alert-info">{{ col|upper }}</th>
+								{% endfor %}
+								<th class="alert-info" colspan="2"></th>
+							</tr>
+							{% for row in menu_rows %}
+								<tr>
+									{% for cel in row %}
+										<td>
+											{{ cel }}
+										</td>
+									{% endfor %}
+									<td><a class="editaction" title="{{ 'Edit'|trans }}" href="{{ path('menu_edit', {'id': row.id}) }}"><i class="glyphicon glyphicon-edit"></i></a></td>
+									<td><a class="deleteaction" title="{{ 'Delete'|trans }}" href="{{ path('menu_delete', {'id': row.id}) }}"><i class="glyphicon glyphicon-remove"></i></a></td>
+								</tr>
+							{% endfor %}
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% include "MarkMenuBundle:Default:menu_edit.html.twig" %}
+	{% endblock %}
