@@ -62,6 +62,11 @@ class Users implements UserInterface, \Serializable
 	 */
 	private $user_role;
 
+	/**
+	 * @ORM\Column(name="locale", type="string", length=3)
+	 */
+	private $locale;
+
 
 
 	/**
@@ -199,14 +204,14 @@ class Users implements UserInterface, \Serializable
 	{
 		switch ($this->user_role) {
 			case 0:
-				$ur = "ROLE_USER";
-				break;
+			$ur = "ROLE_USER";
+			break;
 			case 1:
-				$ur = "ROLE_ADMIN";
-				break;
+			$ur = "ROLE_ADMIN";
+			break;
 			case 2:
-				$ur = "ROLE_SUPER_ADMIN";
-				break;
+			$ur = "ROLE_SUPER_ADMIN";
+			break;
 		}
 
 		return array($ur);
@@ -301,5 +306,29 @@ class Users implements UserInterface, \Serializable
 	public function getUserRole()
 	{
 		return $this->user_role;
+	}
+
+
+	/**
+	 * Set locale
+	 *
+	 * @param string $locale
+	 * @return Users
+	 */
+	public function setLocale($locale)
+	{
+		$this->locale = $locale;
+
+		return $this;
+	}
+
+	/**
+	 * Get locale
+	 *
+	 * @return string
+	 */
+	public function getLocale()
+	{
+		return $this->locale;
 	}
 }

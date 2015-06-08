@@ -25,7 +25,7 @@
 							<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ p.name }}</a>
 							<ul class="dropdown-menu" role="menu">
 								{% for c in menu %}
-									{% if c.parent == p.parentid %}
+									{% if c.parent == p.parent_id %}
 										<li><a href="{{ c.route }}">{{ c.name }}</a></li>
 									{% endif %}
 								{% endfor %}
@@ -42,7 +42,7 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ user_fname }} | {{ user_role }} <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
 						{% if 2 == user_roleid %}
-							<li><a href="{{ path('menu_manage') }}">Menu manager</a></li>
+							<li><a href="{{ path('menu_manage') }}">{{ 'Menu manager'|trans }}</a></li>
 							<li class="divider"></li>
 						{% endif %}
 						<li><a href="" data-toggle="modal" data-target="#about">{{ 'About'|trans }}</a></li>

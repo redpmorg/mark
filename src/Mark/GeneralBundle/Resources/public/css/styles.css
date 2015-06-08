@@ -5,12 +5,18 @@
  * @version $Id$
  */
 
-.addaction {
+ .addaction {
 	color: #3E9626 !important;
 	text-decoration: none !important;
  }
-.addaction:hover {
+
+ .addaction:hover {
 	color: #6A9B5D !important;
+ }
+
+ .addaction:focus {
+	outline: none !important;
+	outline-offset: none !important;
  }
 
  .editaction {
@@ -18,9 +24,9 @@
  }
 
  .deleteaction {
- 	color: #B73333 !important;
- 	text-decoration: none !important;
+	color: #B73333 !important;
+	text-decoration: none !important;
  }
-  .deleteaction:hover {
- 	color: #B97777 !important;
+ .deleteaction:hover {
+	color: #B97777 !important;
  }

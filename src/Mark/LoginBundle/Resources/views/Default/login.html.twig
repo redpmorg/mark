@@ -8,13 +8,13 @@
 					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-							<input type="text" class="form-control" id="username" name="_username" value="{{ _username }}" placeholder="{{ 'Username'|trans }}" aria-describedby="basic-addon1">
+							<input type="text" class="form-control" id="username" name="_username" value="{{ _username }}" placeholder="Username" aria-describedby="basic-addon1">
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon" id="basic-addon2"><i class="glyphicon glyphicon-lock"></i></span>
-							<input type="password" class="form-control" id="password" name="_password" placeholder="{{ 'Password'|trans }}" aria-describedby="basic-addon2">
+							<input type="password" class="form-control" id="password" name="_password" placeholder="Password" aria-describedby="basic-addon2">
 						</div>
 						<input type="hidden" name="mark_token" value="{{ csrf_token('authenticate') }}">
 					</div>
@@ -23,7 +23,7 @@
 						<button class="btn btn-primary center-block form-control" type="submit">Login</button>
 					</div>
 					{% if _error %}
-						<div class="alert alert-danger form-group text-center"><i class="glyphicon glyphicon-exclamation-sign"></i> {{ _error.messageKey|trans }}</div>
+						<div class="alert alert-danger form-group text-center"><i class="glyphicon glyphicon-exclamation-sign"></i> {{ _error.messageKey }}</div>
 					{% endif %}
 				</form>
 

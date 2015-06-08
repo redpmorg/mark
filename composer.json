@@ -23,7 +23,8 @@
         "helios-ag/fm-elfinder-bundle": "2.3.0",
         "twitter/bootstrap": "3.*",
         "components/jquery": "1.11.*",
-        "doctrine/doctrine-fixtures-bundle": "2.2.*"
+        "doctrine/doctrine-fixtures-bundle": "2.2.*",
+        "components/jqueryui": "1.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

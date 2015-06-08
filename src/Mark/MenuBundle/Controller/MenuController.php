@@ -19,7 +19,6 @@ class MenuController extends Controller
 	 */
 	public function indexAction()
 	{
-
 		$this->user = $this->get('user.loggeduser_utils');
 
 		$data["user_fname"] = $this->user->getUserFirstname();
@@ -33,7 +32,10 @@ class MenuController extends Controller
 
 	}
 
-	public function generateMenuAction()
+
+	// $all is true only for browsing in menuManagerAction
+	// and return all tre records
+	public function generateMenuAction($all = false)
 	{
 
 		$this->user = $this->get('user.loggeduser_utils');
@@ -46,43 +48,50 @@ class MenuController extends Controller
 			AND m.roles <= :role
 			ORDER BY m.parent ASC, m.sort ASC
 			");
+
+		if(isset($how)) {
+			$query = $em->createQuery(
+				"SELECT m
+				FROM MarkMenuBundle:Menu m
+				ORDER BY m.parent ASC, m.sort ASC
+				");
+		}
+
 		$query->setParameters(array("role"=>$this->user->getUserRoleId()));
 
 		if(!$query) {
 			throw $this->createNotFoundException('No menu has getted!');
 		}
 
-		return $query->getResult();
-
-	}
-
-
-	public function generateMenuAllAction()
-	{
-		$this->user = $this->get('user.loggeduser_utils');
-		$em = $this->getDoctrine()->getManager();
-
-		$query = $em->createQuery(
-			"SELECT m
-			FROM MarkMenuBundle:Menu m
-			ORDER BY m.parent ASC, m.sort ASC
-			");
-
-		if(!$query) {
-			throw $this->createNotFoundException('No menu has getted!');
-		}
 		return $query->getArrayResult();
 
 	}
 
+	// public function generateMenuAllAction()
+	// {
+	// 	$this->user = $this->get('user.loggeduser_utils');
+	// 	$em = $this->getDoctrine()->getManager();
+
+	// 	$query = $em->createQuery(
+	// 		"SELECT m
+	// 		FROM MarkMenuBundle:Menu m
+	// 		ORDER BY m.parent ASC, m.sort ASC
+	// 		");
+
+	// 	if(!$query) {
+	// 		throw $this->createNotFoundException('No menu has getted!');
+	// 	}
+	// 	return $query->getArrayResult();
+
+	// }
+
 	public function generateMenuColumnsAction()
 	{
-        $em = $this->getDoctrine()->getManager();
-        $metadata = $em->getClassMetadata('MarkMenuBundle:Menu')->getFieldNames();
+		$em = $this->getDoctrine()->getManager();
+		$metadata = $em->getClassMetadata('MarkMenuBundle:Menu')->getFieldNames();
 
-       	return $metadata;
+		return $metadata;
 
 	}
-
 
 }

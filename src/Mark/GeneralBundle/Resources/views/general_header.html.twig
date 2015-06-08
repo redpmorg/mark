@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Mark v2.0 | {% block title %}{% endblock %}</title>
-	{% stylesheets '@bootstrap_css' %}
+	{% stylesheets '@bootstrap_css' '@jqueryui_css' %}
 		<link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
 	{% endstylesheets %}
 	{% stylesheets '@MarkGeneralBundle/Resources/public/css/*' filter='cssrewrite' %}
@@ -15,7 +15,7 @@
 	<body style="overflow: hidden">
 		{% block topmenu %}{% endblock %}
 		{% block body %}{% endblock %}
-		{% javascripts '@jquery' '@bootstrap_js' %}
+		{% javascripts '@jquery' '@bootstrap_js' '@jqueryui' %}
 				<script type="text/javascript" src="{{ asset_url }}"></script>
 		{% endjavascripts %}
 		{% block javascripts %}{% endblock %}

@@ -5,6 +5,7 @@ imports:
 
 framework:
     #esi:             ~
+    default_locale:  "%locale%"
     translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
@@ -16,7 +17,6 @@ framework:
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
-    default_locale:  "%locale%"
     trusted_hosts:   ~
     trusted_proxies: ~
     session:
@@ -48,8 +48,7 @@ assetic:
         #     bin: "%kernel.root_dir%/Resources/node_modules/.bin/uglifyjs.cmd"
         # uglifycss:
         #     bin: "%kernel.root_dir%/Resources/node_modules/.bin/uglifycss.cmd"
-    debug: "%kernel.debug%"
-    use_controller: false
+
     assets:
         bootstrap_js:
             inputs:
@@ -79,10 +78,18 @@ assetic:
             inputs:
                 - %kernel.root_dir%/../vendor/twitter/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
             output: "fonts/glyphicons-halflings-regular.woff2"
-
         jquery:
             inputs:
                 - %kernel.root_dir%/../vendor/components/jquery/jquery.min.js
+        jqueryui:
+            inputs:
+                - %kernel.root_dir%/../vendor/components/jqueryui/jquery-ui.min.js
+        jqueryui_css:
+            inputs:
+                - %kernel.root_dir%/../vendor/components/jqueryui/themes/base/jquery-ui.min.css
+            filters: [cssrewrite]
+
+
 
 # Doctrine Configuration
 doctrine:

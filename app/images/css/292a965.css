@@ -1,0 +1,48 @@
+@charset "UTF-8";
+/**
+ *
+ * @authors Leonard LEPADATU (leonardlepadatu@yahoo.com)
+ * @date    2015-06-02 17:25:47
+ * @version $Id$
+ */
+
+ .navbar-nav > li > a
+ {
+	padding-bottom: 5px !important;
+	padding-top: 10px !important;
+ }
+
+ .navbar-header > a
+ {
+	padding-top:5px !important;
+ }
+
+ .navbar-brand
+ {
+	height: 30px !important;
+ }
+
+ .navbar
+ {
+	min-height:32px !important
+ }
+
+ #about .modal-content
+ {
+	color: #fff !important;
+	background-image: -webkit-linear-gradient(top,#082D4D 0,#6399C7 100%) !important;
+	background-image: -o-linear-gradient(top,#082D4D 0,#6399C7 100%) !important;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#082D4D),to(#6399C7)) !important;
+	background-image: linear-gradient(to bottom,#082D4D 0,#6399C7 100%) !important;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff082D4D', endColorstr='#ff6399C7', GradientType=0) !important;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false) !important;
+	background-repeat: repeat-x !important;
+	border-color: #245580 !important;
+ }
+
+ #manage-menu
+ {
+	height: 60em;
+	overflow-x: hidden !important;
+	overflow-y: scroll !important;
+ }

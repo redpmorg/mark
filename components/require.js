@@ -2023,8 +2023,20 @@ var components = {
         {
             "name": "jquery",
             "main": "jquery-built.js"
+        },
+        {
+            "name": "jquery-ui",
+            "main": "jquery-ui-built.js"
         }
     ],
+    "shim": {
+        "jquery-ui": {
+            "deps": [
+                "jquery"
+            ],
+            "exports": "jQuery"
+        }
+    },
     "baseUrl": "components"
 };
 if (typeof require !== "undefined" && require.config) {
