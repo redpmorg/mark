@@ -33,8 +33,7 @@ class MenuController extends Controller
 	}
 
 
-	// $all is true only for browsing in menuManagerAction
-	// and return all tre records
+	// @param $all return all the records
 	public function generateMenuAction($all = false)
 	{
 
@@ -66,24 +65,6 @@ class MenuController extends Controller
 		return $query->getArrayResult();
 
 	}
-
-	// public function generateMenuAllAction()
-	// {
-	// 	$this->user = $this->get('user.loggeduser_utils');
-	// 	$em = $this->getDoctrine()->getManager();
-
-	// 	$query = $em->createQuery(
-	// 		"SELECT m
-	// 		FROM MarkMenuBundle:Menu m
-	// 		ORDER BY m.parent ASC, m.sort ASC
-	// 		");
-
-	// 	if(!$query) {
-	// 		throw $this->createNotFoundException('No menu has getted!');
-	// 	}
-	// 	return $query->getArrayResult();
-
-	// }
 
 	public function generateMenuColumnsAction()
 	{

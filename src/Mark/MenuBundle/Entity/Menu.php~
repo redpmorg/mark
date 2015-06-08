@@ -21,12 +21,22 @@ class Menu
 	 */
 	private $id;
 
+	/**
+	 * @ORM\OneToMany(targetEntity="Menu", mappedBy="parent_id")
+	 */
+	private $menuChildren;
 
 	/**
 	 * @var integer
 	 * @ORM\Column(name="parent_id", type="integer")
 	 */
 	private $parent_id;
+
+	 /*
+	  * @ORM\ManyToOne(targetEntity="Menu", inversedBy="id")
+	  * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
+	  */
+	private $menuParent;
 
 	/**
 	 * @var string
@@ -71,6 +81,11 @@ class Menu
 	 */
 	private $sort;
 
+
+	public function __construct()
+	{
+		$this->menuChildren = new Doctrine\Common\Collections\ArrayCollection();
+	}
 
 
 	/**

@@ -39,7 +39,7 @@ class LoadMenuData implements FixtureInterface
 	$em->flush();
 	$em->clear();
 
-	for($i=1; $i<41; $i++)
+	for($i=5; $i<41; $i++)
 	{
 		$menu = new Menu();
 		$menu->setParentId(0);

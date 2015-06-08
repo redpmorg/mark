@@ -17,7 +17,7 @@
 							</thead>
 							<tbody>
 								{% for row in menu_rows %}
-									<tr id="menu_{{ row.id }}">
+									<tr id="srt_{{ row.id }}">
 										{% for key,cel in row %}
 											<td>
 												{% if "roles" == key %}
@@ -29,7 +29,7 @@
 														SUPER ADMIN
 													{% endif %}
 													{% elseif "sort" == key %}
-													<i class="glyphicon glyphicon-move"></i>
+													<i class="glyphicon glyphicon-move"></i> {{ cel }}
 													{% else %}
 													{{ cel }}
 												{% endif %}
@@ -56,7 +56,7 @@
 				$("tbody").sortable({
 					update: function (event, ui) {
 						// sortable elements must be in form name_number ex: row_1, row_2
-						var data = $(this).sortable('serialize', { key: "menu" } );
+						var data = $(this).sortable('serialize', { key: "srt" } );
 						$.ajax({
 							data: data,
 							type: 'POST',

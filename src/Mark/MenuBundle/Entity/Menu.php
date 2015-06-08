@@ -3,7 +3,7 @@
 namespace Mark\MenuBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Menu
  *
@@ -21,12 +21,22 @@ class Menu
 	 */
 	private $id;
 
+	/**
+	 * @ORM\OneToMany(targetEntity="Menu", mappedBy="parent_id")
+	 */
+	private $menuChildren;
 
 	/**
 	 * @var integer
 	 * @ORM\Column(name="parent_id", type="integer")
 	 */
 	private $parent_id;
+
+	 /*
+	  * @ORM\ManyToOne(targetEntity="Menu", inversedBy="id")
+	  * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
+	  */
+	private $menuParent;
 
 	/**
 	 * @var string
@@ -71,6 +81,11 @@ class Menu
 	 */
 	private $sort;
 
+
+	public function __construct()
+	{
+		$this->menuChildren = new ArrayCollection();
+	}
 
 
 	/**
@@ -253,4 +268,37 @@ class Menu
 	{
 		return $this->parent_id;
 	}
+
+    /**
+     * Add menuChildren
+     *
+     * @param \Mark\MenuBundle\Entity\Menu $menuChildren
+     * @return Menu
+     */
+    public function addMenuChild(\Mark\MenuBundle\Entity\Menu $menuChildren)
+    {
+        $this->menuChildren[] = $menuChildren;
+
+        return $this;
+    }
+
+    /**
+     * Remove menuChildren
+     *
+     * @param \Mark\MenuBundle\Entity\Menu $menuChildren
+     */
+    public function removeMenuChild(\Mark\MenuBundle\Entity\Menu $menuChildren)
+    {
+        $this->menuChildren->removeElement($menuChildren);
+    }
+
+    /**
+     * Get menuChildren
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMenuChildren()
+    {
+        return $this->menuChildren;
+    }
 }

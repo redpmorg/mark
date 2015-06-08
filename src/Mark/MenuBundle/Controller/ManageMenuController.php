@@ -8,14 +8,13 @@
 
 namespace Mark\MenuBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Symfony\Component\HttpFoundation\Response;
 
 use Mark\MenuBundle\Controller\MenuController;
-use Mark\Entity\Menu;
+use Mark\MenuBundle\Entity\Menu;
 
 class ManageMenuController extends MenuController
 {
@@ -62,18 +61,20 @@ class ManageMenuController extends MenuController
 	{
 
 		$data = $this->get('request')->getContent();
-		$array = preg_split("/[&]/", preg_replace("/[menu=]/", "", $data));
-
+		$array = preg_split("/[&]/", preg_replace("/[srt=]/", "", $data));
 		$em = $this->getDoctrine()->getManager();
 
 		$i = 1;
 		foreach ($array as $a ) {
-			$q = $em->createQuery("UPDATE Mark\MenuBundle\Entity\Menu m SET m.sort = ".$i." WHERE m.sort = ".$a);
-			$em->persist($q);
+echo $a ."->".$i."<br>";
+			$em->createQuery('update Mark\MenuBundle\Entity\Menu m set m.sort = '.$i.' where m.sort = '.$a)
+			->execute();
+
 			$i++;
 		}
 
-		$em->flush();
+
+//		$em->flush();
 		$em->clear();
 
 		return new Response('Done');
