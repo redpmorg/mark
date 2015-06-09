@@ -22,21 +22,10 @@ class Menu
 	private $id;
 
 	/**
-	 * @ORM\OneToMany(targetEntity="Menu", mappedBy="parent_id")
-	 */
-	private $menuChildren;
-
-	/**
 	 * @var integer
 	 * @ORM\Column(name="parent_id", type="integer")
 	 */
 	private $parent_id;
-
-	 /*
-	  * @ORM\ManyToOne(targetEntity="Menu", inversedBy="id")
-	  * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
-	  */
-	private $menuParent;
 
 	/**
 	 * @var string
@@ -80,13 +69,6 @@ class Menu
 	 * @ORM\Column(name="sort", type="integer")
 	 */
 	private $sort;
-
-
-	public function __construct()
-	{
-		$this->menuChildren = new ArrayCollection();
-	}
-
 
 	/**
 	 * Get id
@@ -234,8 +216,6 @@ class Menu
 		return $this->sort;
 	}
 
-
-
 	/**
 	 * Get sort
 	 *
@@ -246,59 +226,27 @@ class Menu
 		return $this->sort;
 	}
 
-	/**
-	 * Set parent_id
-	 *
-	 * @param integer $parentId
-	 * @return Menu
-	 */
-	public function setParentId($parentId)
-	{
-		$this->parent_id = $parentId;
-
-		return $this;
-	}
-
-	/**
-	 * Get parent_id
-	 *
-	 * @return integer
-	 */
-	public function getParentId()
-	{
-		return $this->parent_id;
-	}
 
     /**
-     * Add menuChildren
+     * Set parent_id
      *
-     * @param \Mark\MenuBundle\Entity\Menu $menuChildren
+     * @param integer $parentId
      * @return Menu
      */
-    public function addMenuChild(\Mark\MenuBundle\Entity\Menu $menuChildren)
+    public function setParentId($parentId)
     {
-        $this->menuChildren[] = $menuChildren;
+        $this->parent_id = $parentId;
 
         return $this;
     }
 
     /**
-     * Remove menuChildren
+     * Get parent_id
      *
-     * @param \Mark\MenuBundle\Entity\Menu $menuChildren
+     * @return integer 
      */
-    public function removeMenuChild(\Mark\MenuBundle\Entity\Menu $menuChildren)
+    public function getParentId()
     {
-        $this->menuChildren->removeElement($menuChildren);
-    }
-
-    /**
-     * Get menuChildren
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getMenuChildren()
-    {
-        return $this->menuChildren;
+        return $this->parent_id;
     }
 }

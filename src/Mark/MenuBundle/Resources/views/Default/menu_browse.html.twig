@@ -4,7 +4,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="panel panel-default">
-					<div class="panel-heading"><h4>{{ 'Manage menu sections'|trans }}<a href="" class="addaction pull-right" data-toggle="modal" data-target="#edit-menu"><i title="{{ 'Add'|trans }}" class="glyphicon glyphicon-plus"></i> {{ 'Add'|trans }}</a></h4></div>
+					<div class="panel-heading"><h4>{{ 'Manage menu sections'|trans }}<a href="" class="addaction pull-right" data-toggle="modal" data-target="#myModal"><i title="{{ 'Add'|trans }}" class="glyphicon glyphicon-plus"></i> {{ 'Add'|trans }}</a></h4></div>
 					<div id="manage-menu" class="panel-body">
 						<table class="table table-hover table-condensed">
 							<thead>
@@ -35,7 +35,7 @@
 												{% endif %}
 											</td>
 										{% endfor %}
-										<td><a title="{{ 'Add'|trans }}" class="editaction" data-toggle="modal" data-target="#edit-menu"><i class="glyphicon glyphicon-edit"></i></a></td>
+										<td><a title="{{ 'Add'|trans }}" class="editaction" data-toggle="modal" data-target="#myModal" data-row-id={{ row.id }}><i class="glyphicon glyphicon-edit"></i></a></td>
 										<td><a class="deleteaction" title="{{ 'Delete'|trans }}" href="{{ path('menu_delete', {'id': row.id}) }}"><i class="glyphicon glyphicon-remove"></i></a></td>
 									</tr>
 								{% endfor %}
@@ -45,27 +45,39 @@
 				</div>
 			</div>
 		</div>
-
+		{# include modal form for edit/add #}
 		{% include "MarkMenuBundle:Default:menu_edit.html.twig" %}
-
 	{% endblock %}
 
 	{% block javascripts %}
 		<script type="text/javascript">
-			$(function() {
-				$("tbody").sortable({
-					update: function (event, ui) {
-						// sortable elements must be in form name_number ex: row_1, row_2
-						var data = $(this).sortable('serialize', { key: "srt" } );
-						$.ajax({
-							data: data,
-							type: 'POST',
-							url: '{{ path("menu_sort") }}'
-						})
-					}
-				});
-				$("tbody").disableSelection();
+		/* @require jQuery
+		 * Serialize and store the new order
+		 * Sortable elements must have "srt_" id prefix ex: id="srt_1"
+		 */
+
+		 $(function() {
+			$("tbody").sortable({
+				update: function (event, ui) {
+					var data = $(this).sortable('serialize', { key: "srt" } );
+					$.ajax({
+						data: data,
+						type: 'POST',
+						url: '{{ path("menu_sort") }}'
+					})
+				}
 			});
+
+			$("tbody").disableSelection();
+		 });
+
+
+		 $('#myModal').on('show.bs.modal', function(event) {
+			var b = $(event.relatedTarget);
+			console.log(b.attr('data-row-id'));
+		 });
+
+
 		</script>
 	{% endblock %}
 

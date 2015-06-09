@@ -22,7 +22,7 @@
 				{% for p in menu %}
 					{% if p.parent == 0 %}
 						<li class="dropdown">
-							<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ p.name }}</a>
+							<a href="" data-link="{{ p.route }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ p.name }}</a>
 							<ul class="dropdown-menu" role="menu">
 								{% for c in menu %}
 									{% if c.parent == p.parent_id %}
@@ -30,7 +30,6 @@
 									{% endif %}
 								{% endfor %}
 							</ul>
-
 						</li>
 					{% endif %}
 				{% endfor %}
@@ -83,3 +82,28 @@
 		</div>
 	</div>
 </div>
+
+{% block javascripts %}
+	<script type="text/javascript">
+	/*
+	 * @require Vanilla JS
+	 * Clear mainMenus (parents) if there are not childrens
+	 */
+	 var menuBlocks = document.querySelectorAll(".dropdown-menu");
+	 var menuBlocksLength = menuBlocks.length;
+	 var i = 0;
+	 for(i; i < menuBlocksLength; i++) {
+		var m = menuBlocks[i];
+		if(0 == m.children.length) {
+			m.parentElement.className="";
+			m.className="";
+			m = m.previousSibling.previousSibling;
+			m.href = m.dataset.link;
+			m.dataset.toggle="";
+			m.setAttribute("role", "");
+			m.setAttribute("aria-expanded", "");
+			m.className="";
+		}
+	 }
+	</script>
+{% endblock %}

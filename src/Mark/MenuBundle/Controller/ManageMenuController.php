@@ -14,7 +14,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 
 use Mark\MenuBundle\Controller\MenuController;
-use Mark\MenuBundle\Entity\Menu;
 
 class ManageMenuController extends MenuController
 {
@@ -59,22 +58,15 @@ class ManageMenuController extends MenuController
 	 */
 	public function menuSortAction()
 	{
-
 		$data = $this->get('request')->getContent();
 		$array = preg_split("/[&]/", preg_replace("/[srt=]/", "", $data));
 		$em = $this->getDoctrine()->getManager();
 
-		$i = 1;
-		foreach ($array as $a ) {
-echo $a ."->".$i."<br>";
-			$em->createQuery('update Mark\MenuBundle\Entity\Menu m set m.sort = '.$i.' where m.sort = '.$a)
-			->execute();
-
-			$i++;
+		$order = 1;
+		foreach($array as $id) {
+			$em->createQuery('update Mark\MenuBundle\Entity\Menu m set m.sort = '.$order .' where m.id = ' .$id )->execute();
+			$order++;
 		}
-
-
-//		$em->flush();
 		$em->clear();
 
 		return new Response('Done');
