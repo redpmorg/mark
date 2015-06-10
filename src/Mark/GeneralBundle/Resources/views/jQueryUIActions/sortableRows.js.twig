@@ -1,0 +1,21 @@
+{% block javascripts %}
+{#
+ # @require JQuery
+ # Serialize and store the new order
+ # Sortable elements must have "srt_" id prefix ex: id="srt_1"
+ #}
+
+$(function() {
+	 $("{{ sortable_container }}").sortable({
+		 update: function (event, ui) {
+		 var data = $(this).sortable('serialize', { key: "{{ sortable_key }}" } );
+		 $.ajax({
+		 data: data,
+		 type: 'POST',
+		 url: '{{ path( sortable_route ) }}'
+		})
+	}
+});
+	$("{{ sortable_container }}").disableSelection();
+});
+{% endblock %}

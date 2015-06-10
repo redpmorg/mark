@@ -353,4 +353,27 @@ class Users implements UserInterface, \Serializable
 		return $this;
 	}
 
+
+    /**
+     * Set user_param
+     *
+     * @param array $userParam
+     * @return Users
+     */
+    public function setUserParam($userParam)
+    {
+        $this->user_param = $userParam;
+
+        return $this;
+    }
+
+    /**
+     * Get user_param
+     *
+     * @return array 
+     */
+    public function getUserParam()
+    {
+        return $this->user_param;
+    }
 }

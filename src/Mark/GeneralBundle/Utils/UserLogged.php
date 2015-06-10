@@ -6,11 +6,9 @@
  * @version $Id$
  */
 
-namespace Mark\LoginBundle\Controller;
+namespace Mark\GeneralBundle\Utils;
 
-use Mark\LoginBundle\Entity\Users;
-
-class UserUtilsController
+class UserLogged
 {
 
 	private $token;
@@ -18,7 +16,7 @@ class UserUtilsController
 	/**
 	 * Construct $token from DI services container
 	 *
-	 * @param abject $token Injected by services container
+	 * @param object $token Injected by services container
 	 */
 	public function __construct($token)
 	{

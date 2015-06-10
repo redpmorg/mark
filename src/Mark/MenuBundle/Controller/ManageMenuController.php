@@ -10,10 +10,8 @@ namespace Mark\MenuBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\HttpFoundation\Response;
 
 use Mark\MenuBundle\Controller\MenuController;
-use Mark\GeneralBundle\Utils\Users AS UsersUtils;
 
 class ManageMenuController extends MenuController
 {
@@ -58,24 +56,18 @@ class ManageMenuController extends MenuController
 	 * Sorting rows by jOueryUI sortable
 	 * @Route("/sadm/manmenu/rowsort", name="menu_rowsort")
 	 */
-	public function menuRowSortAction()
+	public function menuRowSort()
 	{
 		$data = $this->get('request')->getContent();
-		$array = preg_split("/[&]/", preg_replace("/[srt=]/", "", $data));
-		$em = $this->getDoctrine()->getManager();
+		$entityName = "Mark\MenuBundle\Entity\Menu";
 
-		$order = 1;
-		foreach($array as $id) {
-			$em->createQuery('
-				UPDATE Mark\MenuBundle\Entity\Menu m set m.sort = '
-				.$order
-				.' where m.id = '
-				.$id )->execute();
-			$order++;
-		}
-		$em->clear();
+		$this->get('user.general_utils')
+		->setSortableRowsOrder($entityName, $data);
 
-		return new Response('Done');
+		// exit because controller must return an
+		// response and I don't wanna give him :)
+		exit;
+
 	}
 
 	/**

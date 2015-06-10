@@ -1,78 +1,78 @@
 {% extends 'MarkLoginBundle::menu.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
-	{% block body %}
-		<div class="container-fluid">
-			<div class="row">
-				<div class="panel panel-default">
-					<div class="panel-heading"><h4>{{ 'Manage menu sections'|trans }} | <a class="">{{ 'Change menu image'|trans }}</a> <a href="" class="addaction pull-right" data-toggle="modal" data-target="#myModal"><i title="{{ 'Add'|trans }}" class="glyphicon glyphicon-plus"></i> {{ 'Add'|trans }}</a></h4></div>
-					<div id="manage-menu" class="panel-body">
-						<table class="table table-hover table-condensed">
-							<thead>
-								<tr>
-									{% for col in menu_columns %}
-										<th class="alert-info"><a href=" {{ path('menu_colsort', {'param': 'm_sortcol', 'value': col}) }} ">{{ col|upper }}</a></th>
-									{% endfor %}
-									<th class="alert-info" colspan="2"></th>
-								</tr>
-							</thead>
-							<tbody>
-								{% for row in menu_rows %}
-									<tr id="srt_{{ row.id }}">
-										{% for key,cel in row %}
-											<td>
-												{% if "roles" == key %}
-													{% if cel == 0 %}
-														USER
-														{% elseif cel == 1 %}
-														ADMIN
-														{% elseif cel == 2 %}
-														SUPER ADMIN
-													{% endif %}
-													{% elseif "sort" == key %}
-													<i class="glyphicon glyphicon-move"></i> {{ cel }}
-													{% else %}
-													{{ cel }}
-												{% endif %}
-											</td>
-										{% endfor %}
-										<td><a title="{{ 'Add'|trans }}" class="editaction" data-toggle="modal" data-target="#myModal" data-row-id={{ row.id }}><i class="glyphicon glyphicon-edit"></i></a></td>
-										<td><a class="deleteaction" title="{{ 'Delete'|trans }}" href="{{ path('menu_delete', {'id': row.id}) }}"><i class="glyphicon glyphicon-remove"></i></a></td>
-									</tr>
+
+{# set add/edit modal properties #}
+{% set modal_id = "menuModal" %}
+{% set modal_title = "Menu manager" %}
+
+{# set delete modal properties #}
+
+
+
+{# set sortable jQueryUI properties #}
+{% set sortable_container = "tbody" %}
+{% set sortable_key = "srt" %}
+{% set sortable_route = "menu_rowsort" %}
+
+
+
+{% block body %}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="panel panel-default">
+				<div class="panel-heading"><h4>{{ 'Manage menu sections'|trans }} | <a class="">{{ 'Change menu image'|trans }}</a> <a href="" class="addaction pull-right" data-toggle="modal" data-target="#{{ modal_id }}"><i title="{{ 'Add'|trans }}" class="glyphicon glyphicon-plus"></i> {{ 'Add'|trans }}</a></h4></div>
+				<div id="manage-menu" class="panel-body">
+					<table class="table table-hover table-condensed">
+						<thead>
+							<tr>
+								{% for col in menu_columns %}
+									<th class="alert-info"><a href=" {{ path('menu_colsort', {'param': 'm_sortcol', 'value': col}) }} ">{{ col|upper }}</a></th>
 								{% endfor %}
-							</tbody>
-						</table>
-					</div>
+								<th class="alert-info" colspan="2"></th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for row in menu_rows %}
+								<tr id="{{ sortable_key ~ "_" ~ row.id }}">
+									{% for key,cel in row %}
+										<td>
+											{% if "roles" == key %}
+												{% if cel == 0 %}
+													USER
+													{% elseif cel == 1 %}
+													ADMIN
+													{% elseif cel == 2 %}
+													SUPER ADMIN
+												{% endif %}
+												{% elseif "sort" == key %}
+												<i class="glyphicon glyphicon-move"></i> {{ cel }}
+												{% else %}
+												{{ cel }}
+											{% endif %}
+										</td>
+									{% endfor %}
+									<td><a title="{{ 'Edit'|trans }}" class="editaction" data-toggle="modal" data-target="#{{ modal_id }}" data-row-id={{ row.id }}><i class="glyphicon glyphicon-edit"></i></a></td>
+									<td><a class="deleteaction" title="{{ 'Delete'|trans }}" href="{{ path('menu_delete', {'id': row.id}) }}"><i class="glyphicon glyphicon-remove"></i></a></td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
-		{# include modal form for edit/add #}
-		{% include "MarkMenuBundle:Default:menu_edit.html.twig" %}
-	{% endblock %}
+	</div>
+	{# include modal form for edit/add #}
+	{% include "MarkMenuBundle:Default:menu_edit.html.twig" %}
+
+	{% use "MarkGeneralBundle:jQueryUIActions:sortableRows.js.twig" with javascripts as sortable_rows %}
+	{% use "MarkGeneralBundle:bootstrapActions:deleteModal.js.twig" with javascripts as delete_modal %}
 
 	{% block javascripts %}
 		<script type="text/javascript">
-		/* @require jQuery
-		 * Serialize and store the new order
-		 * Sortable elements must have "srt_" id prefix ex: id="srt_1"
-		 */
-		 $(function() {
-			$("tbody").sortable({
-				update: function (event, ui) {
-					var data = $(this).sortable('serialize', { key: "srt" } );
-					$.ajax({
-						data: data,
-						type: 'POST',
-						url: '{{ path("menu_rowsort") }}'
-					})
-				}
-			});
-
-			$("tbody").disableSelection();
-		 });
-		 $('#myModal').on('show.bs.modal', function(event) {
-			var b = $(event.relatedTarget);
-			console.log(b.attr('data-row-id'));
-		 });
+			{{ block('sortable_rows') }}
+			{{ block('delete_modal') }}
 		</script>
 	{% endblock %}
+
+{% endblock %}
 

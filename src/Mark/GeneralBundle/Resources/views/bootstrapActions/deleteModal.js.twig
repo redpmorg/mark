@@ -1,5 +1,5 @@
-{# Edit Menu #}
-<div class="modal fade" id="{{ modal_id }}" tabindex="-1" role="dialog" aria-labelledby="modal-header" aria-hidden="true">
+{% block deleteModal %}
+	<div class="modal fade" id="{{ modal_id }}" tabindex="-1" role="dialog" aria-labelledby="modal-header" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -73,3 +73,15 @@
 		</div>
 	</div>
 </div>
+{% endblock %}
+{% block javascripts %}
+	{#
+	# @require Bootstrap 3.3.*
+	# Inheritance in modal of target button id
+	#}
+
+	$("{{ modal_id }}").on('show.bs.modal', function(event) {
+	var b = $(event.relatedTarget);
+	console.log(b.attr('data-row-id'));
+});
+{% endblock %}

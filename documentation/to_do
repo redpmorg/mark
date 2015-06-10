@@ -1,0 +1,16 @@
+GeneralBundle
+ - externalizeaza LoginBundle\Controller\UserUtilsController in GeneralBundle\Utils\Users
+ - externalizeaza sortarea randurilor in corelatie cu jQueryUI sortable
+
+LoginBundle
+ - management useri
+      - add
+      - edit
+      - delete
+
+Meniu
+ - schimbare imagine meniu
+ - management menus
+      - add
+      - edit
+      - delete

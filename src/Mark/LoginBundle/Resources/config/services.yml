@@ -1,13 +1,6 @@
 parameters:
 
 services:
-    security.authentication_utils:
-        class: Symfony\Component\Security\Http\Authentication\AuthenticationUtils
-        arguments: ["@request_stack"]
-
-    user.loggeduser_utils:
-        class: Mark\LoginBundle\Controller\UserUtilsController
-        arguments: ["@security.token_storage"]
 
     app.locale_listener:
         class: Mark\LoginBundle\EventListener\LocaleListener

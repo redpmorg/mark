@@ -1,4 +1,13 @@
 services:
+
+    security.authentication_utils:
+        class: Symfony\Component\Security\Http\Authentication\AuthenticationUtils
+        arguments: ["@request_stack"]
+
     user.general_utils:
-        class: Mark\GeneralBundle\Utils\Users
+        class: Mark\GeneralBundle\Utils\UserActions
         arguments: [@doctrine.orm.entity_manager, @user.loggeduser_utils]
+
+    user.loggeduser_utils:
+        class: Mark\GeneralBundle\Utils\UserLogged
+        arguments: [@security.token_storage]
