@@ -4,13 +4,13 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="panel panel-default">
-					<div class="panel-heading"><h4>{{ 'Manage menu sections'|trans }}<a href="" class="addaction pull-right" data-toggle="modal" data-target="#myModal"><i title="{{ 'Add'|trans }}" class="glyphicon glyphicon-plus"></i> {{ 'Add'|trans }}</a></h4></div>
+					<div class="panel-heading"><h4>{{ 'Manage menu sections'|trans }} | <a class="">{{ 'Change menu image'|trans }}</a> <a href="" class="addaction pull-right" data-toggle="modal" data-target="#myModal"><i title="{{ 'Add'|trans }}" class="glyphicon glyphicon-plus"></i> {{ 'Add'|trans }}</a></h4></div>
 					<div id="manage-menu" class="panel-body">
 						<table class="table table-hover table-condensed">
 							<thead>
 								<tr>
 									{% for col in menu_columns %}
-										<th class="alert-info">{{ col|upper }}</th>
+										<th class="alert-info"><a href=" {{ path('menu_colsort', {'param': 'm_sortcol', 'value': col}) }} ">{{ col|upper }}</a></th>
 									{% endfor %}
 									<th class="alert-info" colspan="2"></th>
 								</tr>
@@ -55,7 +55,6 @@
 		 * Serialize and store the new order
 		 * Sortable elements must have "srt_" id prefix ex: id="srt_1"
 		 */
-
 		 $(function() {
 			$("tbody").sortable({
 				update: function (event, ui) {
@@ -63,21 +62,17 @@
 					$.ajax({
 						data: data,
 						type: 'POST',
-						url: '{{ path("menu_sort") }}'
+						url: '{{ path("menu_rowsort") }}'
 					})
 				}
 			});
 
 			$("tbody").disableSelection();
 		 });
-
-
 		 $('#myModal').on('show.bs.modal', function(event) {
 			var b = $(event.relatedTarget);
 			console.log(b.attr('data-row-id'));
 		 });
-
-
 		</script>
 	{% endblock %}
 

@@ -32,47 +32,56 @@ class MenuController extends Controller
 
 	}
 
-
-	// @param $all return all the records
-	public function generateMenuAction($all = false)
+	/**
+	 * Build menu query results
+	 * @param  boolean $all   	If false, generate query for MenuBar else for MenuBrowse
+	 * @return array
+	 */
+	public function generateMenuAction($all = FALSE)
 	{
 
 		$this->user = $this->get('user.loggeduser_utils');
+		$order = "";
+
 		$em = $this->getDoctrine()->getManager();
 
-		$query = $em->createQuery(
-			"SELECT m
-			FROM MarkMenuBundle:Menu m
-			WHERE m.isActive = 1
-			AND m.roles <= :role
-			ORDER BY m.parent ASC, m.sort ASC
-			");
-
-		if(isset($how)) {
-			$query = $em->createQuery(
-				"SELECT m
-				FROM MarkMenuBundle:Menu m
-				ORDER BY m.parent ASC, m.sort ASC
-				");
+		$query_string = "SELECT m FROM MarkMenuBundle:Menu m ";
+		if(!$all) {
+			$query_string .= "WHERE m.isActive = 1 AND m.roles <= :role ";
+		}
+		$query_string .= "ORDER BY ";
+		$sortCol = $this->user->getUserParameter();
+		if($sortCol) {
+			$sortCol = $sortCol['m_sortcol'];
+		}
+		if(!$sortCol) {
+			$query_string .= "m.parent ASC, m.sort ASC ";
+		} else {
+			$query_string .= "m." . $sortCol . " ASC ";
 		}
 
-		$query->setParameters(array("role"=>$this->user->getUserRoleId()));
+		$query = $em->createQuery($query_string);
+
+		if(!$all) {
+			$query->setParameters(array("role"=>$this->user->getUserRoleId()));
+		}
 
 		if(!$query) {
 			throw $this->createNotFoundException('No menu has getted!');
 		}
 
 		return $query->getArrayResult();
-
 	}
 
+	/**
+	 * Build menu columns
+	 *
+	 * @return  objects
+	 */
 	public function generateMenuColumnsAction()
 	{
 		$em = $this->getDoctrine()->getManager();
-		$metadata = $em->getClassMetadata('MarkMenuBundle:Menu')->getFieldNames();
-
-		return $metadata;
-
+		return $em->getClassMetadata('MarkMenuBundle:Menu')->getFieldNames();
 	}
 
 }

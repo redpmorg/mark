@@ -10,23 +10,23 @@ namespace Mark\MenuBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-
 use Symfony\Component\HttpFoundation\Response;
 
 use Mark\MenuBundle\Controller\MenuController;
+use Mark\GeneralBundle\Utils\Users AS UsersUtils;
 
 class ManageMenuController extends MenuController
 {
 
 	/**
 	 * Menu Browse
-	 * @Route("/sadm/manmenu", name="menu_manage")
+	 * @Route("/sadm/manmenu/", name="menu_manage")
 	 * @Template("MarkMenuBundle:Default:menu_browse.html.twig")
 	 */
 	public function menuManageAction()
 	{
 		$data["menu_columns"] = $this->generateMenuColumnsAction();
-		$data["menu_rows"] = $this->generateMenuAction(true);
+		$data["menu_rows"] = $this->generateMenuAction();
 
 		$data["title"] = "Menu Manager";
 
@@ -45,6 +45,7 @@ class ManageMenuController extends MenuController
 	}
 
 	/**
+	 * Menu Delete
 	 * @Route("/sadm/manmenu/delete/{id}", name="menu_delete")
 	 */
 	public function menuDeleteAction($id)
@@ -54,9 +55,10 @@ class ManageMenuController extends MenuController
 	}
 
 	/**
-	 * @Route("/sadm/manmenu/sort", name="menu_sort")
+	 * Sorting rows by jOueryUI sortable
+	 * @Route("/sadm/manmenu/rowsort", name="menu_rowsort")
 	 */
-	public function menuSortAction()
+	public function menuRowSortAction()
 	{
 		$data = $this->get('request')->getContent();
 		$array = preg_split("/[&]/", preg_replace("/[srt=]/", "", $data));
@@ -64,12 +66,29 @@ class ManageMenuController extends MenuController
 
 		$order = 1;
 		foreach($array as $id) {
-			$em->createQuery('update Mark\MenuBundle\Entity\Menu m set m.sort = '.$order .' where m.id = ' .$id )->execute();
+			$em->createQuery('
+				UPDATE Mark\MenuBundle\Entity\Menu m set m.sort = '
+				.$order
+				.' where m.id = '
+				.$id )->execute();
 			$order++;
 		}
 		$em->clear();
 
 		return new Response('Done');
+	}
+
+	/**
+	 *  !!!!!!!!   EXTERNALIZEAZA ASTA IN GENERAL BUNDLE ( trimite numele param si data) !!!!!
+	 * Sorting by columns
+	 * @Route("/sadm/manmenu/colSort/{param}/{value}", name="menu_colsort")
+	 */
+	public function menuColSort($param, $value)
+	{
+
+		$this->get('user.general_utils')->setUserParameter($param, $value);
+
+		return $this->redirectToRoute('menu_manage');
 	}
 
 }

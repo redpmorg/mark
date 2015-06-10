@@ -19,7 +19,7 @@ class Users implements UserInterface, \Serializable
 	 *
 	 * @ORM\Column(name="id", type="integer")
 	 * @ORM\Id
-	 * @ORM\GeneratedValue(strategy="IDENTITY")
+	 * @ORM\GeneratedValue(strategy="AUTO")
 	 */
 	private $id;
 
@@ -32,7 +32,6 @@ class Users implements UserInterface, \Serializable
 	 * @ORM\Column(name="lastName", type="string", length=50)
 	 */
 	private $lastname;
-
 
 	/**
 	 * @ORM\Column(name="username", type="string", length=50, unique=true, nullable=false)
@@ -67,7 +66,10 @@ class Users implements UserInterface, \Serializable
 	 */
 	private $locale;
 
-
+	/**
+	 * @ORM\Column(name="user_param", type="array", nullable=true)
+	 */
+	private $user_param;
 
 	/**
 	 * Get id
@@ -260,8 +262,6 @@ class Users implements UserInterface, \Serializable
 	{
 	}
 
-
-
 	/**
 	 * Set isActive
 	 *
@@ -331,4 +331,49 @@ class Users implements UserInterface, \Serializable
 	{
 		return $this->locale;
 	}
+
+	/**	* Get user parametrs
+	*
+	* @return array
+	*/
+	public function getParam()
+	{
+		return $this->user_param;
+	}
+
+	/**
+	* Set user parameters
+	* @param  $user_param array
+	* @return UserParams
+	*/
+	public function setParam($user_param)
+	{
+		$this->user_param = $user_param;
+
+		return $this;
+	}
+
+
+    /**
+     * Set user_param
+     *
+     * @param array $userParam
+     * @return Users
+     */
+    public function setUserParam($userParam)
+    {
+        $this->user_param = $userParam;
+
+        return $this;
+    }
+
+    /**
+     * Get user_param
+     *
+     * @return array 
+     */
+    public function getUserParam()
+    {
+        return $this->user_param;
+    }
 }

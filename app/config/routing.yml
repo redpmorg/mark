@@ -3,10 +3,10 @@ mark_menu:
     type:     annotation
 #    prefix:   /
 
-# mark_general:
-#     resource: "@MarkGeneralBundle/Controller/"
-#     type:     annotation
-#    prefix:   /general
+mark_general:
+    resource: "@MarkGeneralBundle/Controller/"
+    type:     annotation
+    prefix:   /general
 
 mark_login:
     resource: "@MarkLoginBundle/Controller/"

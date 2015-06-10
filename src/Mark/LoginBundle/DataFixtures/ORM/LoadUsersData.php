@@ -31,6 +31,7 @@ class LoadUsersData implements FixtureInterface
 		$user->setIsActive(1);
 		$user->setUserRole(2); //
 		$user->setLocale("ro");
+		$user->setUserParam("");
 
 		$em->persist($user);
 
@@ -44,6 +45,7 @@ class LoadUsersData implements FixtureInterface
 		$user->setIsActive(1);
 		$user->setUserRole(1); //
 		$user->setLocale("en");
+		$user->setUserParam("");
 
 		$em->persist($user);
 
@@ -57,6 +59,7 @@ class LoadUsersData implements FixtureInterface
 		$user->setIsActive(1);
 		$user->setUserRole(0); //
 		$user->setLocale("fr");
+		$user->setUserParam("");
 
 		$em->persist($user);
 
