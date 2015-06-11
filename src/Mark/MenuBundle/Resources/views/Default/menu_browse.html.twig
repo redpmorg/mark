@@ -2,36 +2,52 @@
 {% block title %}{{ title }}{% endblock %}
 
 {# set add/edit modal properties #}
-{% set modal_id = "menuModal" %}
-{% set modal_title = "Menu manager" %}
+{% set modal_edit_id = "menuEditModal" %}
+{% set modal_edit_title = "Menu manager" %}
+{% use "MarkMenuBundle:Default:menu_edit.html.twig" with modal as edit_modal %}
+
 
 {# set delete modal properties #}
-
-
+{% set modal_delete_id = "menuDeleteModal" %}
+{% set modal_delete_route = "menu_delete" %}
+{% use "MarkGeneralBundle:Default:deleteModal.html.twig" with javascripts as js_delete_modal, modal as html_delete_modal %}
 
 {# set sortable jQueryUI properties #}
 {% set sortable_container = "tbody" %}
 {% set sortable_key = "srt" %}
 {% set sortable_route = "menu_rowsort" %}
+{% use "MarkGeneralBundle:jQueryUIActions:sortableRows.js.twig" with javascripts as sortable_rows %}
 
-
+{# set image modal properties #}
+{% set modal_image_id %}
+{% use "MarkGeneralBundle:Default:fileModal.html.twig" with modal as html_image_modal %}
 
 {% block body %}
 	<div class="container-fluid">
 		<div class="row">
 			<div class="panel panel-default">
-				<div class="panel-heading"><h4>{{ 'Manage menu sections'|trans }} | <a class="">{{ 'Change menu image'|trans }}</a> <a href="" class="addaction pull-right" data-toggle="modal" data-target="#{{ modal_id }}"><i title="{{ 'Add'|trans }}" class="glyphicon glyphicon-plus"></i> {{ 'Add'|trans }}</a></h4></div>
-				<div id="manage-menu" class="panel-body">
-					<table class="table table-hover table-condensed">
-						<thead>
-							<tr>
-								{% for col in menu_columns %}
-									<th class="alert-info"><a href=" {{ path('menu_colsort', {'param': 'm_sortcol', 'value': col}) }} ">{{ col|upper }}</a></th>
-								{% endfor %}
-								<th class="alert-info" colspan="2"></th>
-							</tr>
-						</thead>
-						<tbody>
+				<div class="panel-heading">
+					<h4>
+						{{ 'Manage menu sections'|trans }} |
+						<a href="{{ path('menu_change_picture') }}">{{ 'Change menu image'|trans }}</a>
+						<a href="" class="addaction pull-right" data-toggle="modal" data-target="#{{ modal_edit_id }}">
+							<i title="{{ 'Add'|trans }}" class="glyphicon glyphicon-plus"></i>{{ 'Add'|trans }}
+						</a>
+					</h4>
+				</div>
+			<div id="manage-menu" class="panel-body">
+				<table class="table table-hover table-condensed">
+					<thead>
+						<tr>
+							{% for col in menu_columns %}
+								<th class="alert-info">
+									<a href="{{ path('menu_colsort', {'param': 'm_sortcol', 'value': col}) }}">{{ col|upper }}</a>
+								</th>
+							{% endfor %}
+							<th class="alert-info" colspan="2"></th>
+						</tr>
+					</thead>
+					<tbody>
 							{% for row in menu_rows %}
 								<tr id="{{ sortable_key ~ "_" ~ row.id }}">
 									{% for key,cel in row %}
@@ -45,34 +61,39 @@
 													SUPER ADMIN
 												{% endif %}
 												{% elseif "sort" == key %}
-												<i class="glyphicon glyphicon-move"></i> {{ cel }}
+													<i class="glyphicon glyphicon-move"></i>
 												{% else %}
 												{{ cel }}
 											{% endif %}
 										</td>
 									{% endfor %}
-									<td><a title="{{ 'Edit'|trans }}" class="editaction" data-toggle="modal" data-target="#{{ modal_id }}" data-row-id={{ row.id }}><i class="glyphicon glyphicon-edit"></i></a></td>
-									<td><a class="deleteaction" title="{{ 'Delete'|trans }}" href="{{ path('menu_delete', {'id': row.id}) }}"><i class="glyphicon glyphicon-remove"></i></a></td>
+									<td>
+										<a class="editaction" title="{{ 'Edit'|trans }}" data-toggle="modal" data-target="#{{ modal_edit_id }}" data-row-id={{ row.id }}>
+											<i class="glyphicon glyphicon-edit"></i>
+										</a>
+									</td>
+									<td>
+										<a class="deleteaction" title="{{ 'Delete'|trans }}" data-toggle="modal" data-target="#{{ modal_delete_id }}" data-row-id={{ row.id }}>
+											<i class="glyphicon glyphicon-remove"></i>
+										</a>
+									</td>
 								</tr>
 							{% endfor %}
 						</tbody>
-					</table>
-				</div>
+				</table>
 			</div>
 		</div>
 	</div>
-	{# include modal form for edit/add #}
-	{% include "MarkMenuBundle:Default:menu_edit.html.twig" %}
+</div>
 
-	{% use "MarkGeneralBundle:jQueryUIActions:sortableRows.js.twig" with javascripts as sortable_rows %}
-	{% use "MarkGeneralBundle:bootstrapActions:deleteModal.js.twig" with javascripts as delete_modal %}
-
-	{% block javascripts %}
-		<script type="text/javascript">
-			{{ block('sortable_rows') }}
-			{{ block('delete_modal') }}
-		</script>
-	{% endblock %}
-
+{{ block('edit_modal') }}
+{{ block('html_delete_modal') }}
+{{ block('html_image_modal') }}
 {% endblock %}
 
+{% block javascripts %}
+	<script type="text/javascript">
+		{{ block('sortable_rows') }}
+		{{ block('js_delete_modal') }}
+	</script>
+{% endblock %}

@@ -12,6 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Mark\MenuBundle\Controller\MenuController;
+use Mark\GeneralBundle\Entity\Files;
 
 class ManageMenuController extends MenuController
 {
@@ -48,8 +49,10 @@ class ManageMenuController extends MenuController
 	 */
 	public function menuDeleteAction($id)
 	{
-		$data["delete"] = $id;
-		return $data;
+		$entity = "Mark\MenuBundle\Entity\Menu";
+		$this->get('general.actions')->delete($entity, 'id', $id);
+		$this->get('general.actions')->delete($entity, 'parent', $id);
+		return $this->redirectToRoute('menu_manage');
 	}
 
 	/**
@@ -61,26 +64,45 @@ class ManageMenuController extends MenuController
 		$data = $this->get('request')->getContent();
 		$entityName = "Mark\MenuBundle\Entity\Menu";
 
-		$this->get('user.general_utils')
+		$this->get('general.actions')
 		->setSortableRowsOrder($entityName, $data);
 
-		// exit because controller must return an
-		// response and I don't wanna give him :)
+		// we don't wanna give him an response :)
 		exit;
 
 	}
 
 	/**
-	 *  !!!!!!!!   EXTERNALIZEAZA ASTA IN GENERAL BUNDLE ( trimite numele param si data) !!!!!
 	 * Sorting by columns
 	 * @Route("/sadm/manmenu/colSort/{param}/{value}", name="menu_colsort")
 	 */
 	public function menuColSort($param, $value)
 	{
-
 		$this->get('user.general_utils')->setUserParameter($param, $value);
-
 		return $this->redirectToRoute('menu_manage');
 	}
 
+	/**
+	* @Route("/sadm/menmenu/changePict", name="menu_change_picture")
+	* @Template("MarkGeneralBundle:Default:fileupload.html.twig")
+	*/
+	public function changeMenuPictureAction()
+	{
+		$file = new Files();
+		$form = $this->createFormBuilder($file)
+		->add('name')
+		->add('file')
+		->add('save', 'submit', array('label'=>'Upload Image'))
+		->getForm();
+
+		$form->handleRequest($this->get('request'));
+
+		if($form->isValid()){
+			$this->get('general.actions')->uploadFiles($file);
+
+			return $this->redirectToRoute('menu_manage');
+		}
+
+		return array('form' => $form->createView());
+	}
 }

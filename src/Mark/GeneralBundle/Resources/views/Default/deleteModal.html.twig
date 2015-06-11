@@ -1,0 +1,31 @@
+{% block modal %}
+	<div class="modal fade" id="{{ modal_delete_id }}" tabindex="-1" role="dialog" aria-labelledby="modal-delete-header" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="{{ 'Close'|trans }}"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="modal-delete-header">{{ 'Deleted records are not retrieved'|trans }} </h4>
+				</div>
+				<div class="modal-body">
+					nu se recupereaza --- warning image ...
+				</div>
+				<div class="modal-footer">
+					<div class="form-group">
+						<a class="btn btn-primary pull-right col-sm-3" data-dismiss="modal">{{ 'Cancel'|trans }}</a>
+						<span class="pull-right">&nbsp;</span>
+						<a id="modalDeleteButton" class="btn btn-danger pull-right col-sm-3" href="{{ path(modal_delete_route, {'id':'__SLUG'}) }}">{{ 'Delete'|trans }}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{# Inheritance of relatedTarget that fire up modal #}
+	$("#{{ modal_delete_id }}").on('show.bs.modal', function(event) {
+	var this_id = $(event.relatedTarget).data("row-id");
+	var button_href = $("#modalDeleteButton").attr("href").replace(/__SLUG/, this_id);
+	$("#modalDeleteButton").attr("href", button_href);
+});
+{% endblock %}

@@ -22,12 +22,6 @@ class Menu
 	private $id;
 
 	/**
-	 * @var integer
-	 * @ORM\Column(name="parent_id", type="integer")
-	 */
-	private $parent_id;
-
-	/**
 	 * @var string
 	 * @ORM\Column(name="name", type="string", length=255)
 	 */
@@ -226,27 +220,4 @@ class Menu
 		return $this->sort;
 	}
 
-
-    /**
-     * Set parent_id
-     *
-     * @param integer $parentId
-     * @return Menu
-     */
-    public function setParentId($parentId)
-    {
-        $this->parent_id = $parentId;
-
-        return $this;
-    }
-
-    /**
-     * Get parent_id
-     *
-     * @return integer 
-     */
-    public function getParentId()
-    {
-        return $this->parent_id;
-    }
 }
