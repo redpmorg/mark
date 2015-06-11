@@ -19,7 +19,7 @@
 {% use "MarkGeneralBundle:jQueryUIActions:sortableRows.js.twig" with javascripts as sortable_rows %}
 
 {# set image modal properties #}
-{% set modal_image_id %}
+{% set modal_image_id = "modalImageId" %}
 {% use "MarkGeneralBundle:Default:fileModal.html.twig" with modal as html_image_modal %}
 
 {% block body %}
@@ -29,7 +29,7 @@
 				<div class="panel-heading">
 					<h4>
 						{{ 'Manage menu sections'|trans }} |
-						<a href="{{ path('menu_change_picture') }}">{{ 'Change menu image'|trans }}</a>
+						<a href="" data-toggle="modal" data-target="#{{ modal_image_id }}" data-route = "{{ path('menu_change_picture') }}">{{ 'Change menu image'|trans }}</a>
 						<a href="" class="addaction pull-right" data-toggle="modal" data-target="#{{ modal_edit_id }}">
 							<i title="{{ 'Add'|trans }}" class="glyphicon glyphicon-plus"></i>{{ 'Add'|trans }}
 						</a>

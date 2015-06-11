@@ -84,25 +84,14 @@ class ManageMenuController extends MenuController
 
 	/**
 	* @Route("/sadm/menmenu/changePict", name="menu_change_picture")
-	* @Template("MarkGeneralBundle:Default:fileupload.html.twig")
 	*/
 	public function changeMenuPictureAction()
 	{
-		$file = new Files();
-		$form = $this->createFormBuilder($file)
-		->add('name')
-		->add('file')
-		->add('save', 'submit', array('label'=>'Upload Image'))
-		->getForm();
 
-		$form->handleRequest($this->get('request'));
+		$file = new File();
+		
+		$this->get('general.actions')->uploadFiles($file);
 
-		if($form->isValid()){
-			$this->get('general.actions')->uploadFiles($file);
-
-			return $this->redirectToRoute('menu_manage');
-		}
-
-		return array('form' => $form->createView());
+		return $this->redirectToRoute('menu_manage');
 	}
 }
