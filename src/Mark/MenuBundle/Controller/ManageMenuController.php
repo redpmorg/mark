@@ -17,6 +17,7 @@ use Mark\GeneralBundle\Entity\Files;
 class ManageMenuController extends MenuController
 {
 
+
 	/**
 	 * Menu Browse
 	 * @Route("/sadm/manmenu/", name="menu_manage")
@@ -88,8 +89,8 @@ class ManageMenuController extends MenuController
 	public function changeMenuPictureAction()
 	{
 
-		$file = new File();
-		
+		$file->setName($this->container->getParameter("app"));
+
 		$this->get('general.actions')->uploadFiles($file);
 
 		return $this->redirectToRoute('menu_manage');

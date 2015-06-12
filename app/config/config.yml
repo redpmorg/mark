@@ -93,7 +93,50 @@ assetic:
                 - %kernel.root_dir%/../vendor/components/jqueryui/themes/base/jquery-ui.min.css
             filters: [cssrewrite]
 
+liip_imagine:
 
+    resolvers:
+        default:
+            web_path:
+              web_root: %kernel.root_dir%/../web
+              cache_prefix: media/cache
+
+    loaders:
+        default:
+            filesystem:
+                data_root: %kernel.root_dir%/../web/
+
+    driver:               gd
+    cache:                default
+    data_loader:          default
+    default_image:        null
+    controller:
+        filter_action:         liip_imagine.controller:filterAction
+        filter_runtime_action: liip_imagine.controller:filterRuntimeAction
+
+    filter_sets:
+        my_image:
+            quality:              100
+            jpeg_quality:         ~
+            png_compression_level:  ~
+            png_compression_filter: ~
+            animated:             false
+            format:               ~
+            cache:                ~
+            data_loader:          ~
+            default_image:        null
+            filters:
+                my_thumb:
+                    auto_rotate:          ~
+                    watermark:
+                        image: Resources/data/watermark.png
+                        size: 0.5
+                        position: bottomright
+                    size: [32, 32]
+                    mode: inset
+
+            post_processors:
+                name:                 []
 
 # Doctrine Configuration
 doctrine:
@@ -117,3 +160,5 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+

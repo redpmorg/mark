@@ -8,7 +8,7 @@
 
 namespace Mark\GeneralBundle\Utils;
 
-class Actions {
+class GeneralActions {
 
 
 	private $em;

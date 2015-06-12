@@ -41,7 +41,7 @@
 						<tr>
 							{% for col in menu_columns %}
 								<th class="alert-info">
-									<a href="{{ path('menu_colsort', {'param': 'm_sortcol', 'value': col}) }}">{{ col|upper }}</a>
+									<a href="{{ path('menu_colsort', {'param': 'm_sortcol', 'value': {0:col, 1:'ASC'}}) }}">{{ col|upper }}</a>
 								</th>
 							{% endfor %}
 							<th class="alert-info" colspan="2"></th>

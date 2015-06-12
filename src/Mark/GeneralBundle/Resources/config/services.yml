@@ -5,7 +5,7 @@ services:
         arguments: ["@request_stack"]
 
     general.actions:
-        class: Mark\GeneralBundle\Utils\Actions
+        class: Mark\GeneralBundle\Utils\GeneralActions
         arguments: [@doctrine.orm.entity_manager]
 
     user.general_utils:

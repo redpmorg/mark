@@ -1,3 +1,6 @@
+__liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+
 mark_menu:
     resource: "@MarkMenuBundle/Controller/"
     type:     annotation

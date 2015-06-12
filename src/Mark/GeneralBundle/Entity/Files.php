@@ -4,7 +4,7 @@ namespace Mark\GeneralBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File;
 
 /**
  * Image
@@ -40,7 +40,9 @@ class Files
 
 
 	/**
-	 * @Assert\File(maxSize="6000000", mimeTypes={"image/png"}, mimeTypesMessage = "Please upload a valid PNG")
+	 * Virtual property
+	 *
+	 * @Assert\File(maxSize="6000000")
 	 */
 	private $file;
 
@@ -81,7 +83,7 @@ class Files
 	 * Set path
 	 *
 	 * @param string $path
-	 * @return Image
+	 * @return
 	 */
 	public function setPath($path)
 	{
@@ -131,7 +133,7 @@ class Files
 	 *
 	 * @param UploadedFile|null $file
 	 */
-	public function setFile(UploadedFile $file = null)
+	public function setFile(File\UploadedFile $file = null)
 	{
 		$this->file = $file;
 	}
@@ -146,7 +148,7 @@ class Files
 		return $this->file;
 	}
 
-	public function upload() 
+	public function upload()
 	{
 		if(null === $this->getFile()) {
 			return;
