@@ -54,6 +54,11 @@ assetic:
         #     bin: "%kernel.root_dir%/Resources/node_modules/.bin/uglifycss.cmd"
 
     assets:
+
+        jquery:
+            inputs:
+                - %kernel.root_dir%/../vendor/components/jquery/jquery.min.js
+
         bootstrap_js:
             inputs:
                 - %kernel.root_dir%/../vendor/twitter/bootstrap/dist/js/bootstrap.min.js
@@ -82,15 +87,25 @@ assetic:
             inputs:
                 - %kernel.root_dir%/../vendor/twitter/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
             output: "fonts/glyphicons-halflings-regular.woff2"
-        jquery:
+
+        jqueryui_js_sortable:
             inputs:
-                - %kernel.root_dir%/../vendor/components/jquery/jquery.min.js
-        jqueryui:
+                - %kernel.root_dir%/../vendor/components/jqueryui/ui/minified/core.min.js
+                - %kernel.root_dir%/../vendor/components/jqueryui/ui/minified/widget.min.js
+                - %kernel.root_dir%/../vendor/components/jqueryui/ui/minified/mouse.min.js
+                - %kernel.root_dir%/../vendor/components/jqueryui/ui/minified/sortable.min.js
+        jqueryui_css_sortable:
             inputs:
-                - %kernel.root_dir%/../vendor/components/jqueryui/jquery-ui.min.js
-        jqueryui_css:
+                - %kernel.root_dir%/../vendor/components/jqueryui/themes/base/core.css
+                - %kernel.root_dir%/../vendor/components/jqueryui/themes/base/sortable.css
+            filters: [cssrewrite]
+
+        bootstrap_toggle_js:
             inputs:
-                - %kernel.root_dir%/../vendor/components/jqueryui/themes/base/jquery-ui.min.css
+                - %kernel.root_dir%/../vendor/twitter/bootstrap-toggle-master/js/bootstrap-toggle.min.js
+        bootstrap_toggle_css:
+            inputs:
+                - %kernel.root_dir%/../vendor/twitter/bootstrap-toggle-master/css/bootstrap-toggle.min.css
             filters: [cssrewrite]
 
 liip_imagine:

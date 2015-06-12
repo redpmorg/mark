@@ -22,7 +22,7 @@ class UserActions
 	/**
 	 * Set user parameter in
 	 * @param string $param
-	 * @param array $value
+	 * @param string $value
 	 */
 	public function setUserParameter($param, $value)
 	{

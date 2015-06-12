@@ -1,12 +1,6 @@
 {% extends 'MarkLoginBundle::menu.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
 
-{# set add/edit modal properties #}
-{% set modal_edit_id = "menuEditModal" %}
-{% set modal_edit_title = "Menu manager" %}
-{% use "MarkMenuBundle:Default:menu_edit.html.twig" with modal as edit_modal %}
-
-
 {# set delete modal properties #}
 {% set modal_delete_id = "menuDeleteModal" %}
 {% set modal_delete_route = "menu_delete" %}
@@ -30,7 +24,7 @@
 					<h4>
 						{{ 'Manage menu sections'|trans }} |
 						<a href="" data-toggle="modal" data-target="#{{ modal_image_id }}" data-route = "{{ path('menu_change_picture') }}">{{ 'Change menu image'|trans }}</a>
-						<a href="" class="addaction pull-right" data-toggle="modal" data-target="#{{ modal_edit_id }}">
+						<a href="" class="addaction pull-right">
 							<i title="{{ 'Add'|trans }}" class="glyphicon glyphicon-plus"></i>{{ 'Add'|trans }}
 						</a>
 					</h4>
@@ -41,10 +35,10 @@
 						<tr>
 							{% for col in menu_columns %}
 								<th class="alert-info">
-									<a href="{{ path('menu_colsort', {'param': 'm_sortcol', 'value': {0:col, 1:'ASC'}}) }}">{{ col|upper }}</a>
+									<a href="{{ path('menu_colsort', {'param': 'm_sortcol', 'value': col}) }}">{{ col|upper }}</a>
 								</th>
 							{% endfor %}
-							<th class="alert-info" colspan="2"></th>
+							<th class="alert-info"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -55,23 +49,27 @@
 											{% if "roles" == key %}
 												{% if cel == 0 %}
 													USER
-													{% elseif cel == 1 %}
+												{% elseif cel == 1 %}
 													ADMIN
-													{% elseif cel == 2 %}
+												{% elseif cel == 2 %}
 													SUPER ADMIN
 												{% endif %}
-												{% elseif "sort" == key %}
+											{% elseif "sort" == key %}
 													<i class="glyphicon glyphicon-move"></i>
-												{% else %}
-												{{ cel }}
+											{% elseif "isActive" == key %}
+													<input type="checkbox"
+													   {{ (1 == cel) ? 'checked' : 'unchecked' }}
+													   data-toggle="toggle"
+													   data-size="mini"
+													   data-on="{{ 'On'|trans }}"
+													   data-off="{{ 'Off'|trans }}"
+													   data-onstyle="success"
+													   data-offstyle="danger">
+											{% else %}
+											    {{ cel }}
 											{% endif %}
 										</td>
 									{% endfor %}
-									<td>
-										<a class="editaction" title="{{ 'Edit'|trans }}" data-toggle="modal" data-target="#{{ modal_edit_id }}" data-row-id={{ row.id }}>
-											<i class="glyphicon glyphicon-edit"></i>
-										</a>
-									</td>
 									<td>
 										<a class="deleteaction" title="{{ 'Delete'|trans }}" data-toggle="modal" data-target="#{{ modal_delete_id }}" data-row-id={{ row.id }}>
 											<i class="glyphicon glyphicon-remove"></i>
@@ -86,7 +84,6 @@
 	</div>
 </div>
 
-{{ block('edit_modal') }}
 {{ block('html_delete_modal') }}
 {{ block('html_image_modal') }}
 {% endblock %}
