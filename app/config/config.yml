@@ -33,6 +33,9 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form:
+        resources:
+            - "bootstrap_3_horizontal_layout.html.twig"
 
 # Assetic Configuration
 assetic:
@@ -54,7 +57,6 @@ assetic:
         #     bin: "%kernel.root_dir%/Resources/node_modules/.bin/uglifycss.cmd"
 
     assets:
-
         jquery:
             inputs:
                 - %kernel.root_dir%/../vendor/components/jquery/jquery.min.js
@@ -100,16 +102,7 @@ assetic:
                 - %kernel.root_dir%/../vendor/components/jqueryui/themes/base/sortable.css
             filters: [cssrewrite]
 
-        bootstrap_toggle_js:
-            inputs:
-                - %kernel.root_dir%/../vendor/twitter/bootstrap-toggle-master/js/bootstrap-toggle.min.js
-        bootstrap_toggle_css:
-            inputs:
-                - %kernel.root_dir%/../vendor/twitter/bootstrap-toggle-master/css/bootstrap-toggle.min.css
-            filters: [cssrewrite]
-
 liip_imagine:
-
     resolvers:
         default:
             web_path:
@@ -175,5 +168,3 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-
-

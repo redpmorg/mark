@@ -88,7 +88,7 @@ class UserLogged
 
 
 	/**
-	 * Get logged users parameters
+	 * Get logged users parameters from Token
 	 *
 	 * @return serialized string
 	 */

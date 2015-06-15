@@ -232,6 +232,16 @@ class Users implements UserInterface, \Serializable
 	}
 
 
+	/**
+	 * Get all user roles
+	 * @return  array
+	 */
+
+	public function getAllUsersRoles()
+	{
+		return array('ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPER_ADMIN');
+	}
+
 	public function getSalt()
 	{
 		return null;

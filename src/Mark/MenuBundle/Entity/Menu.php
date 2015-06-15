@@ -35,7 +35,7 @@ class Menu
 
 	/**
 	 * @var integer
-	 * @ORM\Column(name="parent", type="integer")
+	 * @ORM\Column(name="parent", type="integer", length=3)
 	 */
 	private $parent;
 

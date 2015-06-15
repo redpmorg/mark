@@ -20,7 +20,7 @@ class UserActions
 	}
 
 	/**
-	 * Set user parameter in
+	 * Set user parameter in Users entity
 	 * @param string $param
 	 * @param string $value
 	 */

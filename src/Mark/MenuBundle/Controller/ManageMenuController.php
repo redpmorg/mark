@@ -10,14 +10,15 @@ namespace Mark\MenuBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
 
 use Mark\MenuBundle\Controller\MenuController;
 use Mark\GeneralBundle\Entity\Files;
+use Mark\MenuBundle\Entity\Menu;
+use Mark\LoginBundle\Entity\Users;
 
 class ManageMenuController extends MenuController
 {
-
-
 	/**
 	 * Menu Browse
 	 * @Route("/sadm/manmenu/", name="menu_manage")
@@ -27,21 +28,60 @@ class ManageMenuController extends MenuController
 	{
 		$data["menu_columns"] = $this->generateMenuColumnsAction();
 		$data["menu_rows"] = $this->generateMenuAction();
-
 		$data["title"] = "Menu Manager";
+
+		/* Building the addedit form */
+		$menu = new Menu();
+		$users = new Users();
+
+		$form = $this->createFormBuilder($menu, array('csrf_protection' => false))
+		->add('name', 'text', array('required' => false))
+		->add('description', 'text')
+		->add('parent', 'integer')
+		->add('route', 'text')
+		->add('roles', 'choice', array('choices' =>  $users->getAllUsersRoles(), 'required' => false))
+		->add('isActive', 'checkbox', array('label' => 'Menu inactive'))
+		->getForm();
+
+		$data['form'] = $form->createView();
+		$data['form_rulez'] = "";
+		$data["form_edit_route"] = "menu_edit";
 
 		return $data;
 	}
 
 	/**
+	 * Menu Add
+	 * @Route("/sadm/manmenu/add", name="menu_add")
+	 */
+	public function menuAddAction()
+	{
+		return $this->redirectToRoute('menu_manage');
+	}
+
+	/**
 	 * Menu Edit
-	 * @Route("/sadm/manmenu/add/{id}", name="menu_add", defaults={"id" = null})
 	 * @Route("/sadm/manmenu/edit/{id}", name="menu_edit")
 	 */
-	public function menuEditAction($id)
+		public function menuEditAction()
+		{
+			return $this->redirectToRoute('menu_manage');
+		}
+
+
+	/**
+	 * Menu fetch data for edit
+	 * @Route("/sadm/manmenu/edit/{id}", name="menu_fetch")
+	 */
+	public function menuFetchForEditAction($id)
 	{
-		$data["edit"] = $id;
-		return $data;
+			//construct json
+
+			// construct response
+		$response = new Response();
+		$response->setContent($json_data);
+		$response->headers->set('Content-Type', 'application/json');
+		$response->send();
 	}
 
 	/**
