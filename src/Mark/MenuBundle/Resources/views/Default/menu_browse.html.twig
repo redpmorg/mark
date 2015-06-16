@@ -13,10 +13,13 @@
 {% use "MarkGeneralBundle:jQueryUIActions:sortableRows.js.twig" with javascripts as js_sortable_rows %}
 
 {# set image modal properties #}
-{% set modal_image_id = "modalImageId" %}
+{% set image_modal_id = "modalImageId" %}
+{% set image_modal_route = "menu_upload_image" %}
 {% use "MarkGeneralBundle:default:fileModal.html.twig" with modal as html_image_modal %}
 
-{% use "MarkGeneralBundle:default:addEdit.html.twig" with javascripts as js_addedit_modal, modal as html_addedit_modal %}
+{# set add/edit properties #}
+{% set edit_action_route = "menu_edit" %}
+{% use "MarkGeneralBundle:default:addEditModal.html.twig" with javascripts as js_addedit_modal, modal as html_addedit_modal %}
 
 {% block body %}
 	<div class="container-fluid">
@@ -25,7 +28,7 @@
 				<div class="panel-heading">
 					<h4>
 						{{ 'Manage menu sections'|trans }} |
-						<a href="" data-toggle="modal" data-target="#{{ modal_image_id }}" data-route = "{{ path('menu_change_picture') }}">{{ 'Change menu image'|trans }}</a>
+						<a href="" data-toggle="modal" data-target="#{{ image_modal_id }}">{{ 'Change menu image'|trans }}</a>
 						<a href="#" class="addaction pull-right" data-toggle="modal" data-target="#addedit-modal">
 							<i title="{{ 'Add'|trans }}" class="glyphicon glyphicon-plus"></i>{{ 'Add'|trans }}
 						</a>

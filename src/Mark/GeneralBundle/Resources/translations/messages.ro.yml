@@ -1,12 +1,18 @@
+# FORMS
 Add: 		Adauga
 Edit: 		Modifica
 Delete: 	Sterge
 Save: 		Salveaza
 Cancel: 	Renunta
 Close: 		Inchide
+Choose: 	Alege
 
+# DELETE FORM
 Deleted records are not retrieved: Inregistrarile sterse nu se pot recupera
 
-Upload image: Incarca imagine
-File name: Nume fisier
+# FILE FORM
 File: Fisier
+File name: Nume fisier
+Upload image: Incarca imagine
+Choose file: Alege un fisier
+No file chosen: Niciun fisier ales

@@ -4,6 +4,7 @@ namespace Mark\MenuBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Menu
  *
@@ -24,12 +25,14 @@ class Menu
 	/**
 	 * @var string
 	 * @ORM\Column(name="name", type="string", length=255)
+	 * @assert\NotBlank(message="menu.name.not_blank")
 	 */
 	private $name;
 
 	/**
 	 * @var string
 	 * @ORM\Column(name="description", type="string", length=255)
+	 * @Assert\NotBlank(message="menu.description.not_blank")
 	 */
 	private $description;
 

@@ -8,6 +8,10 @@
 
 namespace Mark\GeneralBundle\Utils;
 
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+
 class GeneralActions {
 
 
@@ -56,7 +60,10 @@ class GeneralActions {
 	}
 
 	/**
-	 * Upload fils
+	 * Upload files
+	 *
+	 *  ON WORK
+	 * 
 	 */
 	public function uploadFiles($file)
 	{
@@ -65,6 +72,34 @@ class GeneralActions {
 
 		$this->em->persist($file);
 		$this->em->flush();
+	}
+
+
+	/**
+	 * Serialize and normalize objects to be used as messages
+	 * 
+	 * @param array $data 	Array to be serialized as json
+	 * @param bool $typeOf 	TRUE - serialize; FALSE - deserialize
+	 * @param object $entity The entity name
+	 *
+	 * @return mixed serialized/deserialized
+	 */
+
+	public function serializeMe($data, $typeOf, $entity)
+	{
+
+		$encoder = new JsonEncoder();
+		$normalizer = new GetSetMethodNormalizer();
+		$serializer = new Serializer($normalizer, $encoder);
+
+		if($typeOf) {
+			$resp = $serializer->serialize($data, 'json');
+		} else {
+			$resp = $serializer->deserialize($data, $entity, 'json');
+		}
+
+		return $resp;
+
 	}
 
 }

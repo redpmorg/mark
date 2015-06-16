@@ -33,55 +33,71 @@ class ManageMenuController extends MenuController
 		/* Building the addedit form */
 		$menu = new Menu();
 		$users = new Users();
+		$t = $this->get('translator');
 
-		$form = $this->createFormBuilder($menu, array('csrf_protection' => false))
-		->add('name', 'text', array('required' => false))
-		->add('description', 'text')
-		->add('parent', 'integer')
-		->add('route', 'text')
-		->add('roles', 'choice', array('choices' =>  $users->getAllUsersRoles(), 'required' => false))
-		->add('isActive', 'checkbox', array('label' => 'Menu inactive'))
+		// construct parents chioces
+		$em = $this->getDoctrine()->getManager();
+		$p = $em->getRepository("MarkMenuBundle:Menu")->findByParent('0');
+		foreach($p as $val) {
+			$parentsName[$val->getId()] = $val->getName();
+		}
+
+		// cosntruct form
+		$form = $this->createFormBuilder($menu, array(
+			'attr' => array(
+				'id' => 'addedit-form',
+				'class' => 'form-horizontal'
+				),
+			'csrf_protection' => false
+			))
+		->add('name', 'text', array(
+			'label' => $t->trans('Menu name')
+			))
+		->add('description', 'text', array(
+			'label' => $t->trans('Menu description')
+			))
+		->add('parent', 'choice', array(
+			'required' => false,
+			'placeholder' => $t->trans('Choose'),
+			'choices' => $parentsName,
+			'label' => $t->trans('Submenu parent')
+			))
+		->add('route', 'text', array(
+			'label' => $t->trans('Menu route')
+			))
+		->add('roles', 'choice', array(
+			'placeholder' => $t->trans('Choose'),
+			'choices' => $users->getAllUsersRoles(),
+			'label' => $t->trans('Menu link')
+			))
+		->add('isActive', 'checkbox', array(
+			'label' => $t->trans('Menu inactive'),
+			'value' => 0
+			))
 		->getForm();
 
 		$data['form'] = $form->createView();
-		$data['form_rulez'] = "";
 		$data["form_edit_route"] = "menu_edit";
 
 		return $data;
 	}
 
 	/**
-	 * Menu Add
-	 * @Route("/sadm/manmenu/add", name="menu_add")
+	 * Menu Add/Edit
+	 *
+	 * If id - EDIT else ADD
+	 *
+	 * @Route("/sadm/manmenu/edit", name="menu_edit")
 	 */
-	public function menuAddAction()
+	public function menuEditAction()
 	{
-		return $this->redirectToRoute('menu_manage');
-	}
 
-	/**
-	 * Menu Edit
-	 * @Route("/sadm/manmenu/edit/{id}", name="menu_edit")
-	 */
-		public function menuEditAction()
-		{
-			return $this->redirectToRoute('menu_manage');
-		}
+		$data = $this->get('request')->getContent();
+		$data = parse_str(urldecode($data), $arr);
+		dump($arr);
+		exit;
 
-
-	/**
-	 * Menu fetch data for edit
-	 * @Route("/sadm/manmenu/edit/{id}", name="menu_fetch")
-	 */
-	public function menuFetchForEditAction($id)
-	{
-			//construct json
-
-			// construct response
-		$response = new Response();
-		$response->setContent($json_data);
-		$response->headers->set('Content-Type', 'application/json');
-		$response->send();
+	//	return $this->redirectToRoute('menu_manage');
 	}
 
 	/**
@@ -124,15 +140,13 @@ class ManageMenuController extends MenuController
 	}
 
 	/**
-	* @Route("/sadm/menmenu/changePict", name="menu_change_picture")
+	* @Route("/sadm/menmenu/changePict", name="menu_upload_image")
 	*/
-	public function changeMenuPictureAction()
+	public function changeMenuPictureAction(Response $response)
 	{
-
+		$file = new File();
 		$file->setName($this->container->getParameter("app"));
-
 		$this->get('general.actions')->uploadFiles($file);
-
-		return $this->redirectToRoute('menu_manage');
+//		return $this->redirectToRoute('menu_manage');
 	}
 }

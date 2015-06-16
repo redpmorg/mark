@@ -4,4 +4,13 @@ Logout: 		Iesire
 Menu manager: 	Administrare meniu
 Manage menu sections: Administrare sectiuni meniu
 Change menu image: Schimbare imagine meniu
-new menu: 		meniu nou
+
+
+# Add/Edit new menu
+new menu: meniu nou
+Menu name: Denumire meniu
+Menu description: Descripere meniu
+Menu route: Ruta meniu
+Menu link: Link meniu
+Menu inactive: Meniu inactiv
+Submenu parent: Parinte submeniu
