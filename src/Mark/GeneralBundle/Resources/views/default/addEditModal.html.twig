@@ -20,11 +20,11 @@
 
 {% block javascripts %}
 
-var _id = null;
+var _edit_id = null;
 
 $("#addedit-modal").on('show.bs.modal', function(event){
 	var _rt = $(event.relatedTarget);
-	_id = _rt.data("row-id");
+	_edit_id = _rt.data("row-id");
 
 	{# add form case #}
 	if(_rt.hasClass('addaction')) {
@@ -35,24 +35,26 @@ $("#addedit-modal").on('show.bs.modal', function(event){
 	{# edit form case #}
 	if(_rt.hasClass('editaction')) {
 		$("#modal-addedit-header")
-	       .text("{{ 'Edit'|trans ~ ' ' ~ 'menu'|trans }} - id:: " +  _id );
+	       .text("{{ 'Edit'|trans ~ ' ' ~ 'menu'|trans }} - id:: " +  _edit_id );
+
+	     console.log(_rt.parent().prevAll().text());
 	}
 });
 
 $("#submit-data").on('click', function(){
 
 		//serialize the form/div
-		$form = $("#form").find("select, textarea, input").serialize();
+		$form = $("#form")
+					.find("select, textarea, input")
+					.serialize();
 
-		//eliminate empty fields
-		$form = $form.replace(/[^&]+=&/g, '').replace(/&[^&]+=$/g, '');
+		// eliminate empty fields
+		// $form = $form.replace(/[^&]+=&/g, '').replace(/&[^&]+=$/g, '');
 
 		// check for Edit and add id to serialized form
-		if(null != _id) {
-			$form += encodeURIComponent("&form[id]=" + _id);
+		if(null != _edit_id) {
+			$form += encodeURIComponent("&form[id]=" + _edit_id);
 		}
-
-		console.log($form);
 
 		$.ajax({
 			method: "POST",
@@ -71,54 +73,6 @@ $("#submit-data").on('click', function(){
 	}
 });
 
-
-{# GREAT BUT UNUSED BECAUSE I FORGOT about jquery serialize :( #}
-function getFields(actionType, editId)
-{
-	var fields_value = [];
-	$("[id^=form_]").each(function(){
-		var obj = {};
-		$this=$(this);
-		var myValue = $this.val() || null;
-		var p = $this.prop('name');
-		var re = /[^[\]]+(?=])/g;
-		// var key = "set"+
-		//		  p.match(re)[0].charAt(0).toUpperCase()+
-		//		  p.match(re)[0].slice(1);
-		var re = p.match(re)[0];
-
-		if("edit" == actionType) {
-			obj['id'] = editId;
-			fields_value.push(obj);
-		}
-
-		if("text" == $this.prop('type')) {
-			obj[key] = myValue;
-			fields_value.push(obj);
-		}
-
-		if("select-one" == $this.prop('type')) {
-			var myValue = $("option:selected", this).val() || null;
-			obj[key] = myValue;
-			fields_value.push(obj);
-		}
-
-		if("checkbox" == $this.prop('type')) {
-			if($this.prop("checked")) {
-				myValue = 1;
-			} else {
-				myValue = 0;
-			}
-			obj[key] = myValue;
-			fields_value.push(obj);
-		}
-
-	});
-
-	fields_value = JSON.stringify(fields_value);
-
-	return fields_value;
-}
 
 {# Clear my form #}
 $('#addedit-modal').on('hidden.bs.modal', function (event) {

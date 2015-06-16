@@ -66,14 +66,14 @@ class ManageMenuController extends MenuController
 			'label' => $t->trans('Menu route')
 			))
 		->add('roles', 'choice', array(
-			'placeholder' => $t->trans('Choose'),
 			'choices' => $users->getAllUsersRoles(),
-			'label' => $t->trans('Menu link')
+			'label' => $t->trans('Menu permissions')
 			))
 		->add('isActive', 'checkbox', array(
-			'label' => $t->trans('Menu inactive'),
-			'value' => 0
-			))
+			'label' => $t->trans('Menu active'),
+			'attr' => array(
+				'checked' => 'checked'
+			)))
 		->getForm();
 
 		$data['form'] = $form->createView();
