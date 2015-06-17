@@ -20,58 +20,123 @@
 
 {% block javascripts %}
 
-var _edit_id = null;
-
 $("#addedit-modal").on('show.bs.modal', function(event){
+	var _id = null;
 	var _rt = $(event.relatedTarget);
-	_edit_id = _rt.data("row-id");
+	_id = _rt.data("row-id");
 
 	{# add form case #}
 	if(_rt.hasClass('addaction')) {
 		$("#modal-addedit-header")
            .text("{{ 'Add'|trans ~ ' ' ~ 'new menu'|trans }}");
+        $("#submit-data").parent().show();
 	}
 
 	{# edit form case #}
 	if(_rt.hasClass('editaction')) {
 		$("#modal-addedit-header")
-	       .text("{{ 'Edit'|trans ~ ' ' ~ 'menu'|trans }} - id:: " +  _edit_id );
-
-	     console.log(_rt.parent().prevAll().text());
+	       .text("{{ 'Edit'|trans ~ ' ' ~ 'menu'|trans }} - id::" +  _id );
+	    $("#submit-data").parent().hide();
 	}
+
+	{# validate this value on change #}
+	$("#form").find("select, textarea, input").bind("change", function() {
+		$this = $(this);
+		$form_el = $this.serialize();
+		// Edit CASE
+		if(null != _id) {
+			$form_el += encodeURIComponent("&form[id]=" + _id);
+		}
+		$.ajax({
+				method: "POST",
+				url : "{{ path(edit_action_route) }}",
+				data: $form_el
+		}).done(function(data){
+				if('ok' == data) {
+					$this.removeClass('yeld-parent');
+					$this.next('p').remove();
+				} else {
+					$this.addClass('yeld-parent');
+					if( 0 == $this.next('p').length ) {
+						$this.parent().append('<p class="yeld"></p>');
+					}
+					$this.next('p').text(data);
+				}
+		});
+	});
 });
+
 
 $("#submit-data").on('click', function(){
 
-		//serialize the form/div
-		$form = $("#form")
-					.find("select, textarea, input")
-					.serialize();
+			//serialize the form/div
+			$form = $("#form").find("select, textarea, input").serialize();
 
-		// eliminate empty fields
-		// $form = $form.replace(/[^&]+=&/g, '').replace(/&[^&]+=$/g, '');
+			//eliminate empty fields
+			$form = $form.replace(/[^&]+=&/g, '').replace(/&[^&]+=$/g, '');
 
-		// check for Edit and add id to serialized form
-		if(null != _edit_id) {
-			$form += encodeURIComponent("&form[id]=" + _edit_id);
+			// check for Edit and add id to serialized form
+			if(null != _id) {
+				$form += encodeURIComponent("&form[id]=" + _id);
+			}
+
+			$.ajax({
+				method: "POST",
+				url : "{{ path(edit_action_route) }}",
+				data: $form
+			});
+	});
+
+
+{# GREAT BUT UNUSED BECAUSE I FORGOT about jquery serialize :( #}
+{#
+function getFields(actionType, editId)
+{
+	var fields_value = [];
+	$("[id^=form_]").each(function(){
+		var obj = {};
+		$this=$(this);
+		var myValue = $this.val() || null;
+		var p = $this.prop('name');
+		var re = /[^[\]]+(?=])/g;
+		// var key = "set"+
+		//		  p.match(re)[0].charAt(0).toUpperCase()+
+		//		  p.match(re)[0].slice(1);
+		var re = p.match(re)[0];
+
+		if("edit" == actionType) {
+			obj['id'] = editId;
+			fields_value.push(obj);
 		}
 
-		$.ajax({
-			method: "POST",
-			url : "{{ path(edit_action_route) }}",
-			data: $form
-		});
+		if("text" == $this.prop('type')) {
+			obj[key] = myValue;
+			fields_value.push(obj);
+		}
 
-	// just for developing
-	var error = 1;
+		if("select-one" == $this.prop('type')) {
+			var myValue = $("option:selected", this).val() || null;
+			obj[key] = myValue;
+			fields_value.push(obj);
+		}
 
-	if(0 == error.length) {
-		// save first
-		$("#addedit-modal").modal('hide');
-	} else {
-		console.log(error);
-	}
-});
+		if("checkbox" == $this.prop('type')) {
+			if($this.prop("checked")) {
+				myValue = 1;
+			} else {
+				myValue = 0;
+			}
+			obj[key] = myValue;
+			fields_value.push(obj);
+		}
+
+	});
+
+	fields_value = JSON.stringify(fields_value);
+
+	return fields_value;
+}
+#}
 
 
 {# Clear my form #}
@@ -79,9 +144,13 @@ $('#addedit-modal').on('hidden.bs.modal', function (event) {
   $(this)
     .find("input,textarea,select")
        .val('')
+       .removeClass('yeld-parent')
+       .next('p').remove()
        .end()
     .find("input[type=checkbox], input[type=radio]")
        .prop("checked", "")
+       .removeClass('yeld-parent')
+       .next('p').remove()
        .end();
 })
 {% endblock %}

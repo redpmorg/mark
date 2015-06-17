@@ -25,14 +25,16 @@ class Menu
 	/**
 	 * @var string
 	 * @ORM\Column(name="name", type="string", length=255)
-	 * @assert\NotBlank(message="menu.name.not_blank")
+	 * @Assert\Length(min=3, max=15)
+	 * @Assert\NotBlank
 	 */
 	private $name;
 
 	/**
 	 * @var string
 	 * @ORM\Column(name="description", type="string", length=255)
-	 * @Assert\NotBlank(message="menu.description.not_blank")
+	 * @Assert\Length(min=3, max=15)
+	 * @Assert\NotBlank
 	 */
 	private $description;
 

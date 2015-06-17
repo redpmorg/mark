@@ -6,7 +6,7 @@ services:
 
     general.actions:
         class: Mark\GeneralBundle\Utils\GeneralActions
-        arguments: [@doctrine.orm.entity_manager]
+        arguments: [@doctrine.orm.entity_manager, @validator]
 
     user.general_utils:
         class: Mark\GeneralBundle\Utils\UserActions

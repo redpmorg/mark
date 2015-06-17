@@ -11,6 +11,6 @@ new menu: meniu nou
 Menu name: Denumire meniu
 Menu description: Descripere meniu
 Menu route: Ruta meniu
-Menu permissions: Permisiuni meniu
-Menu active: Meniu activ
+Menu link: Link meniu
+Menu inactive: Meniu inactiv
 Submenu parent: Parinte submeniu

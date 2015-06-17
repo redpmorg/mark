@@ -50,8 +50,8 @@
 						{% for row in menu_rows %}
 						<tr id="{{ sortable_key ~ "_" ~ row.id }}">
 							{% for key,cel in row %}
-								{% if "roles" == key %}
-									<td class="be_choice">
+								<td>
+									{% if "roles" == key %}
 										{% if cel == 0 %}
 											USER
 										{% elseif cel == 1 %}
@@ -59,20 +59,14 @@
 										{% elseif cel == 2 %}
 											SUPER ADMIN
 										{% endif %}
-									</td>
 									{% elseif "sort" == key %}
-									<td class="be_sort">
 											<i class="glyphicon glyphicon-move"></i>
-									</td>
 									{% elseif "isActive" == key %}
-									<td class="be_choice">
-										{{ cel }}
-									</td>
+											<input type="checkbox" {{ (1 == cel) ? 'checked' : 'unchecked' }} disabled />
 									{% else %}
-									<td class="be_text">
 									    {{ cel }}
-									</td>
 									{% endif %}
+								</td>
 							{% endfor %}
 							<td>
 									<a class="editaction" title="{{ 'Edit'|trans }}" data-toggle="modal" data-target="#addedit-modal" data-row-id={{ row.id }}><i class="glyphicon glyphicon-edit"></i></a>

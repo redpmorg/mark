@@ -67,13 +67,12 @@ class ManageMenuController extends MenuController
 			))
 		->add('roles', 'choice', array(
 			'choices' => $users->getAllUsersRoles(),
-			'label' => $t->trans('Menu permissions')
+			'label' => $t->trans('Menu link')
 			))
 		->add('isActive', 'checkbox', array(
-			'label' => $t->trans('Menu active'),
-			'attr' => array(
-				'checked' => 'checked'
-			)))
+			'label' => $t->trans('Menu inactive'),
+			'value' => 0
+			))
 		->getForm();
 
 		$data['form'] = $form->createView();
@@ -91,13 +90,12 @@ class ManageMenuController extends MenuController
 	 */
 	public function menuEditAction()
 	{
-
+		$entity = new Menu();
 		$data = $this->get('request')->getContent();
-		$data = parse_str(urldecode($data), $arr);
-		dump($arr);
-		exit;
 
-	//	return $this->redirectToRoute('menu_manage');
+		$validate_error = $this->get('general.actions')
+								->validateData($data, $entity);
+		exit($validate_error);
 	}
 
 	/**

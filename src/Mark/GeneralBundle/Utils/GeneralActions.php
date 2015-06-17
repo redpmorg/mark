@@ -14,11 +14,12 @@ use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 
 class GeneralActions {
 
-
 	private $em;
+	private $validator;
 
-	public function __construct($em){
+	public function __construct($em, $validator){
 		$this->em = $em;
+		$this->validator = $validator;
 	}
 
 	public function delete($entity, $property, $id)
@@ -63,7 +64,7 @@ class GeneralActions {
 	 * Upload files
 	 *
 	 *  ON WORK
-	 * 
+	 *
 	 */
 	public function uploadFiles($file)
 	{
@@ -76,30 +77,31 @@ class GeneralActions {
 
 
 	/**
-	 * Serialize and normalize objects to be used as messages
-	 * 
-	 * @param array $data 	Array to be serialized as json
-	 * @param bool $typeOf 	TRUE - serialize; FALSE - deserialize
-	 * @param object $entity The entity name
+	 * Validate Json Data
 	 *
-	 * @return mixed serialized/deserialized
+	 * @param  array $data 			Returned jQuery - jSON serialized data
+	 * @param  object $entity 		Entity cotainer name
+	 * @return array
 	 */
-
-	public function serializeMe($data, $typeOf, $entity)
+	public function validateData($data, $entity)
 	{
+		$data = parse_str(urldecode($data), $arr);
+		$arr = $arr["form"];
 
-		$encoder = new JsonEncoder();
-		$normalizer = new GetSetMethodNormalizer();
-		$serializer = new Serializer($normalizer, $encoder);
-
-		if($typeOf) {
-			$resp = $serializer->serialize($data, 'json');
-		} else {
-			$resp = $serializer->deserialize($data, $entity, 'json');
+		// check (id) existence -- EDIT CASE
+		if(array_key_exists("id", $arr)){
+			$_id = $arr["id"];
+			unset($arr["id"]);
 		}
 
-		return $resp;
-
+		$violation = "ok";
+		foreach($arr as $property => $value){
+			$constraintValidationList = $this->validator
+			->validatePropertyValue($entity, $property, $value);
+			foreach($constraintValidationList as $violations){
+				$violation = $violations->getMessage();
+			}
+		}
+		return $violation;
 	}
-
 }
