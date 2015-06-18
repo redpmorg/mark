@@ -46,11 +46,7 @@ $("#addedit-modal").on('show.bs.modal', function(event){
 	$("#form").find("select, textarea, input").bind("change", function() {
 		$this = $(this);
 
-	 	if (false == $this.prop('checked')){
-			$this.val(1);
-		}
-
-		$form_el = $this.serialize();
+	 	$form_el = $this.serialize();
 
 		// Edit CASE
 		if(null != _id) {
@@ -82,7 +78,7 @@ $("#addedit-modal").on('show.bs.modal', function(event){
 });
 
 
-$("#submit-data").on('click', function(){
+$("#submit-data").on('click', function(e){
 			//serialize the form/div
 			$form = $("#form");
 			$form.find("select, textarea, input")
@@ -90,7 +86,11 @@ $("#submit-data").on('click', function(){
 				.each(function(){
 					$this = $(this);
 					if(0 == $this.length) {
-							{# adauga actiune aici #}
+						$this.addClass('yield-parent');
+						$this.parent().append('<p class="yield">{{ 'This field is required!'|trans }}</p>');
+
+						e.stopPropagation();
+
 					}
 			});
 

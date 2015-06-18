@@ -127,7 +127,7 @@ class GeneralActions {
 	 * @param string $data 		Serialized data to be edited
 	 */
 
-	public function persistAddData($entity, $data)
+	public function persistAddedData($entity, $data)
 	{
 		parse_str(urldecode($data), $arr);
 		$arr = $arr['form'];
