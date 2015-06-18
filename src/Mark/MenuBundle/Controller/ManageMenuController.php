@@ -27,7 +27,7 @@ class ManageMenuController extends MenuController
 	public function menuManageAction()
 	{
 		$data["menu_columns"] = $this->generateMenuColumnsAction();
-		$data["menu_rows"] = $this->generateMenuAction();
+		$data["menu_rows"] = $this->generateMenuAction($all = true);
 		$data["title"] = "Menu Manager";
 
 		/* Building the addedit form */
@@ -69,9 +69,17 @@ class ManageMenuController extends MenuController
 			'choices' => $users->getAllUsersRoles(),
 			'label' => $t->trans('Menu link')
 			))
-		->add('isActive', 'checkbox', array(
-			'label' => $t->trans('Menu inactive'),
-			'value' => 0
+		->add('isActive', 'choice', array(
+			'choices' => array(
+				0 => 'Inactive',
+				1 => 'Active'
+			),
+			'attr' => array(
+				'class' => 'radio-group-inline'
+			),
+			'label' => $t->trans('Menu'),
+			'expanded' => true,
+			'multiple' => false
 			))
 		->getForm();
 
@@ -82,9 +90,7 @@ class ManageMenuController extends MenuController
 	}
 
 	/**
-	 * Menu Add/Edit
-	 *
-	 * If id - EDIT else ADD
+	 * Menu Edit && Validate
 	 *
 	 * @Route("/sadm/manmenu/edit", name="menu_edit")
 	 */
@@ -92,11 +98,37 @@ class ManageMenuController extends MenuController
 	{
 		$entity = new Menu();
 		$data = $this->get('request')->getContent();
+		$ga = $this->get('general.actions');
+		$validate_error = $ga->validateData($entity, $data);
 
-		$validate_error = $this->get('general.actions')
-								->validateData($data, $entity);
-		exit($validate_error);
+		if('ok' !== $validate_error) {
+			exit($validate_error);
+		}
+
+		parse_str(urldecode($data), $arr);
+		$arr = $arr['form'];
+		if(array_key_exists('id', $arr)) {
+			$ga->persistEditedData($entity, $data);
+		}
+
+		exit;
 	}
+
+	/**
+	 * Menu Add
+	 *
+	 * @Route("/sadm/manmenu/add", name="menu_add")
+	 */
+	public function menuAddAction()
+	{
+		$entity = new Menu();
+		$data = $this->get('request')->getContent();
+		$ga = $this->get('general.actions');
+		$ga->persistAddedData($entity, $data);
+
+		return $this->redirectToRoute('menu_manage');
+	}
+
 
 	/**
 	 * Menu Delete
@@ -104,9 +136,9 @@ class ManageMenuController extends MenuController
 	 */
 	public function menuDeleteAction($id)
 	{
-		$entity = "Mark\MenuBundle\Entity\Menu";
-		$this->get('general.actions')->delete($entity, 'id', $id);
-		$this->get('general.actions')->delete($entity, 'parent', $id);
+		$entity = new Menu();
+		$this->get('general.actions')->persistDeletedData($entity, 'id', $id);
+		$this->get('general.actions')->persistDeletedData($entity, 'parent', $id);
 		return $this->redirectToRoute('menu_manage');
 	}
 

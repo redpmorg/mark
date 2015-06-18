@@ -40,7 +40,7 @@ class Menu
 
 	/**
 	 * @var integer
-	 * @ORM\Column(name="parent", type="integer", length=3)
+	 * @ORM\Column(name="parent", type="integer", length=3, options={"default":0})
 	 */
 	private $parent;
 

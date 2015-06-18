@@ -22,18 +22,6 @@ class GeneralActions {
 		$this->validator = $validator;
 	}
 
-	public function delete($entity, $property, $id)
-	{
-		$query = "DELETE ";
-		$query .= "{$entity} e ";
-		$query .= "WHERE e.{$property} = ?1 ";
-
-		$this->em->createQuery($query)
-		->setParameter(1, $id)
-		->execute();
-
-		$this->em->clear();
-	}
 
 	/**
 	 * Persist jQueryUI sortable row order
@@ -83,12 +71,10 @@ class GeneralActions {
 	 * @param  object $entity 		Entity cotainer name
 	 * @return array
 	 */
-	public function validateData($data, $entity)
+	public function validateData($entity, $data)
 	{
-		$data = parse_str(urldecode($data), $arr);
+		parse_str(urldecode($data), $arr);
 		$arr = $arr["form"];
-
-		// check (id) existence -- EDIT CASE
 		if(array_key_exists("id", $arr)){
 			$_id = $arr["id"];
 			unset($arr["id"]);
@@ -102,6 +88,80 @@ class GeneralActions {
 				$violation = $violations->getMessage();
 			}
 		}
+
 		return $violation;
 	}
+
+	/**
+	 * PersistEditedData
+	 *
+	 * @param object $entity 	Entity to persist
+	 * @param string $data 		Serialized data to be edited
+	 */
+
+	public function persistEditedData($entity, $data)
+	{
+		parse_str(urldecode($data), $arr);
+		$arr = $arr['form'];
+		if(array_key_exists("id", $arr)){
+			$_id = $arr["id"];
+			unset($arr["id"]);
+		}
+
+
+		$query = "UPDATE " . get_class($entity) ." e SET ";
+
+		foreach( $arr as $property => $value ){
+			$query .= "e." .$property. "='" .$value ."' ";
+		}
+		$query .="WHERE e.id=".$_id;
+
+		$this->em->createQuery($query)->execute();
+		$this->em->clear();
+	}
+
+	/**
+	 * PersistAddedData
+	 *
+	 * @param object $entity 	Entity to persist
+	 * @param string $data 		Serialized data to be edited
+	 */
+
+	public function persistAddData($entity, $data)
+	{
+		parse_str(urldecode($data), $arr);
+		$arr = $arr['form'];
+		if(array_key_exists("id", $arr)){
+			$_id = $arr["id"];
+			unset($arr["id"]);
+		}
+
+		$query = "UPDATE " . get_class($entity) ." e SET ";
+		foreach( $arr as $property => $value ){
+			$query .= "e." .$property. "='" .$value ."' ";
+		}
+		$query .="WHERE e.id=".$_id;
+		$this->em->createQuery($query)->execute();
+		$this->em->clear();
+	}
+
+	/**
+	 * PersistDeletedData
+	 *
+	 * @param
+	 */
+
+	public function persistDeletedData($entity, $property, $id)
+	{
+		$query = "DELETE ";
+		$query .= get_class($entity)." e ";
+		$query .= "WHERE e.{$property} = ?1 ";
+
+		$this->em->createQuery($query)
+		->setParameter(1, $id)
+		->execute();
+
+		$this->em->clear();
+	}
+
 }
