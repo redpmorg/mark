@@ -131,18 +131,11 @@ class GeneralActions {
 	{
 		parse_str(urldecode($data), $arr);
 		$arr = $arr['form'];
-		if(array_key_exists("id", $arr)){
-			$_id = $arr["id"];
-			unset($arr["id"]);
-		}
 
-		$query = "UPDATE " . get_class($entity) ." e SET ";
-		foreach( $arr as $property => $value ){
-			$query .= "e." .$property. "='" .$value ."' ";
-		}
-		$query .="WHERE e.id=".$_id;
-		$this->em->createQuery($query)->execute();
-		$this->em->clear();
+
+
+		$this->em->persist($entity, $arr);
+		$this->em->flush();
 	}
 
 	/**

@@ -46,12 +46,18 @@ $("#addedit-modal").on('show.bs.modal', function(event){
 	$("#form").find("select, textarea, input").bind("change", function() {
 		$this = $(this);
 
-	 	$form_el = $this.serialize();
+		{# if input type is radio or checkbox serialize form manualy #}
+		if("checkbox" == $this.prop('type') || "radio" == $this.prop('type')) {
+			$form_el = this.name + "=" + (this.checked ? 1 : 0);
+		} else {
+			$form_el = $this.serialize();
+		}
 
-		// Edit CASE
+		{# on EDIT CASE manualy add record id #}
 		if(null != _id) {
 			$form_el += encodeURIComponent("&form[id]=" + _id);
 		}
+
 		$.ajax({
 				method: "POST",
 				url : "{{ path(edit_action_route) }}",
@@ -77,33 +83,52 @@ $("#addedit-modal").on('show.bs.modal', function(event){
 	});
 });
 
-
 $("#submit-data").on('click', function(e){
-			//serialize the form/div
-			$form = $("#form");
-			$form.find("select, textarea, input")
-				.filter("[required]:visible")
-				.each(function(){
-					$this = $(this);
-					if(0 == $this.length) {
+		{# serialize the form or div #}
+		$form = $("#form");
+
+		{# ================================ #}
+		{# VALIDATE THE REQUIRED PROPRETIES #}
+		{# ================================ #}
+
+		var formElements = $form.find("select, textarea, input");
+		var _serializedForm = formElements.serialize();
+		var required = formElements.filter("[required]:visible");
+
+		var requiredEmptyExists = false;
+
+		if(0 != required.lenght){
+			{# check ONLY for NONempty required #}
+			required.each(function(event){
+				$this = $(this);
+				if( "" == $this.val() ) {
+					{# add new warning but check first it not exists #}
+					if(!$this.hasClass('yield-parent')){
 						$this.addClass('yield-parent');
-						$this.parent().append('<p class="yield">{{ 'This field is required!'|trans }}</p>');
-
-						e.stopPropagation();
-
+						$this.parent()
+						 	 .append('<p class="yield">{{ "This field is required!"|trans }}</p>');
 					}
+					requiredEmptyExists = true;
+				} else {
+					{# remove the warnings #}
+					$this.removeClass('yield-parent');
+					$this.parent().find('p').remove();
+				}
 			});
+		}
 
-			$form = $form.serialize();
-
-			// eliminate empty fields
-			// $form = $form.replace(/[^&]+=&/g, '').replace(/&[^&]+=$/g, '');
-
+		{# if required exists, just DIE #}
+		if(requiredEmptyExists) {
+			return;
+		} else {
+			{# eliminate empty fields #}
+			{# $form = $form.replace(/[^&]+=&/g, '').replace(/&[^&]+=$/g, '');	#}
 			$.ajax({
 				method: "POST",
 				url : "{{ path(add_action_route) }}",
-				data: $form
+				data: _serializedForm
 			});
+		}
 	});
 
 

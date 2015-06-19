@@ -69,18 +69,22 @@ class ManageMenuController extends MenuController
 			'choices' => $users->getAllUsersRoles(),
 			'label' => $t->trans('Menu link')
 			))
-		->add('isActive', 'choice', array(
-			'choices' => array(
-				0 => 'Inactive',
-				1 => 'Active'
-			),
-			'attr' => array(
-				'class' => 'radio-group-inline'
-			),
+		->add('isActive', 'checkbox', array(
 			'label' => $t->trans('Menu'),
-			'expanded' => true,
-			'multiple' => false
+			'attr' => array('checked' => true)
 			))
+		// ->add('isActive', 'choice', array(
+		// 	'choices' => array(
+		// 		0 => 'Inactive',
+		// 		1 => 'Active'
+		// 	),
+		// 	'attr' => array(
+		// 		'class' => 'radio-group-inline'
+		// 	),
+		// 	'label' => $t->trans('Menu'),
+		// 	'expanded' => true,
+		// 	'multiple' => false
+		// 	))
 		->getForm();
 
 		$data['form'] = $form->createView();
