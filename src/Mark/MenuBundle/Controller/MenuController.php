@@ -56,7 +56,9 @@ class MenuController extends Controller
 		if(!$sortCol) {
 			$query_string .= "m.parent ASC, m.sort ASC ";
 		} else {
-			$query_string .= "m." . $sortCol . " ASC ";
+			foreach($sortCol as $param => $order) {
+				$query_string .= "m." . $param . " " . $order;
+			}
 		}
 
 		$query = $em->createQuery($query_string);
