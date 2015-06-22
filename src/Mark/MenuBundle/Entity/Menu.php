@@ -33,7 +33,7 @@ class Menu
 	/**
 	 * @var string
 	 * @ORM\Column(name="description", type="string", length=255)
-	 * @Assert\Length(min=3, max=15)
+	 * @Assert\Length(min=3, max=25)
 	 * @Assert\NotBlank
 	 */
 	private $description;

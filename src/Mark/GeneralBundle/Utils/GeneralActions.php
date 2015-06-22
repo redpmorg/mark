@@ -126,7 +126,7 @@ class GeneralActions {
 	{
 		parse_str(urldecode($data), $arr);
 
-		// this form[ceva] is comming from Sf2 form autoBuilder
+		// this form[index] is comming from Sf2 form autoBuilder
 		$arr = $arr['form'];
 
 		foreach($arr as $met => $val ) {

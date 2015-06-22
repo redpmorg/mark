@@ -84,6 +84,28 @@ class ManageMenuController extends MenuController
 	}
 
 	/**
+	 * Menu Fetch Data for Edit
+	 *
+	 * @Route("/sadm/manmenu/fetch/{id}", name="menu_fetch")
+	 */
+	public function menuFetchEditAction($id)
+	{
+		$em = $this->getDoctrine()->getManager();
+
+		$query = $em->createQuery(
+				"SELECT m
+				 FROM MarkMenuBundle:Menu m
+				 WHERE m.id = ?1"
+				 )->setParameter(1, $id);
+		$menu = $query->getArrayResult();
+
+		echo json_encode($menu[0]);
+
+		exit;
+	}
+
+
+	/**
 	 * Menu Edit && Validate
 	 *
 	 * @Route("/sadm/manmenu/edit", name="menu_edit")

@@ -53,11 +53,15 @@ class MenuController extends Controller
 
 		$sortCol = $this->user->getUserParameters('m_sortcol');
 
-		if(!$sortCol) {
+		if(!$all){
 			$query_string .= "m.parent ASC, m.sort ASC ";
 		} else {
-			foreach($sortCol as $param => $order) {
-				$query_string .= "m." . $param . " " . $order;
+			if(!$sortCol) {
+				$query_string .= "m.parent ASC, m.sort ASC ";
+			} else {
+				foreach($sortCol as $param => $order) {
+					$query_string .= "m." . $param . " " . $order;
+				}
 			}
 		}
 

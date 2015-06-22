@@ -36,6 +36,23 @@ $("#addedit-modal").on('show.bs.modal', function(event){
 	if(_rt.hasClass('editaction')) {
 		$("#modal-addedit-header")
 	       .text("{{ 'Edit'|trans ~ ' ' ~ 'menu'|trans }} - id::" +  _id );
+
+		var url = "{{ path(edit_fetch_route, {'id':'replace_this_id_slug'}) }}";
+		url = url.replace(/(replace_this_id_slug)/, _id);
+
+		$.ajax({
+			    method: "POST",
+			    url: url
+			}).done(function(data){
+				var fetched_data = JSON.parse(data);
+
+				for(ee in fetched_data) {
+					if("id" != ee){
+						$("#form_"+ee).val(fetched_data[ee]);
+					}
+				}
+			});
+
 	    $("#submit-data").parent().hide();
 
 		{# fetch data from entity/local ?!? #}

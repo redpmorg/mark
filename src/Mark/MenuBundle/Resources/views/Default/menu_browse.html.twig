@@ -1,6 +1,9 @@
 {% extends 'MarkLoginBundle::menu.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
 
+{# set ajax-preloader #}
+{% use "MarkGeneralBundle:default:ajax-preloader.html.twig" with javascripts as js_ajax_preloader, ajax_preloader as html_ajax_preloader %}
+
 {# set delete modal properties #}
 {% set modal_delete_id = "menuDeleteModal" %}
 {% set modal_delete_route = "menu_delete" %}
@@ -18,6 +21,7 @@
 {% use "MarkGeneralBundle:default:fileModal.html.twig" with modal as html_image_modal %}
 
 {# set add/edit properties #}
+{% set edit_fetch_route = "menu_fetch" %}
 {% set edit_action_route = "menu_edit" %}
 {% set add_action_route = "menu_add" %}
 {% use "MarkGeneralBundle:default:addEditModal.html.twig" with javascripts as js_addedit_modal, modal as html_addedit_modal %}
@@ -97,10 +101,12 @@
 {{ block('html_delete_modal') }}
 {{ block('html_image_modal') }}
 {{ block('html_addedit_modal') }}
+{{ block('html_ajax_preloader') }}
 {% endblock %}
 
 {% block javascripts %}
 	<script type="text/javascript">
+		{{ block('js_ajax_preloader') }}
 		{{ block('js_sortable_rows') }}
 		{{ block('js_delete_modal') }}
 		{{ block('js_addedit_modal') }}
