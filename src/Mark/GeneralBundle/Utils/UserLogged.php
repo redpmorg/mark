@@ -90,11 +90,28 @@ class UserLogged
 	/**
 	 * Get logged users parameters from Token
 	 *
+	 * @param string $param
 	 * @return serialized string
 	 */
-	public function getUserParameter()
+	public function getUserParameters($param = null)
 	{
-		return $this->token->getToken()->getUser()->getParam();
+		$p = $this->token->getToken()
+				         ->getUser()
+				         ->getParam();
+
+		if($param){
+			if(array_key_exists($param, $p)){
+				return $p[$param];
+			} else {
+				
+				.... here I am find a way to throw a new exception but in LOG and dont return nothing ...
+
+				throw $this->createNotFoundException('No parameters are found!');;
+			}
+		}
+
+		return $p;
+
 	}
 
 }

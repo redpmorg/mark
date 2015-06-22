@@ -50,10 +50,9 @@ class MenuController extends Controller
 			$query_string .= "WHERE m.isActive = 1 AND m.roles <= :role ";
 		}
 		$query_string .= "ORDER BY ";
-		$sortCol = $this->user->getUserParameter();
-		if($sortCol) {
-			$sortCol = $sortCol['m_sortcol'];
-		}
+
+		$sortCol = $this->user->getUserParameters('m_sortcol');
+
 		if(!$sortCol) {
 			$query_string .= "m.parent ASC, m.sort ASC ";
 		} else {

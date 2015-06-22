@@ -165,12 +165,23 @@ class ManageMenuController extends MenuController
 
 	/**
 	 * Sorting by columns
-	 * @Route("/sadm/manmenu/colSort/{param}/{value}", name="menu_colsort")
+	 * @Route("/sadm/manmenu/colSort/{param}", name="menu_colsort")
 	 */
-	public function menuColSort($param, $value)
+	public function menuColSort($param)
 	{
-		$this->get('user.general_utils')->setUserParameter($param, $value);
+		$p = $this->get('user.loggeduser_utils')
+				  ->getUserParameters($param);
+
+		if($p){
+			var_dump($p);
+			die();
+		};
+
+		$this->get('user.general_utils')
+			 ->setUserParameter($param, $value);
+
 		return $this->redirectToRoute('menu_manage');
+
 	}
 
 	/**

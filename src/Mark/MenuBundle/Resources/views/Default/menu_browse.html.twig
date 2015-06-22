@@ -25,6 +25,8 @@
 {% block body %}
 	<div class="container-fluid">
 		<div class="row">
+
+			{# Browse Panel Header #}
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4>
@@ -35,18 +37,22 @@
 						</a>
 					</h4>
 				</div>
+
+			{# Browse Table Header #}
 			<div id="manage-menu" class="panel-body">
 				<table class="table table-hover table-condensed">
 					<thead>
 						<tr>
 							{% for col in menu_columns %}
 								<th class="alert-info">
-									<a href="{{ path('menu_colsort', {'param': 'm_sortcol', 'value': col}) }}">{{ col|upper }}</a>
+									<a href="{{ path('menu_colsort', {'param': 'n_sortcol'}) }}">{{ col|upper }}</a>
 								</th>
 							{% endfor %}
 							<th class="alert-info" colspan="2"></th>
 						</tr>
 					</thead>
+
+			{# Browse Body #}
 					<tbody>
 						{% for row in menu_rows %}
 						<tr id="{{ sortable_key ~ "_" ~ row.id }}">

@@ -22,7 +22,7 @@ class UserActions
 	/**
 	 * Set user parameter in Users entity
 	 * @param string $param
-	 * @param string $value
+	 * @param array $value
 	 */
 	public function setUserParameter($param, $value)
 	{
@@ -30,8 +30,8 @@ class UserActions
 
 		// search if $param exists
 		$userParam = $this->em
-			->getRepository("MarkLoginBundle:Users")
-			->findOneById($loggedUserId)->getUserParam();
+		->getRepository("MarkLoginBundle:Users")
+		->findOneById($loggedUserId)->getUserParam();
 
 		// if exists just update, else create new entry
 		$userParam[$param] = $value;
@@ -50,5 +50,4 @@ class UserActions
 
 		$this->em->clear();
 	}
-
 }

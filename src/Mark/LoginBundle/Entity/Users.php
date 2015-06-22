@@ -342,7 +342,7 @@ class Users implements UserInterface, \Serializable
 		return $this->locale;
 	}
 
-	/**	* Get user parametrs
+	/**	* Get user parameters
 	*
 	* @return array
 	*/
