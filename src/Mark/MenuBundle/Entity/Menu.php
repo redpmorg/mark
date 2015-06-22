@@ -58,7 +58,7 @@ class Menu
 
 	/**
 	 * @var integer
-	 * @ORM\Column(name="roles", type="integer")
+	 * @ORM\Column(name="roles", type="integer", options={"default":0})
 	 */
 	private $roles;
 

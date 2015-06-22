@@ -56,9 +56,7 @@ class GeneralActions {
 	 */
 	public function uploadFiles($file)
 	{
-
 		$file->upload();
-
 		$this->em->persist($file);
 		$this->em->flush();
 	}
@@ -120,17 +118,25 @@ class GeneralActions {
 	/**
 	 * PersistAddedData
 	 *
-	 * @param object $entity 	Entity to persist
-	 * @param string $data 		Serialized data to be edited
+	 * @param obj $entity 	Entity to persist
+	 * @param string $data 		Serialized data to be added
 	 */
 
 	public function persistAddedData($entity, $data)
 	{
 		parse_str(urldecode($data), $arr);
+
+		// this form[ceva] is comming from Sf2 form autoBuilder
 		$arr = $arr['form'];
 
-		$this->em->persist($entity, $arr);
+		foreach($arr as $met => $val ) {
+			$method_name = "set" . ucwords($met);
+			$entity->{$method_name}($val);
+		}
+
+		$this->em->persist($entity);
 		$this->em->flush();
+		$this->em->clear();
 	}
 
 	/**

@@ -73,18 +73,8 @@ class ManageMenuController extends MenuController
 			'label' => $t->trans('Menu'),
 			'attr' => array('checked' => true)
 			))
-		// ->add('isActive', 'choice', array(
-		// 	'choices' => array(
-		// 		0 => 'Inactive',
-		// 		1 => 'Active'
-		// 	),
-		// 	'attr' => array(
-		// 		'class' => 'radio-group-inline'
-		// 	),
-		// 	'label' => $t->trans('Menu'),
-		// 	'expanded' => true,
-		// 	'multiple' => false
-		// 	))
+		->add('sort', 'hidden', array(
+			'data' => 1))
 		->getForm();
 
 		$data['form'] = $form->createView();
@@ -127,9 +117,8 @@ class ManageMenuController extends MenuController
 	{
 		$entity = new Menu();
 		$data = $this->get('request')->getContent();
-		$ga = $this->get('general.actions');
-		$ga->persistAddedData($entity, $data);
-
+		$ga = $this->get('general.actions')
+				   ->persistAddedData($entity, $data);
 		return $this->redirectToRoute('menu_manage');
 	}
 
