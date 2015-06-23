@@ -171,6 +171,7 @@ class ManageMenuController extends MenuController
 		$entity = new Menu();
 		$this->get('general.actions')->persistDeletedData($entity, 'id', $id);
 		$this->get('general.actions')->persistDeletedData($entity, 'parent', $id);
+
 		return $this->redirectToRoute('menu_manage');
 	}
 
@@ -212,26 +213,24 @@ class ManageMenuController extends MenuController
 	* Change menu picture/thumbnail
 	*
 	* @Route("/sadm/manmenu/changePict", name="menu_upload_image")
-	*
-	* @param object $response Response
 	*/
 	public function changeMenuPictureAction()
 	{
 
 		$request = $this->get('request');
-		$content = $request->getContent();
+		$files = $request->files;
+
 		$file = new Files();
-
-		$validate = $this->get('general.actions')->validateData($file, $content, 'file');
-
+		$validate = $this->get('validator')->validateProperty($files, $file);
 		dump($validate);
 
+		// $file->setName($this->container->getParameter("app"));
+		// $file->setPath('/images');
+		// $file->setFile($file);
+
+		// dump($file);
+
 		exit;
-
-		// $imageResponse = $this->get('liip_imagine.controller')
-		// 					  ->filterAction(
-		// 					  	$request, )
-
 
 
 		// $file->setName($this->container->getParameter("app").".png");
