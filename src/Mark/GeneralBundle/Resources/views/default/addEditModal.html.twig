@@ -10,7 +10,7 @@
 					{{ form_widget(form) }}
 				</div>
 				<div class="modal-footer">
-					<button id="submit-data" class="btn btn-primary pull-right col-sm-3" data-dismiss="modal">{{ 'Save'|trans }}</button>
+					<button id="submit-data" class="btn btn-primary pull-right col-sm-3">{{ 'Save'|trans }}</button>
 				</div>
 				</div>
 			</div>
@@ -45,10 +45,9 @@ $("#addedit-modal").on('show.bs.modal', function(event){
 			    url: url
 			}).done(function(data){
 				var fetched_data = JSON.parse(data);
-
-				for(ee in fetched_data) {
-					if("id" != ee){
-						$("#form_"+ee).val(fetched_data[ee]);
+				for(prop in fetched_data) {
+					if("id" != prop){
+						$("#form_"+prop).val(fetched_data[prop]);
 					}
 				}
 			});
@@ -144,6 +143,8 @@ $("#submit-data").on('click', function(e){
 				method: "POST",
 				url : "{{ path(add_action_route) }}",
 				data: _serializedForm
+			}).done(function(){
+				$("#addedit-modal").hide();
 			});
 		}
 	});

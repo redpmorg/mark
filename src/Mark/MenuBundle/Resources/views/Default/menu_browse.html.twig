@@ -20,7 +20,7 @@
 {% set image_modal_route = "menu_upload_image" %}
 {% use "MarkGeneralBundle:default:fileModal.html.twig" with modal as html_image_modal %}
 
-{# set add/edit properties #}
+{# set add/edit-verify/fetch properties #}
 {% set edit_fetch_route = "menu_fetch" %}
 {% set edit_action_route = "menu_edit" %}
 {% set add_action_route = "menu_add" %}
@@ -50,7 +50,7 @@
 							{% for col in menu_columns %}
 								<th class="alert-info">
 									{{ col|upper }}
-									<a class="alert-link" href="{{ path('menu_colsort', {'param': 'm_sortcol', 'value': col}) }}">									<i class="glyphicon glyphicon-sort-by-attributes"></i>
+									<a class="alert-link" href="{{ path('menu_colsort', {'param': 'm_sortcol', 'value': col}) }}">			<i class="glyphicon glyphicon-sort-by-attributes"></i>
 									</a>
 								</th>
 							{% endfor %}
