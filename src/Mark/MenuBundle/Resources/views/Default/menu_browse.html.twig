@@ -1,29 +1,10 @@
 {% extends 'MarkLoginBundle::menu.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
 
-{# set ajax-preloader #}
 {% use "MarkGeneralBundle:default:ajax-preloader.html.twig" with javascripts as js_ajax_preloader, ajax_preloader as html_ajax_preloader %}
-
-{# set delete modal properties #}
-{% set modal_delete_id = "menuDeleteModal" %}
-{% set modal_delete_route = "menu_delete" %}
 {% use "MarkGeneralBundle:default:deleteModal.html.twig" with javascripts as js_delete_modal, modal as html_delete_modal %}
-
-{# set sortable jQueryUI properties #}
-{% set sortable_container = "tbody" %}
-{% set sortable_key = "srt" %}
-{% set sortable_route = "menu_rowsort" %}
 {% use "MarkGeneralBundle:jQueryUIActions:sortableRows.js.twig" with javascripts as js_sortable_rows %}
-
-{# set image modal properties #}
-{% set image_modal_id = "modalImageId" %}
-{% set image_modal_route = "menu_upload_image" %}
 {% use "MarkGeneralBundle:default:fileModal.html.twig" with modal as html_image_modal %}
-
-{# set add/edit-verify/fetch properties #}
-{% set edit_fetch_route = "menu_fetch" %}
-{% set edit_action_route = "menu_edit" %}
-{% set add_action_route = "menu_add" %}
 {% use "MarkGeneralBundle:default:addEditModal.html.twig" with javascripts as js_addedit_modal, modal as html_addedit_modal %}
 
 {% block body %}
@@ -35,7 +16,7 @@
 				<div class="panel-heading">
 					<h4>
 						{{ 'Manage menu sections'|trans }} |
-						<a href="" data-toggle="modal" data-target="#{{ image_modal_id }}">{{ 'Change menu image'|trans }}</a>
+						<a href="" data-toggle="modal" data-target="#{{ modal_image_id }}">{{ 'Change menu image'|trans }}</a>
 						<a href="#" class="addaction pull-right" data-toggle="modal" data-target="#addedit-modal">
 							<i title="{{ 'Add'|trans }}" class="glyphicon glyphicon-plus"></i>{{ 'Add'|trans }}
 						</a>
@@ -50,7 +31,8 @@
 							{% for col in menu_columns %}
 								<th class="alert-info">
 									{{ col|upper }}
-									<a class="alert-link" href="{{ path('menu_colsort', {'param': 'm_sortcol', 'value': col}) }}">			<i class="glyphicon glyphicon-sort-by-attributes"></i>
+									<a class="alert-link" href="{{ path('menu_colsort', {'param': 'm_sortcol', 'value': col}) }}">
+										<i class="glyphicon glyphicon-sort-by-attributes"></i>
 									</a>
 								</th>
 							{% endfor %}
@@ -82,14 +64,16 @@
 								</td>
 							{% endfor %}
 							<td>
-									<a class="editaction" title="{{ 'Edit'|trans }}" data-toggle="modal" data-target="#addedit-modal" data-row-id={{ row.id }}><i class="glyphicon glyphicon-edit"></i></a>
-								</td>
-								<td>
-									<a class="deleteaction" title="{{ 'Delete'|trans }}" data-toggle="modal" data-target="#{{ modal_delete_id }}" data-row-id={{ row.id }}>
-										<i class="glyphicon glyphicon-remove"></i>
-									</a>
-								</td>
-							</tr>
+								<a class="editaction" title="{{ 'Edit'|trans }}" data-toggle="modal" data-target="#addedit-modal" data-row-id={{ row.id }}>
+									<i class="glyphicon glyphicon-edit"></i>
+								</a>
+							</td>
+							<td>
+								<a class="deleteaction" title="{{ 'Delete'|trans }}" data-toggle="modal" data-target="#{{ modal_delete_id }}" data-row-id={{ row.id }}>
+									<i class="glyphicon glyphicon-remove"></i>
+								</a>
+							</td>
+						</tr>
 						{% endfor %}
 					</tbody>
 				</table>
@@ -98,6 +82,7 @@
 	</div>
 </div>
 
+{# Extra blocks #}
 {{ block('html_delete_modal') }}
 {{ block('html_image_modal') }}
 {{ block('html_addedit_modal') }}

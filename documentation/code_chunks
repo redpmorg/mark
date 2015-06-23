@@ -1,0 +1,50 @@
+
+{# GREAT BUT UNUSED BECAUSE I FORGOT about jquery serialize :( #}
+{#
+function getFields(actionType, editId)
+{
+	var fields_value = [];
+	$("[id^=form_]").each(function(){
+		var obj = {};
+		$this=$(this);
+		var myValue = $this.val() || null;
+		var p = $this.prop('name');
+		var re = /[^[\]]+(?=])/g;
+		// var key = "set"+
+		//		  p.match(re)[0].charAt(0).toUpperCase()+
+		//		  p.match(re)[0].slice(1);
+		var re = p.match(re)[0];
+
+		if("edit" == actionType) {
+			obj['id'] = editId;
+			fields_value.push(obj);
+		}
+
+		if("text" == $this.prop('type')) {
+			obj[key] = myValue;
+			fields_value.push(obj);
+		}
+
+		if("select-one" == $this.prop('type')) {
+			var myValue = $("option:selected", this).val() || null;
+			obj[key] = myValue;
+			fields_value.push(obj);
+		}
+
+		if("checkbox" == $this.prop('type')) {
+			if($this.prop("checked")) {
+				myValue = 1;
+			} else {
+				myValue = 0;
+			}
+			obj[key] = myValue;
+			fields_value.push(obj);
+		}
+
+	});
+
+	fields_value = JSON.stringify(fields_value);
+
+	return fields_value;
+}
+#}

@@ -102,30 +102,17 @@ class Files
 		return $this->path;
 	}
 
-
 	public function getAbsolutePath()
 	{
 		return null === $this->path
 		? null
-		: $this->getUploadedRootDir()."/".$this->path;
-	}
-
-	public function getWebPath()
-	{
-		return null === $this->path
-		? null
-		: $this->getUploadedDir().'/'.$this->path;
+		: $this->getUploadedRootDir()."/".$this->name;
 	}
 
 	// the file should be saved here. in absolute path
 	public function getUploadedRootDir()
 	{
-		return __DIR__."/../../../../web/". $this->getUploadedDir();
-	}
-
-	// get rid of __DIR__ to not fuck of diplaying the files on production
-	public function getUploadedDir() {
-		return "uploads/";
+		return "%kernel.root_dir%/../web/". $this->getPath();
 	}
 
 	/**
@@ -155,11 +142,11 @@ class Files
 		}
 
 		$this->getFile()->move(
-			$this->getUploadedDir(),
+			$this->getUploadedRootDir(),
 			$this->getFile()->getClientOriginalName()
 			);
 
-		$this->path = $this->getFile()->getClientOriginalName();
+		$this->name = $this->getFile()->getClientOriginalName();
 
 		$this->file = null;
 	}

@@ -10,7 +10,6 @@ namespace Mark\MenuBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\HttpFoundation\Response;
 
 use Mark\MenuBundle\Controller\MenuController;
 use Mark\GeneralBundle\Entity\Files;
@@ -21,6 +20,7 @@ class ManageMenuController extends MenuController
 {
 	/**
 	 * Menu Browse
+	 *
 	 * @Route("/sadm/manmenu/", name="menu_manage")
 	 * @Template("MarkMenuBundle:Default:menu_browse.html.twig")
 	 */
@@ -37,12 +37,12 @@ class ManageMenuController extends MenuController
 
 		// construct parents chioces
 		$em = $this->getDoctrine()->getManager();
-		$p = $em->getRepository("MarkMenuBundle:Menu")->findByParent('0');
+		$p = $em->getRepository(get_class($menu))->findByParent('0');
 		foreach($p as $val) {
 			$parentsName[$val->getId()] = $val->getName();
 		}
 
-		// cosntruct form
+		// Construct form to be injected on modal add/edit
 		$form = $this->createFormBuilder($menu, array(
 			'attr' => array(
 				'id' => 'addedit-form',
@@ -63,6 +63,7 @@ class ManageMenuController extends MenuController
 			'label' => $t->trans('Submenu parent')
 			))
 		->add('route', 'text', array(
+			'required' => false,
 			'label' => $t->trans('Menu route')
 			))
 		->add('roles', 'choice', array(
@@ -78,7 +79,26 @@ class ManageMenuController extends MenuController
 		->getForm();
 
 		$data['form'] = $form->createView();
-		$data["form_edit_route"] = "menu_edit";
+
+		//Take care about all details
+		$data['modal_edit_title'] = "Edit menu";
+		$data['modal_add_title'] = "Add menu";
+
+		$data['modal_delete_id'] = "menuDeleteModal";
+		$data['modal_delete_title'] = 'Delete menu';
+		$data['modal_delete_message'] = "Deleted records can not be restored!";
+		$data['modal_delete_route'] = "menu_delete";
+
+		$data['modal_image_id'] = "modalImageId";
+
+		$data['route_edit_fetch'] = "menu_fetch";
+		$data['route_edit_action'] = "menu_edit";
+		$data['route_add_action'] = "menu_add";
+		$data['route_image_action'] = "menu_upload_image";
+
+		$data['sortable_container'] = "tbody";
+		$data['sortable_key'] = "srt";
+		$data['sortable_route'] = 'menu_rowsort';
 
 		return $data;
 	}
@@ -91,14 +111,12 @@ class ManageMenuController extends MenuController
 	public function menuFetchEditAction($id)
 	{
 		$em = $this->getDoctrine()->getManager();
-
 		$query = $em->createQuery(
-				"SELECT m
-				 FROM MarkMenuBundle:Menu m
-				 WHERE m.id = ?1"
-				 )->setParameter(1, $id);
+			"SELECT m
+			FROM MarkMenuBundle:Menu m
+			WHERE m.id = ?1"
+			)->setParameter(1, $id);
 		$menu = $query->getArrayResult();
-
 		echo json_encode($menu[0]);
 
 		exit;
@@ -115,12 +133,10 @@ class ManageMenuController extends MenuController
 		$entity = new Menu();
 		$data = $this->get('request')->getContent();
 		$ga = $this->get('general.actions');
-		$validate_error = $ga->validateData($entity, $data);
-
+		$validate_error = $ga->validateData($entity, $data, 'form');
 		if('ok' !== $validate_error) {
 			exit($validate_error);
 		}
-
 		parse_str(urldecode($data), $arr);
 		$arr = $arr['form'];
 		if(array_key_exists('id', $arr)) {
@@ -139,14 +155,15 @@ class ManageMenuController extends MenuController
 	{
 		$entity = new Menu();
 		$data = $this->get('request')->getContent();
-		$ga = $this->get('general.actions')
-				   ->persistAddedData($entity, $data);
+		$ga = $this->get('general.actions')->persistAddedData($entity, $data);
+
 		return $this->redirectToRoute('menu_manage');
 	}
 
 
 	/**
 	 * Menu Delete
+	 *
 	 * @Route("/sadm/manmenu/delete/{id}", name="menu_delete")
 	 */
 	public function menuDeleteAction($id)
@@ -159,23 +176,21 @@ class ManageMenuController extends MenuController
 
 	/**
 	 * Sorting rows by jOueryUI sortable
+	 *
 	 * @Route("/sadm/manmenu/rowsort", name="menu_rowsort")
 	 */
 	public function menuRowSort()
 	{
 		$data = $this->get('request')->getContent();
 		$entityName = "Mark\MenuBundle\Entity\Menu";
+		$this->get('general.actions')->setSortableRowsOrder($entityName, $data);
 
-		$this->get('general.actions')
-		->setSortableRowsOrder($entityName, $data);
-
-		// we don't wanna give him an response :)
 		exit;
-
 	}
 
 	/**
 	 * Sorting by columns [toggle order]
+	 *
 	 * @Route("/sadm/manmenu/colSort/{param}/{value}", name="menu_colsort")
 	 *
 	 * @param  string $param 	Parameter name
@@ -184,33 +199,45 @@ class ManageMenuController extends MenuController
 	public function menuColSort($param, $value)
 	{
 		$order = "ASC";
-		$p = $this->get('user.loggeduser_utils')
-				  ->getUserParameters($param);
-
+		$p = $this->get('user.loggeduser_utils')->getUserParameters($param);
 		if($p && array_key_exists($value, $p)){
-			if("ASC" == $p[$value]) {
-				$order = "DESC";
-			} else {
-				$order = "ASC";
-			}
+			$order = ("ASC" == $p[$value]) ? "DESC" : "ASC";
 		}
-
-		$this->get('user.general_utils')
-			 ->setUserParameter($param, array($value => $order));
-
+		$this->get('user.general_utils')->setUserParameter($param, array($value => $order));
 
 		return $this->redirectToRoute('menu_manage');
-
 	}
 
 	/**
-	* @Route("/sadm/menmenu/changePict", name="menu_upload_image")
+	* Change menu picture/thumbnail
+	*
+	* @Route("/sadm/manmenu/changePict", name="menu_upload_image")
+	*
+	* @param object $response Response
 	*/
-	public function changeMenuPictureAction(Response $response)
+	public function changeMenuPictureAction()
 	{
-		$file = new File();
-		$file->setName($this->container->getParameter("app"));
-		$this->get('general.actions')->uploadFiles($file);
-//		return $this->redirectToRoute('menu_manage');
+
+		$request = $this->get('request');
+		$content = $request->getContent();
+		$file = new Files();
+
+		$validate = $this->get('general.actions')->validateData($file, $content, 'file');
+
+		dump($validate);
+
+		exit;
+
+		// $imageResponse = $this->get('liip_imagine.controller')
+		// 					  ->filterAction(
+		// 					  	$request, )
+
+
+
+		// $file->setName($this->container->getParameter("app").".png");
+
+		// $this->get('general.actions')->uploadFiles($file);
+
+		// return $this->redirectToRoute('menu_manage');
 	}
 }

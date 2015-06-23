@@ -8,10 +8,6 @@
 
 namespace Mark\GeneralBundle\Utils;
 
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
-
 class GeneralActions {
 
 	private $em;
@@ -21,7 +17,6 @@ class GeneralActions {
 		$this->em = $em;
 		$this->validator = $validator;
 	}
-
 
 	/**
 	 * Persist jQueryUI sortable row order
@@ -65,23 +60,26 @@ class GeneralActions {
 	/**
 	 * Validate Json Data
 	 *
-	 * @param  array $data 			Returned jQuery - jSON serialized data
+	 * @param  string $data 		Form returned serialized data
 	 * @param  object $entity 		Entity cotainer name
 	 * @return array
 	 */
-	public function validateData($entity, $data)
+	public function validateData($entity, $data, $formArrayName)
 	{
 		parse_str(urldecode($data), $arr);
-		$arr = $arr["form"];
+		$arr = $arr[$formArrayName];
 		if(array_key_exists("id", $arr)){
 			$_id = $arr["id"];
 			unset($arr["id"]);
 		}
-
 		$violation = "ok";
 		foreach($arr as $property => $value){
-			$constraintValidationList = $this->validator
-			->validatePropertyValue($entity, $property, $value);
+			$constraintValidationList =	$this->validator
+			->validatePropertyValue(
+				$entity,
+				$property,
+				$value
+				);
 			foreach($constraintValidationList as $violations){
 				$violation = $violations->getMessage();
 			}

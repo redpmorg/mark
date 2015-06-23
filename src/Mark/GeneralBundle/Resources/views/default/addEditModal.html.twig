@@ -3,14 +3,18 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="{{ 'Close'|trans }}"><span aria-hidden="true">&times;</span></button>
+					<button type="button" class="close" data-dismiss="modal" aria-label="{{ 'Close'|trans }}">
+						<span aria-hidden="true">&times;</span>
+					</button>
 					<h4 class="modal-title" id="modal-addedit-header"></h4>
 				</div>
 				<div class="modal-body">
 					{{ form_widget(form) }}
 				</div>
 				<div class="modal-footer">
-					<button id="submit-data" class="btn btn-primary pull-right col-sm-3">{{ 'Save'|trans }}</button>
+					<button id="submit-data" class="btn btn-primary pull-right col-sm-3">
+						{{ 'Save'|trans }}
+					</button>
 				</div>
 				</div>
 			</div>
@@ -19,7 +23,6 @@
 {% endblock %}
 
 {% block javascripts %}
-
 $("#addedit-modal").on('show.bs.modal', function(event){
 	var _id = null;
 	var _rt = $(event.relatedTarget);
@@ -28,17 +31,18 @@ $("#addedit-modal").on('show.bs.modal', function(event){
 	{# add form case #}
 	if(_rt.hasClass('addaction')) {
 		$("#modal-addedit-header")
-           .text("{{ 'Add'|trans ~ ' ' ~ 'new menu'|trans }}");
+           .text("{{ modal_add_title|trans }}");
         $("#submit-data").parent().show();
 	}
 
 	{# edit form case #}
 	if(_rt.hasClass('editaction')) {
 		$("#modal-addedit-header")
-	       .text("{{ 'Edit'|trans ~ ' ' ~ 'menu'|trans }} - id::" +  _id );
+	       .text("{{ modal_edit_title|trans }}");
+ 		$("#submit-data").parent().hide();
 
-		var url = "{{ path(edit_fetch_route, {'id':'replace_this_id_slug'}) }}";
-		url = url.replace(/(replace_this_id_slug)/, _id);
+		var url = "{{ path(route_edit_fetch, {'id':'__SLUG'}) }}";
+		url = url.replace(/(__SLUG)/, _id);
 
 		$.ajax({
 			    method: "POST",
@@ -51,11 +55,6 @@ $("#addedit-modal").on('show.bs.modal', function(event){
 					}
 				}
 			});
-
-	    $("#submit-data").parent().hide();
-
-		{# fetch data from entity/local ?!? #}
-
 	}
 
 	{# validate on change #}
@@ -76,42 +75,34 @@ $("#addedit-modal").on('show.bs.modal', function(event){
 
 		$.ajax({
 				method: "POST",
-				url : "{{ path(edit_action_route) }}",
+				url : "{{ path(route_edit_action) }}",
 				data: $form_el
-		}).done(function(data){
-			if('' == data) {
+		}).done(function(validateResponse){
+			if('' == validateResponse) {
 				$this.removeClass('yield-parent');
 				$this.next('p').remove();
-				if(null == _id) {
-					$("#submit-data").prop('disabled', false);
-				}
 			} else {
 				$this.addClass('yield-parent');
 				if( 0 == $this.next('p').length ) {
 					$this.parent().append('<p class="yield"></p>');
 				}
-				$this.next('p').text(data);
-				if(null == _id) {
-					$("#submit-data").prop('disabled', true);
-				}
+				$this.next('p').text(validateResponse);
 			}
 		});
 	});
 });
 
 $("#submit-data").on('click', function(e){
-		{# serialize the form or div #}
+
 		$form = $("#form");
 
 		{# ================================ #}
 		{# VALIDATE THE REQUIRED PROPRETIES #}
 		{# ================================ #}
-
 		var formElements = $form.find("select, textarea, input");
-		var _serializedForm = formElements.serialize();
 		var required = formElements.filter("[required]:visible");
 
-		var requiredEmptyExists = false;
+		var _serializedForm = formElements.serialize();
 
 		if(0 != required.lenght){
 			{# check ONLY for NONempty required #}
@@ -124,85 +115,29 @@ $("#submit-data").on('click', function(e){
 						$this.parent()
 						 	 .append('<p class="yield">{{ "This field is required!"|trans }}</p>');
 					}
-					requiredEmptyExists = true;
-				} else {
-					{# remove the warnings #}
-					$this.removeClass('yield-parent');
-					$this.parent().find('p').remove();
 				}
 			});
 		}
 
-		{# if required exists, just DIE #}
-		if(requiredEmptyExists) {
+		{# if yiels class exists, just DIE #}
+		_errorExists = $(".yield", $form).length;
+		if( 0 != _errorExists ) {
 			return;
 		} else {
 			{# eliminate empty fields #}
-			{# $form = $form.replace(/[^&]+=&/g, '').replace(/&[^&]+=$/g, '');	#}
+			{# _serializedForm = _serializedForm.replace(/[^&]+=&/g, '').replace(/&[^&]+=$/g, '');	#}
 			$.ajax({
 				method: "POST",
-				url : "{{ path(add_action_route) }}",
+				url : "{{ path(route_add_action) }}",
 				data: _serializedForm
 			}).done(function(){
-				$("#addedit-modal").hide();
+				$("#addedit-modal").modal('hide');
 			});
 		}
 	});
-
-
-{# GREAT BUT UNUSED BECAUSE I FORGOT about jquery serialize :( #}
-{#
-function getFields(actionType, editId)
-{
-	var fields_value = [];
-	$("[id^=form_]").each(function(){
-		var obj = {};
-		$this=$(this);
-		var myValue = $this.val() || null;
-		var p = $this.prop('name');
-		var re = /[^[\]]+(?=])/g;
-		// var key = "set"+
-		//		  p.match(re)[0].charAt(0).toUpperCase()+
-		//		  p.match(re)[0].slice(1);
-		var re = p.match(re)[0];
-
-		if("edit" == actionType) {
-			obj['id'] = editId;
-			fields_value.push(obj);
-		}
-
-		if("text" == $this.prop('type')) {
-			obj[key] = myValue;
-			fields_value.push(obj);
-		}
-
-		if("select-one" == $this.prop('type')) {
-			var myValue = $("option:selected", this).val() || null;
-			obj[key] = myValue;
-			fields_value.push(obj);
-		}
-
-		if("checkbox" == $this.prop('type')) {
-			if($this.prop("checked")) {
-				myValue = 1;
-			} else {
-				myValue = 0;
-			}
-			obj[key] = myValue;
-			fields_value.push(obj);
-		}
-
-	});
-
-	fields_value = JSON.stringify(fields_value);
-
-	return fields_value;
-}
-#}
 
 {# Reload page on exit #}
 $('#addedit-modal').on('hidden.bs.modal', function () {
 	location.reload();
 })
-
 {% endblock %}

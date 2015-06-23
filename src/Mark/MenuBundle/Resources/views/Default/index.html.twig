@@ -4,7 +4,6 @@
 
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
-
 		{# Mobile here #}
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mark-left-menu">
@@ -14,7 +13,7 @@
 				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand">
-				{% image "@MarkMenuBundle/Resources/public/images/mark_v20.png" output="/images/mark_v20.png" %}
+				{% image "%kernel.root_dir%/../web/images/menu.png" %}
 				    <img alt="{{ app.name }}" src="{{ asset_url }}"/>
 				{% endimage %}
 			</a>

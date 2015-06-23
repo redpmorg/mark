@@ -10,7 +10,6 @@ use Mark\MenuBundle\Entity\Menu;
 
 class MenuController extends Controller
 {
-
 	private $user;
 
 	/**
@@ -29,7 +28,6 @@ class MenuController extends Controller
 		$data['menu'] = $this->generateMenuAction();
 
 		return $data;
-
 	}
 
 	/**
@@ -37,22 +35,18 @@ class MenuController extends Controller
 	 * @param  boolean $all   	If false, generate query for MenuBar else for MenuBrowse
 	 * @return array
 	 */
-	public function generateMenuAction($all = FALSE)
+	protected function generateMenuAction($all = FALSE)
 	{
-
 		$this->user = $this->get('user.loggeduser_utils');
-		$order = "";
 
 		$em = $this->getDoctrine()->getManager();
-
+		$order = "";
 		$query_string = "SELECT m FROM MarkMenuBundle:Menu m ";
 		if(!$all) {
 			$query_string .= "WHERE m.isActive = 1 AND m.roles <= :role ";
 		}
 		$query_string .= "ORDER BY ";
-
 		$sortCol = $this->user->getUserParameters('m_sortcol');
-
 		if(!$all){
 			$query_string .= "m.parent ASC, m.sort ASC ";
 		} else {
@@ -64,17 +58,14 @@ class MenuController extends Controller
 				}
 			}
 		}
-
 		$query = $em->createQuery($query_string);
-
+		/* browse table */
 		if(!$all) {
 			$query->setParameters(array("role"=>$this->user->getUserRoleId()));
 		}
-
 		if(!$query) {
 			throw $this->createNotFoundException('No menu has getted!');
 		}
-
 		return $query->getArrayResult();
 	}
 
