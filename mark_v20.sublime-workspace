@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"Http",
+				"HttpFoundationExtension"
+			],
+			[
+				"From",
+				"FormBuilderInterface"
+			],
+			[
 				"te",
 				"text-align"
 			],
@@ -506,19 +514,35 @@
 			[
 				"hea",
 				"header〔function〕"
-			],
-			[
-				"pre",
-				"$pre_last〔variable〕"
-			],
-			[
-				"ret",
-				"return〔keyword〕"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "src/Mark/MenuBundle/Controller/ManageMenuController.php",
+			"settings":
+			{
+				"buffer_size": 6297,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Mark/GeneralBundle/Utils/GeneralActions.php",
+			"settings":
+			{
+				"buffer_size": 2820,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Mark/GeneralBundle/Resources/views/default/fileModal.html.twig",
+			"settings":
+			{
+				"buffer_size": 1572,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -527,8 +551,8 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 228.0,
-		"last_filter": "install",
+		"height": 400.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -727,9 +751,7 @@
 		"/C/wamp/www/other/mark_v20/src/Mark",
 		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle",
 		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources",
-		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/public",
-		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/public/css",
-		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/public/images",
+		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/config",
 		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/translations",
 		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/views",
 		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/views/bootstrapActions",
@@ -744,47 +766,58 @@
 		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/DataFixtures/ORM",
 		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Entity",
 		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources",
+		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources/public",
 		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources/views",
 		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources/views/Default",
 		"/C/wamp/www/other/mark_v20/web",
-		"/C/wamp/www/other/mark_v20/web/images"
+		"/C/wamp/www/other/mark_v20/web/images",
+		"/C/wamp/www/other/mark_v20/web/uploads"
 	],
 	"file_history":
 	[
+		"/C/wamp/www/other/mark_v20/vendor/symfony/symfony/src/Symfony/Component/Form/FormBuilder.php",
+		"/C/wamp/www/other/mark_v20/vendor/symfony/symfony/src/Symfony/Component/Form/Form.php",
+		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Entity/Files.php",
+		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Utils/GeneralActions.php",
+		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources/views/Default/index.html.twig",
+		"/C/wamp/www/other/mark_v20/app/logs/dev.log",
+		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/config/services.yml",
+		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Form/fileLoader.php",
+		"/C/Users/llepadatu/AppData/Roaming/Sublime Text 3/Packages/SublimeTmpl/Default (Windows).sublime-keymap",
+		"/C/Users/llepadatu/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/llepadatu/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/llepadatu/AppData/Roaming/Sublime Text 3/Packages/SublimeTmpl/Main.sublime-menu",
+		"/C/Users/llepadatu/AppData/Roaming/Sublime Text 3/Packages/SublimePHPIntel/SublimePHPIntel.sublime-settings",
+		"/C/Users/llepadatu/AppData/Roaming/Sublime Text 3/Packages/User/SublimePHPIntel.sublime-settings",
+		"/C/wamp/www/other/mark_v20/app/config/routing.yml",
+		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/views/default/fileModal.html.twig",
 		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Controller/ManageMenuController.php",
+		"/C/wamp/www/other/mark_v20/vendor/symfony/symfony/src/Symfony/Component/Form/Exception/TransformationFailedException.php",
+		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources/views/Default/menu_browse.html.twig",
+		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Controller/MenuController.php",
 		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/views/default/addEditModal.html.twig",
+		"/C/wamp/www/other/mark_v20/documentation/code_chunks",
 		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/views/default/ajax-preloader.html.twig",
+		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/translations/messages.ro.yml",
 		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/public/css/styles.css",
 		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/views/general_header.html.twig",
-		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources/views/Default/menu_browse.html.twig",
 		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/public/images/ajax-preloader.gif",
 		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Utils/UserLogged.php",
 		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Entity/Menu.php",
-		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Utils/GeneralActions.php",
-		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Controller/MenuController.php",
 		"/C/wamp/www/other/mark_v20/src/Mark/LoginBundle/Entity/Users.php",
-		"/C/Users/llepadatu/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
 		"/C/Users/llepadatu/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
-		"/C/Users/llepadatu/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/C/Users/llepadatu/AppData/Roaming/Sublime Text 3/Packages/User/trailing_spaces.sublime-settings",
 		"/C/Users/llepadatu/AppData/Roaming/Sublime Text 3/Packages/User/AlignTab.sublime-settings",
-		"/C/wamp/www/other/mark_v20/app/logs/dev.log",
 		"/C/wamp/www/other/mark_v20/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Column.php",
 		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources/translations/messages.ro.yml",
-		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources/views/Default/index.html.twig",
 		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/DataFixtures/ORM/LoadMenuData.php",
 		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/views/jQueryUIActions/sortableRows.js.twig",
-		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/config/services.yml",
 		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources/translations/validators/validators.en.yml",
-		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/views/default/fileModal.html.twig",
-		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/translations/messages.ro.yml",
-		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Entity/Files.php",
 		"/C/wamp/www/other/mark_v20/app/config/config.yml",
 		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Utils/UserActions.php",
 		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/views/jQuery/addEdit.js.twig",
 		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources/views/Default/menu_edit.html.twig",
 		"/C/wamp/www/other/mark_v20/src/Mark/MenuBundle/Resources/translations/messages.fr.yml",
-		"/C/wamp/www/other/mark_v20/app/config/routing.yml",
 		"/C/wamp/www/other/mark_v20/app/AppKernel.php",
 		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Utils/FileActions.php",
 		"/C/wamp/www/other/mark_v20/src/Mark/GeneralBundle/Resources/views/Default/deleteModal.html.twig",
@@ -869,16 +902,7 @@
 		"/home/leo/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/leo/.config/sublime-text-3/Packages/SublimeTmpl/Main.sublime-menu",
 		"/home/leo/.config/sublime-text-3/Packages/SublimeTmpl/SublimeTmpl.sublime-settings",
-		"/home/leo/.config/sublime-text-3/Packages/SublimeTmpl/Default.sublime-commands",
-		"/home/leo/.config/sublime-text-3/Packages/Emmet/Default (Linux).sublime-keymap",
-		"/home/leo/.config/sublime-text-3/Packages/SublimeLinter/Default (Linux).sublime-keymap",
-		"/home/leo/.config/sublime-text-3/Packages/User/SublimeLinter.sublime-settings",
-		"/home/leo/.config/sublime-text-3/Packages/User/SublimePHPIntel.sublime-settings",
-		"/var/www/redpm/sycms/src/Acme/DemoBundle/Resources/config/routing.yml",
-		"/var/www/redpm/sycms/app/config/routing.yml",
-		"/var/www/redpm/sycms/src/Acme/DemoBundle/Resources/views/layout.html.twig",
-		"/var/www/redpm/sycms/src/Acme/DemoBundle/Resources/views/Default/index.html.twig",
-		"/var/www/redpm/sycms/app/config/config.yml"
+		"/home/leo/.config/sublime-text-3/Packages/SublimeTmpl/Default.sublime-commands"
 	],
 	"find":
 	{
@@ -900,6 +924,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"entity",
+			"name",
+			"upload",
+			"submitted",
+			"upload",
+			"validateResponse",
+			"validateData",
+			"modal_edit_title",
+			"}}\");",
+			"\n	",
 			"replace",
 			"get_class",
 			"alt+f",
@@ -1017,17 +1051,7 @@
 			"428bca",
 			"red",
 			"Vokuro",
-			"    ",
-			"Vokuro",
-			"'",
-			"ctrl+e",
-			"ctrl+d",
-			"ce facem aici este bine\n",
-			"setting.auto_compl",
-			">",
-			"\":\n",
-			"Nowhre",
-			"Nowhere"
+			"    "
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1048,13 +1072,276 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
-			]
-		},
-		{
-			"sheets":
-			[
+				{
+					"buffer": 0,
+					"file": "src/Mark/MenuBundle/Controller/ManageMenuController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6297,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3382,
+								3382
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"function_name_status_row": 128,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2318.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/Mark/GeneralBundle/Utils/GeneralActions.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 2820,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								222,
+								222
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"function_name_status_row": 12,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1197.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/Mark/GeneralBundle/Resources/views/default/fileModal.html.twig",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1572,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1003,
+								1003
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"function_name_status_row": 19,
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1075,18 +1362,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.621561100448,
 			1.0
 		],
 		"rows":
@@ -1122,6 +1402,18 @@
 		"selected_items":
 		[
 			[
+				"form/formbui",
+				"vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form\\FormBuilder.php"
+			],
+			[
+				"form/form",
+				"vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form\\Form.php"
+			],
+			[
+				"file",
+				"src\\Mark\\GeneralBundle\\Entity\\Files.php"
+			],
+			[
 				"menuc",
 				"src\\Mark\\MenuBundle\\Controller\\ManageMenuController.php"
 			],
@@ -1148,10 +1440,6 @@
 			[
 				"con",
 				"app\\config\\config.yml"
-			],
-			[
-				"file",
-				"src\\Mark\\GeneralBundle\\Entity\\Files.php"
 			],
 			[
 				"authenticationutils",
@@ -1202,7 +1490,7 @@
 		],
 		"width": 400.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 		"xdebug":
@@ -1214,7 +1502,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 357.0,
+	"side_bar_width": 340.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

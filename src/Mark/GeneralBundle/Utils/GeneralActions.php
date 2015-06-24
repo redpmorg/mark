@@ -49,25 +49,22 @@ class GeneralActions {
 	 *  ON WORK
 	 *
 	 */
-	public function uploadFiles($file)
+	public function uploadFiles($entity, $file)
 	{
-		$file->upload();
-		$this->em->persist($file);
-		$this->em->flush();
-	}
 
+		$this->validator->validate($file);
+
+	}
 
 	/**
 	 * Validate Json Data
 	 *
-	 * @param  string $data 		Form returned serialized data
-	 * @param  object $entity 		Entity cotainer name
+	 * @param  array $arr 			Form returned array of data
+	 * @param  object $entity 		Entity name
 	 * @return array
 	 */
-	public function validateData($entity, $data, $formArrayName)
+	public function validateData($entity, $arr)
 	{
-		parse_str(urldecode($data), $arr);
-		$arr = $arr[$formArrayName];
 		if(array_key_exists("id", $arr)){
 			$_id = $arr["id"];
 			unset($arr["id"]);
@@ -92,18 +89,15 @@ class GeneralActions {
 	 * PersistEditedData
 	 *
 	 * @param object $entity 	Entity to persist
-	 * @param string $data 		Serialized data to be edited
+	 * @param array $arr 		Array data to be edited
 	 */
 
-	public function persistEditedData($entity, $data)
+	public function persistEditedData($entity, $arr)
 	{
-		parse_str(urldecode($data), $arr);
-		$arr = $arr['form'];
 		if(array_key_exists("id", $arr)){
 			$_id = $arr["id"];
 			unset($arr["id"]);
 		}
-
 		$query = "UPDATE " . get_class($entity) ." e SET ";
 		foreach( $arr as $property => $value ){
 			$query .= "e." .$property. "='" .$value ."' ";
@@ -117,21 +111,15 @@ class GeneralActions {
 	 * PersistAddedData
 	 *
 	 * @param obj $entity 	Entity to persist
-	 * @param string $data 		Serialized data to be added
+	 * @param array $arr 	Array data to be added
 	 */
 
-	public function persistAddedData($entity, $data)
+	public function persistAddedData($entity, $arr)
 	{
-		parse_str(urldecode($data), $arr);
-
-		// this form[index] is comming from Sf2 form autoBuilder
-		$arr = $arr['form'];
-
 		foreach($arr as $met => $val ) {
 			$method_name = "set" . ucwords($met);
 			$entity->{$method_name}($val);
 		}
-
 		$this->em->persist($entity);
 		$this->em->flush();
 		$this->em->clear();
@@ -148,11 +136,9 @@ class GeneralActions {
 		$query = "DELETE ";
 		$query .= get_class($entity)." e ";
 		$query .= "WHERE e.{$property} = ?1 ";
-
 		$this->em->createQuery($query)
-		->setParameter(1, $id)
-		->execute();
-
+				->setParameter(1, $id)
+				->execute();
 		$this->em->clear();
 	}
 

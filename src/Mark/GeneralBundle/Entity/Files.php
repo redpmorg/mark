@@ -11,25 +11,20 @@ use Symfony\Component\HttpFoundation\File;
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\HasLifeCycleCallbacks
  */
 class Files
 {
+	private $temp;
+
 	/**
 	 * @var integer
 	 *
-	 * @ORM\Column(name="id", type="integer")
 	 * @ORM\Id
+	 * @ORM\Column(name="id", type="integer")
 	 * @ORM\GeneratedValue(strategy="AUTO")
 	 */
 	private $id;
-
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="name", type="string", length=255)
-	 * @Assert\NotBlank
-	 */
-	private $name;
 
 	/**
 	 * @var string
@@ -38,11 +33,11 @@ class Files
 	 */
 	private $path;
 
-
 	/**
 	 * Virtual property
 	 *
-	 * @Assert\File(maxSize="6000000")
+	 * @Assert\File(maxSize="6000000", mimeTypes = "image/png")
+	 *
 	 */
 	private $file;
 
@@ -57,62 +52,38 @@ class Files
 	}
 
 	/**
-	 * Set name
+	 * GetAbsolutePath
 	 *
-	 * @param string $name
-	 * @return Image
+	 * @return string path
 	 */
-	public function setName($name)
-	{
-		$this->name = $name;
-
-		return $this;
-	}
-
-	/**
-	 * Get name
-	 *
-	 * @return string
-	 */
-	public function getName()
-	{
-		return $this->name;
-	}
-
-	/**
-	 * Set path
-	 *
-	 * @param string $path
-	 * @return
-	 */
-	public function setPath($path)
-	{
-		$this->path = $path;
-
-		return $this;
-	}
-
-	/**
-	 * Get path
-	 *
-	 * @return string
-	 */
-	public function getPath()
-	{
-		return $this->path;
-	}
-
 	public function getAbsolutePath()
 	{
 		return null === $this->path
 		? null
-		: $this->getUploadedRootDir()."/".$this->name;
+		: $this->getUploadedRootDir()."/".$this->path;
+	}
+
+	/**
+	 * GetWebPath
+	 *
+	 * @return string path
+	 */
+	public function getWebPath()
+	{
+		return null === $this->path
+		? null
+		: $this->getUploadDir().'/'.$this->path;
 	}
 
 	// the file should be saved here. in absolute path
-	public function getUploadedRootDir()
+	public function getUploadRootDir()
 	{
-		return "%kernel.root_dir%/../web/". $this->getPath();
+		return "%kernel.root_dir%/../". $this->getUploadDir();
+	}
+
+	protected function getUploadDir()
+	{
+		return 'uploads/';
 	}
 
 	/**
@@ -123,6 +94,59 @@ class Files
 	public function setFile(File\UploadedFile $file = null)
 	{
 		$this->file = $file;
+
+		if(isset($this->path)){
+			$this->temp = $this->path;
+			$this->path = null;
+		} else {
+			$this->path = 'initial';
+		}
+
+	}
+
+	/**
+	 * @ORM\PrePersist()
+	 * @ORM\PreUpdate()
+	 */
+	public function preUpload()
+	{
+		if(null !== $this->getFile()) {
+			$filename = sha1(uniqueid(mt_rand(), true));
+			$this->path = $filename.'.'.$this->getFile()->guessExtension();
+		}
+	}
+
+	/**
+	 * @ORM\PostPersist()
+	 * @ORM\PostUpdate()
+	 */
+	public function upload()
+	{
+		if(null === $this->getFile()) {
+			return;
+		}
+
+		$this->getFile()->move(
+			$this->getUploadRootDir(),
+			$this->path
+			);
+
+		if(isset($this->temp)){
+			unlink($this->getUploadRootDir().'/'.$this->temp);
+			$this->temp = null;
+		}
+		$this->file = null;
+	}
+
+	/**
+	 * @ORM\PostRemove()
+	 */
+	public function removeUpload()
+	{
+		$file = $this->getAbsolutePath();
+		if($file) {
+			unlink($file);
+		}
 	}
 
 	/**
@@ -135,20 +159,5 @@ class Files
 		return $this->file;
 	}
 
-	public function upload()
-	{
-		if(null === $this->getFile()) {
-			return;
-		}
-
-		$this->getFile()->move(
-			$this->getUploadedRootDir(),
-			$this->getFile()->getClientOriginalName()
-			);
-
-		$this->name = $this->getFile()->getClientOriginalName();
-
-		$this->file = null;
-	}
 
 }

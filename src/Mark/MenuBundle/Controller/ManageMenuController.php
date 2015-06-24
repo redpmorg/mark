@@ -131,20 +131,35 @@ class ManageMenuController extends MenuController
 	public function menuEditAction()
 	{
 		$entity = new Menu();
-		$data = $this->get('request')->getContent();
-		$ga = $this->get('general.actions');
-		$validate_error = $ga->validateData($entity, $data, 'form');
-		if('ok' !== $validate_error) {
-			exit($validate_error);
-		}
-		parse_str(urldecode($data), $arr);
+
+		$request = $this->get('request');
+		$content = $request->getContent();
+		parse_str(urldecode($content), $arr);
 		$arr = $arr['form'];
-		if(array_key_exists('id', $arr)) {
-			$ga->persistEditedData($entity, $data);
-		}
+		$this->get('validator')->
 
 		exit;
 	}
+
+	// {
+	// 	$entity = new Menu();
+	// 	$content = $this->get('request')->getContent();
+	// 	$ga = $this->get('general.actions');
+	// 	parse_str(urldecode($content), $arr);
+	// 	$arr = $arr['form'];
+
+	// 	$validate_error = $ga->validateData($entity, $arr);
+
+	// 	if('ok' !== $validate_error) {
+	// 		exit($validate_error);
+	// 	}
+
+	// 	if(array_key_exists('id', $arr)) {
+	// 		$ga->persistEditedData($entity, $arr);
+	// 	}
+
+	// 	exit;
+	// }
 
 	/**
 	 * Menu Add
@@ -155,7 +170,10 @@ class ManageMenuController extends MenuController
 	{
 		$entity = new Menu();
 		$data = $this->get('request')->getContent();
-		$ga = $this->get('general.actions')->persistAddedData($entity, $data);
+		parse_str(urldecode($content), $arr);
+		$arr = $arr['form'];
+
+		$ga = $this->get('general.actions')->persistAddedData($entity, $arr);
 
 		return $this->redirectToRoute('menu_manage');
 	}
@@ -216,27 +234,25 @@ class ManageMenuController extends MenuController
 	*/
 	public function changeMenuPictureAction()
 	{
-
 		$request = $this->get('request');
-		$files = $request->files;
+		$files = $request->files->get('form');
+		$files = $files['file'];
 
 		$file = new Files();
-		$validate = $this->get('validator')->validateProperty($files, $file);
-		dump($validate);
+		$file->upload($files);
+		$err = $this->get('validator')->validate($file);
 
-		// $file->setName($this->container->getParameter("app"));
-		// $file->setPath('/images');
-		// $file->setFile($file);
-
-		// dump($file);
-
-		exit;
+		if(count($err) != 0){
+			$err = (string) $err;
+			exit($err);
+		}
 
 
-		// $file->setName($this->container->getParameter("app").".png");
+		$em = $this->getDoctrine()->getManager();
+		$em->persist($file);
+		$em->flush();
+		$em->clear();
 
-		// $this->get('general.actions')->uploadFiles($file);
-
-		// return $this->redirectToRoute('menu_manage');
+		return $this->redirectToRoute('menu_manage');
 	}
 }
