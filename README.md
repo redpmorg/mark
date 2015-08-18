@@ -1,6 +1,7 @@
 Mark v2.0
 =========
-
-Management of relational clusters for CMSN mobile patrimony
+Simple and fast SF2/JS CMS 
 
 MarkLoginBundle is in early dev stage
+ - authorization & authentification
+ - menus system
